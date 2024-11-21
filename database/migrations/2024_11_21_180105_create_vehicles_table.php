@@ -28,8 +28,8 @@ return new class extends Migration
             $table->decimal('weight', 5, 2);
             $table->decimal('latitude', 10, 8);
             $table->decimal('longitude', 11, 8);
-            $table->foreignId('weapon_id')->constrained();
-            $table->foreignId('squad_id')->constrained();
+            $table->foreignId('weapon_id')->nullable()->constrained()->onDelete('cascade');
+            $table->foreignId('squad_id')->nullable()->constrained()->onDelete('cascade');
             $table->timestamps();
         });
     }

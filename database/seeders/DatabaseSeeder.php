@@ -2,8 +2,19 @@
 
 namespace Database\Seeders;
 
+use App\Models\Battalion;
+use App\Models\Brigade;
+use App\Models\Commander;
+use App\Models\Company;
+use App\Models\Platoon;
+use App\Models\Regiment;
+use App\Models\Section;
+use App\Models\Soldier;
+use App\Models\Squad;
 use App\Models\User;
 // use Illuminate\Database\Console\Seeds\WithoutModelEvents;
+use App\Models\Vehicle;
+use App\Models\Weapon;
 use Illuminate\Database\Seeder;
 
 class DatabaseSeeder extends Seeder
@@ -13,11 +24,98 @@ class DatabaseSeeder extends Seeder
      */
     public function run(): void
     {
-        // User::factory(10)->create();
 
         User::factory()->create([
-            'name' => 'Test User',
-            'email' => 'test@example.com',
+            'name' => 'admin',
+            'email' => 'admin@admin.admin',
+            'password' => bcrypt('12345678Aa*')
         ]);
+
+        // Crear armas para mandos
+        Weapon::factory(10)->create();
+
+        // Crear vehículos
+        Vehicle::factory(30)->create();
+
+        $commandersWeapons = Weapon::all();
+        // Crear comandantes
+        foreach ($commandersWeapons as $weapon) {
+            Commander::factory()->create([
+                'weapon_id' => $weapon->id
+            ]);
+        }
+
+        // Crear estructura militar jerárquica
+        // Brigadas
+        Brigade::factory(1)->create([
+            'commander_id' => Commander::all()->random()->id
+        ]);
+
+        // Regimientos
+        $brigades = Brigade::all();
+        foreach ($brigades as $brigade) {
+            Regiment::factory(1)->create([
+                'brigade_id' => $brigade->id,
+                'commander_id' => Commander::all()->random()->id
+            ]);
+        }
+
+        // Batallones
+        $regiments = Regiment::all();
+        foreach ($regiments as $regiment) {
+            Battalion::factory(1)->create([
+                'regiment_id' => $regiment->id,
+                'commander_id' => Commander::all()->random()->id
+            ]);
+        }
+
+        // Batallones
+        $battalions = Battalion::all();
+        foreach ($battalions as $battalion) {
+            Company::factory(1)->create([
+                'battalion_id' => $battalion->id,
+                'commander_id' => Commander::all()->random()->id
+            ]);
+        }
+
+        // Secciones
+        $companies = Company::all();
+        foreach ($companies as $company) {
+            Section::factory(1)->create([
+                'company_id' => $company->id,
+                'commander_id' => Commander::all()->random()->id
+            ]);
+        }
+
+        // Pelotones
+        $sections = Section::all();
+        foreach ($sections as $section) {
+            Platoon::factory(1)->create([
+                'section_id' => $section->id,
+                'commander_id' => Commander::all()->random()->id
+            ]);
+        }
+
+        // Escuadras
+        $platoons = Platoon::all();
+        foreach ($platoons as $platoon) {
+            Squad::factory(1)->create([
+                'platoon_id' => $platoon->id,
+                'commander_id' => Commander::all()->random()->id
+            ]);
+        }
+
+        //armas para soldados
+        $soldierWeapons = Weapon::factory(100)->create();
+
+        // Soldados
+        $squads = Squad::all();
+        foreach ($squads as $squad) {
+            Soldier::factory(10)->create([
+                'squad_id' => $squad->id,
+                'weapon_id' => $soldierWeapons->random()->id
+            ]);
+        }
+
     }
 }
