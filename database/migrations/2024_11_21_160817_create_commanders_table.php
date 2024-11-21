@@ -31,6 +31,7 @@ return new class extends Migration
             $table->date('date_of_enlistment');
             $table->date('date_of_demobilization')->nullable();
             $table->integer('years_of_service');
+            $table->foreignId('weapon_id')->constrained();
             $table->timestamps();
         });
     }

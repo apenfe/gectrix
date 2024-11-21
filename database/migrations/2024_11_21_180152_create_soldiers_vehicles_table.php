@@ -11,10 +11,10 @@ return new class extends Migration
      */
     public function up(): void
     {
-        Schema::create('vehicles_weapons', function (Blueprint $table) {
+        Schema::create('soldiers_vehicles', function (Blueprint $table) {
             $table->id();
             $table->foreignId('vehicle_id')->constrained()->onDelete('cascade');
-            $table->foreignId('weapon_id')->constrained()->onDelete('cascade');
+            $table->foreignId('soldier_id')->constrained()->onDelete('cascade');
             $table->string('role');
             $table->date('assigned_at');
             $table->date('unassigned_at')->nullable();
@@ -28,6 +28,6 @@ return new class extends Migration
      */
     public function down(): void
     {
-        Schema::dropIfExists('vehicles_weapons');
+        Schema::dropIfExists('soldiers_vehicles');
     }
 };
