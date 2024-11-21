@@ -22,6 +22,7 @@ return new class extends Migration
             $table->decimal('longitude', 10, 7)->nullable();
             $table->string('combat_logo'); // por defecto
             $table->foreignId('commander_id')->constrained();
+            $table->foreignId('section_id')->constrained();
             $table->timestamps();
         });
     }
