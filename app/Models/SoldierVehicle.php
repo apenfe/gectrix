@@ -16,8 +16,7 @@ class SoldierVehicle extends Model
         'soldier_id',
         'role',
         'assigned_at',
-        'unassigned_at',
-        'days'
+        'unassigned_at'
     ];
 
     public function vehicle()

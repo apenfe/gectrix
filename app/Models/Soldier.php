@@ -40,9 +40,9 @@ class Soldier extends Model
         return $this->belongsTo(Squad::class);
     }
 
-    public function weapons()
+    public function weapon()
     {
-        return $this->hasMany(Weapon::class);
+        return $this->hasOne(Weapon::class);
     }
 
     public function vehicles()

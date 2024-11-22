@@ -2,6 +2,7 @@
 
 namespace Database\Factories;
 
+use App\Models\Brigade;
 use Illuminate\Database\Eloquent\Factories\Factory;
 
 /**
@@ -17,23 +18,28 @@ class CommanderFactory extends Factory
     public function definition(): array
     {
         $user = rand(1, 99);
+
+        $brigade = 'tierra';
+
+        $rank = $this->faker->randomElement(['general', 'coronel', 'teniente coronel', 'capitan', 'teniente', 'sargento', 'cabo']);
+
         return [
             'name' => $this->faker->name(),
             'last_name' => $this->faker->lastName(),
             'tim' => $this->faker->unique()->userName(),
-            'rank' => $this->faker->randomElement(['General', 'Coronel', 'Mayor', 'Capitán', 'Teniente', 'Subteniente', 'Sargento', 'Cabo', 'Soldado']),
-            'rank_image' => 'default.jpg',
+            'rank' => $rank,
+            'rank_image' => 'rank_logos/'.$brigade.'/'.$rank.'.png',
             'scale' => $this->faker->randomElement(['oficiales', 'suboficiales', 'tropa']),
             'specialty' => $this->faker->sentence(3),
-            'status' => $this->faker->randomElement(['baja', 'operativo', 'abatido']),
+            'status' => $this->faker->randomElement(['baja', 'operativo']),
             'email' => $this->faker->unique()->safeEmail(),
             'telephone' => $this->faker->unique()->phoneNumber(),
             'photo' => 'https://randomuser.me/api/portraits/men/'.$user.'.jpg',
             'salary' => $this->faker->numberBetween(1000, 10000),
             'date_of_birth' => $this->faker->date(),
-            'date_of_death' => $this->faker->date(), // ver como mejorar
+            'date_of_death' => null, // ver como mejorar
             'date_of_enlistment' => $this->faker->date(),
-            'date_of_demobilization' => $this->faker->date(),
+            'date_of_demobilization' => null,
         ];
     }
 }

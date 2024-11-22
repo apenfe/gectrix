@@ -29,7 +29,6 @@ class SoldierSeeder extends Seeder
 
             Soldier::factory()->create([
                 'rank' => 'soldado',
-                'rank_image' => 'soldado.jpg',
                 'scale' => 'tropa',
                 'specialty' => 'Infantería',
                 'status' => 'operativo',

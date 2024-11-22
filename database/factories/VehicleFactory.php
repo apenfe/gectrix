@@ -19,9 +19,9 @@ class VehicleFactory extends Factory
         return [
             'brand' => $this->faker->company,
             'model' => $this->faker->word,
-            'type' => $this->faker->randomElement(['car', 'motorcycle', 'truck', 'bus', 'tank', 'airplane', 'helicopter', 'boat']),
+            'type' => $this->faker->randomElement(['car', 'truck', 'bus', 'tank', 'helicopter', 'boat']),
             'status' => $this->faker->randomElement(['active', 'inactive']),
-            'seats' => $this->faker->numberBetween(1, 5),
+            'seats' => $this->faker->numberBetween(4, 6),
             'liters' => $this->faker->numberBetween(1, 100),
             'liters_per_100km' => $this->faker->numberBetween(1, 40),
             'fuel' => $this->faker->randomElement(['gasoline', 'diesel']),

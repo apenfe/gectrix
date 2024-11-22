@@ -39,10 +39,8 @@ class SoldierVehicleSeeder extends Seeder
                 SoldierVehicle::factory()->create([
                     'soldier_id' => $soldier->id,
                     'vehicle_id' => $idVehicle,
-                    'role' => 'driver',
                     'assigned_at' => now(),
-                    'unassigned_at' => now()->addDays(30),
-                    'days' => 30
+                    'unassigned_at' => null,
                 ]);
             }
 

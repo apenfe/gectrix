@@ -18,7 +18,6 @@ return new class extends Migration
             $table->string('role');
             $table->date('assigned_at');
             $table->date('unassigned_at')->nullable();
-            $table->integer('days');
             $table->timestamps();
         });
     }

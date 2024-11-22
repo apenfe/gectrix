@@ -19,7 +19,7 @@ class VehicleSeeder extends Seeder
             'status' => 'active',
             'fuel' => 'gasoline',
             'price' => 30000,
-            'image' => 'vehicles/jeep.jpg',
+            'image' => 'vehicles/jeep.png',
             'description' => 'Off-road vehicle',
             'quantity' => 10
         ],
@@ -31,7 +31,7 @@ class VehicleSeeder extends Seeder
             'status' => 'active',
             'fuel' => 'diesel',
             'price' => 5000000,
-            'image' => 'vehicles/tank.jpg',
+            'image' => 'vehicles/tank.jpeg',
             'description' => 'Main battle tank',
             'quantity' => 5
         ],
@@ -43,7 +43,7 @@ class VehicleSeeder extends Seeder
             'status' => 'active',
             'fuel' => 'diesel',
             'price' => 1000000,
-            'image' => 'vehicles/truck.jpg',
+            'image' => 'vehicles/truck.jpeg',
             'description' => 'Armored personnel carrier',
             'quantity' => 5
         ]
@@ -63,7 +63,7 @@ class VehicleSeeder extends Seeder
             for ($i = 0; $i < $quantity; $i++) {
                 Vehicle::factory()->create([
                     ...$vehicleData,
-                    'weapon_id' => Weapon::doesntHave('commanders')->pluck('id')->random()
+                    'weapon_id' => Weapon::doesntHave('commander')->pluck('id')->random()
                 ]);
             }
         }

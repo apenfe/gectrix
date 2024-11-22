@@ -22,7 +22,7 @@ class BrigadeFactory extends Factory
         return [
             'name' => $this->faker->name,
             'description' => $this->faker->text,
-            'army' => $this->faker->randomElement(['tierra', 'aire', 'armada', 'general']),
+            'army' => $this->faker->randomElement(['tierra', 'aire', 'armada', 'im', 'gc']),
             'status' => $this->faker->randomElement(['operativa', 'inoperativa']),
             'max_subordinates' => $this->faker->numberBetween(1, 10),
             'current_subordinates' => $this->faker->numberBetween(0, 10),

@@ -42,10 +42,4 @@ class Weapon extends Model
         return $this->hasOne(Commander::class);
     }
 
-    // Define the relationship with the Commander model
-    public function commanders()
-    {
-        return $this->hasMany(Commander::class);
-    }
-
 }

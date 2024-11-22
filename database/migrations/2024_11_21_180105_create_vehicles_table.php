@@ -15,9 +15,9 @@ return new class extends Migration
             $table->id();
             $table->string('brand');
             $table->string('model');
-            $table->enum('type', ['car', 'motorcycle', 'truck', 'bus', 'tank', 'airplane', 'helicopter', 'boat']);
+            $table->enum('type', ['car', 'truck', 'bus', 'tank', 'helicopter', 'boat']);
             $table->enum('status', ['active', 'inactive'])->default('active');
-            $table->unsignedTinyInteger('seats');
+            $table->unsignedTinyInteger('seats')->default(4);
             $table->unsignedTinyInteger('liters');
             $table->unsignedTinyInteger('liters_per_100km');
             $table->enum('fuel', ['gasoline', 'diesel']);

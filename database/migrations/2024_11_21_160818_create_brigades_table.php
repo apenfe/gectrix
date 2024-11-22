@@ -15,7 +15,7 @@ return new class extends Migration
             $table->id();
             $table->string('name');
             $table->text('description')->nullable();
-            $table->enum('army', ['tierra', 'aire', 'armada', 'general'])->default('tierra');
+            $table->enum('army', ['tierra', 'aire', 'armada', 'im', 'gc'])->default('tierra');
             $table->enum('status', ['operativa', 'inoperativa'])->default('operativa');
             $table->integer('max_subordinates')->default(4);
             $table->integer('current_subordinates')->default(0);

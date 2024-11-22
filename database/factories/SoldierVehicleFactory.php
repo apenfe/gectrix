@@ -17,10 +17,9 @@ class SoldierVehicleFactory extends Factory
     public function definition(): array
     {
         return [
-            'role' => $this->faker->randomElement(['driver', 'gunner', 'commander', 'passenger']),
+            'role' => $this->faker->randomElement(['driver', 'gunner', 'passenger']),
             'assigned_at' => $this->faker->date(),
             'unassigned_at' => $this->faker->date(),
-            'days' => $this->faker->numberBetween(1, 100)
         ];
     }
 }

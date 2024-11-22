@@ -66,7 +66,7 @@ class WeaponSeeder extends Seeder
             'status' => 'active',
             'price' => 2899,
             'device-id' => null,
-            'image' => 'weapons/scar-h.jpg',
+            'image' => 'weapons/scar-h.png',
             'description' => 'Special Operations Forces Combat Assault Rifle',
             'max-range' => 600,
             'weight' => 3.72,

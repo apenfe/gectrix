@@ -15,7 +15,6 @@ class CommanderSeeder extends Seeder
         // general
         [
             'rank' => 'general',
-            'rank_image' => 'general.jpg',
             'scale' => 'oficiales',
             'specialty' => 'Infantería',
             'status' => 'operativo',
@@ -27,7 +26,6 @@ class CommanderSeeder extends Seeder
         // Coronel
         [
             'rank' => 'coronel',
-            'rank_image' => 'coronel.jpg',
             'scale' => 'oficiales',
             'specialty' => 'Infantería',
             'status' => 'operativo',
@@ -38,7 +36,6 @@ class CommanderSeeder extends Seeder
         // Teniente Coronel
         [
             'rank' => 'teniente coronel',
-            'rank_image' => 'teniente_coronel.jpg',
             'scale' => 'oficiales',
             'specialty' => 'Infantería',
             'status' => 'operativo',
@@ -50,7 +47,6 @@ class CommanderSeeder extends Seeder
         // Capitan
         [
             'rank' => 'capitan',
-            'rank_image' => 'capitan.jpg',
             'scale' => 'oficiales',
             'specialty' => 'Infantería',
             'status' => 'operativo',
@@ -61,7 +57,6 @@ class CommanderSeeder extends Seeder
         // Teniente
         [
             'rank' => 'teniente',
-            'rank_image' => 'teniente.jpg',
             'scale' => 'oficiales',
             'specialty' => 'Infantería',
             'status' => 'operativo',
@@ -72,7 +67,6 @@ class CommanderSeeder extends Seeder
         // Sargento
         [
             'rank' => 'sargento',
-            'rank_image' => 'sargento.jpg',
             'scale' => 'suboficiales',
             'specialty' => 'Infantería',
             'status' => 'operativo',
@@ -84,7 +78,6 @@ class CommanderSeeder extends Seeder
         // Cabo
         [
             'rank' => 'cabo',
-            'rank_image' => 'cabo.jpg',
             'scale' => 'tropa',
             'specialty' => 'Infantería',
             'status' => 'operativo',
@@ -110,7 +103,7 @@ class CommanderSeeder extends Seeder
                     ...$commanderData,
                     'date_of_death' => null,
                     'date_of_demobilization' => null,
-                    'weapon_id' => Weapon::doesntHave('commanders')->pluck('id')->random()
+                    'weapon_id' => Weapon::doesntHave('commander')->pluck('id')->random()
                 ]);
             }
         }
