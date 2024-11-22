@@ -2,13 +2,14 @@
 
 namespace App\Models;
 
+use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
 
 class SoldierVehicle extends Model
 {
     use HasFactory;
 
-    protected $table = 'soldier_vehicle';
+    protected $table = 'soldiers_vehicles';
 
     protected $fillable = [
         'vehicle_id',

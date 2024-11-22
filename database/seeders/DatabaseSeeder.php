@@ -62,5 +62,8 @@ class DatabaseSeeder extends Seeder
         // Crear soldados
         $this->call(SoldierSeeder::class);
 
+        // asignar soldados a los vehículos
+        $this->call(SoldierVehicleSeeder::class);
+
     }
 }
