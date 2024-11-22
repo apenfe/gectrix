@@ -34,80 +34,33 @@ class DatabaseSeeder extends Seeder
         // Crear comandantes
         $this->call(CommanderSeeder::class);
 
-
-
-        // armas para vehículos
-        $vehiclesWeapons = Weapon::factory(20)->create();
-
         // Crear vehículos
-        foreach ($vehiclesWeapons as $weapon) {
-            Vehicle::factory()->create([
-                'weapon_id' => $weapon->id
-            ]);
-        }
+        $this->call(VehicleSeeder::class);
 
         // Crear estructura militar jerárquica
         // Brigadas
-        Brigade::factory(1)->create([
-            'commander_id' => Commander::all()->random()->id
-        ]);
+        $this->call(BrigadeSeeder::class);
 
         // Regimientos
-        $brigades = Brigade::all();
-        foreach ($brigades as $brigade) {
-            Regiment::factory(2)->create([
-                'brigade_id' => $brigade->id,
-                'commander_id' => Commander::all()->random()->id
-            ]);
-        }
+        $this->call(RegimentSeeder::class);
 
         // Batallones
-        $regiments = Regiment::all();
-        foreach ($regiments as $regiment) {
-            Battalion::factory(2)->create([
-                'regiment_id' => $regiment->id,
-                'commander_id' => Commander::all()->random()->id
-            ]);
-        }
+        $this->call(BattalionSeeder::class);
 
-        // Batallones
-        $battalions = Battalion::all();
-        foreach ($battalions as $battalion) {
-            Company::factory(2)->create([
-                'battalion_id' => $battalion->id,
-                'commander_id' => Commander::all()->random()->id
-            ]);
-        }
+        // Compañías
+        $this->call(CompanySeeder::class);
 
         // Secciones
-        $companies = Company::all();
-        foreach ($companies as $company) {
-            Section::factory(2)->create([
-                'company_id' => $company->id,
-                'commander_id' => Commander::all()->random()->id
-            ]);
-        }
+        $this->call(SectionSeeder::class);
 
         // Pelotones
-        $sections = Section::all();
-        foreach ($sections as $section) {
-            Platoon::factory(2)->create([
-                'section_id' => $section->id,
-                'commander_id' => Commander::all()->random()->id
-            ]);
-        }
+        $this->call(PlatoonSeeder::class);
 
         // Escuadras
-        $platoons = Platoon::all();
-        foreach ($platoons as $platoon) {
-            Squad::factory(2)->create([
-                'platoon_id' => $platoon->id,
-                'commander_id' => Commander::all()->random()->id
-            ]);
-        }
+        $this->call(SquadSeeder::class);
 
         //armas para soldados
-        $soldierWeapons = Weapon::factory(500)->create();
+        $soldierWeapons = Weapon::factory(3072)->create();
 
         // Soldados
         $squads = Squad::all();

@@ -86,7 +86,7 @@ class WeaponSeeder extends Seeder
             'description' => 'Squad Automatic Weapon light machine gun',
             'max-range' => 800,
             'weight' => 7.5,
-            'quantity' => 100
+            'quantity' => 120
         ],
         // Rifles de francotirador
         [
