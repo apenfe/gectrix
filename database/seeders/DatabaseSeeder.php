@@ -25,22 +25,23 @@ class DatabaseSeeder extends Seeder
     public function run(): void
     {
 
-        User::factory()->create([
-            'name' => 'admin',
-            'email' => 'admin@admin.admin',
-            'password' => bcrypt('12345678Aa*')
-        ]);
+        // usuarios
+        $this->call(UserSeeder::class);
 
-        // Crear armas para mandos
-        Weapon::factory(10)->create();
+        // armas
+        $this->call(WeaponSeeder::class);
+
+        // Crear comandantes
+        $this->call(CommanderSeeder::class);
+
+
+
+        // armas para vehículos
+        $vehiclesWeapons = Weapon::factory(20)->create();
 
         // Crear vehículos
-        Vehicle::factory(30)->create();
-
-        $commandersWeapons = Weapon::all();
-        // Crear comandantes
-        foreach ($commandersWeapons as $weapon) {
-            Commander::factory()->create([
+        foreach ($vehiclesWeapons as $weapon) {
+            Vehicle::factory()->create([
                 'weapon_id' => $weapon->id
             ]);
         }
@@ -54,7 +55,7 @@ class DatabaseSeeder extends Seeder
         // Regimientos
         $brigades = Brigade::all();
         foreach ($brigades as $brigade) {
-            Regiment::factory(1)->create([
+            Regiment::factory(2)->create([
                 'brigade_id' => $brigade->id,
                 'commander_id' => Commander::all()->random()->id
             ]);
@@ -63,7 +64,7 @@ class DatabaseSeeder extends Seeder
         // Batallones
         $regiments = Regiment::all();
         foreach ($regiments as $regiment) {
-            Battalion::factory(1)->create([
+            Battalion::factory(2)->create([
                 'regiment_id' => $regiment->id,
                 'commander_id' => Commander::all()->random()->id
             ]);
@@ -72,7 +73,7 @@ class DatabaseSeeder extends Seeder
         // Batallones
         $battalions = Battalion::all();
         foreach ($battalions as $battalion) {
-            Company::factory(1)->create([
+            Company::factory(2)->create([
                 'battalion_id' => $battalion->id,
                 'commander_id' => Commander::all()->random()->id
             ]);
@@ -81,7 +82,7 @@ class DatabaseSeeder extends Seeder
         // Secciones
         $companies = Company::all();
         foreach ($companies as $company) {
-            Section::factory(1)->create([
+            Section::factory(2)->create([
                 'company_id' => $company->id,
                 'commander_id' => Commander::all()->random()->id
             ]);
@@ -90,7 +91,7 @@ class DatabaseSeeder extends Seeder
         // Pelotones
         $sections = Section::all();
         foreach ($sections as $section) {
-            Platoon::factory(1)->create([
+            Platoon::factory(2)->create([
                 'section_id' => $section->id,
                 'commander_id' => Commander::all()->random()->id
             ]);
@@ -99,14 +100,14 @@ class DatabaseSeeder extends Seeder
         // Escuadras
         $platoons = Platoon::all();
         foreach ($platoons as $platoon) {
-            Squad::factory(1)->create([
+            Squad::factory(2)->create([
                 'platoon_id' => $platoon->id,
                 'commander_id' => Commander::all()->random()->id
             ]);
         }
 
         //armas para soldados
-        $soldierWeapons = Weapon::factory(100)->create();
+        $soldierWeapons = Weapon::factory(500)->create();
 
         // Soldados
         $squads = Squad::all();
