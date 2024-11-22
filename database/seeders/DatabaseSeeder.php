@@ -12,7 +12,7 @@ use App\Models\Section;
 use App\Models\Soldier;
 use App\Models\Squad;
 use App\Models\User;
-// use Illuminate\Database\Console\Seeds\WithoutModelEvents;
+
 use App\Models\Vehicle;
 use App\Models\Weapon;
 use Illuminate\Database\Seeder;
@@ -59,17 +59,8 @@ class DatabaseSeeder extends Seeder
         // Escuadras
         $this->call(SquadSeeder::class);
 
-        //armas para soldados
-        $soldierWeapons = Weapon::factory(3072)->create();
-
-        // Soldados
-        $squads = Squad::all();
-        foreach ($squads as $squad) {
-            Soldier::factory(10)->create([
-                'squad_id' => $squad->id,
-                'weapon_id' => $soldierWeapons->random()->id
-            ]);
-        }
+        // Crear soldados
+        $this->call(SoldierSeeder::class);
 
     }
 }

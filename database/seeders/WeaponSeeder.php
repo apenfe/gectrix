@@ -104,6 +104,22 @@ class WeaponSeeder extends Seeder
             'weight' => 6.5,
             'quantity' => 50
         ],
+        // fusil de asalto
+        [
+            'brand' => 'H&K',
+            'model' => 'G36',
+            'caliber' => '5.56mm',
+            'type' => 'rifle',
+            'action' => 'automatic',
+            'status' => 'active',
+            'price' => 2999,
+            'device-id' => null,
+            'image' => 'weapons/hkg36e.jpg',
+            'description' => 'Special Operations Forces Combat Assault Rifle',
+            'max-range' => 1000,
+            'weight' => 3.5,
+            'quantity' => 3072
+        ],
     ];
 
     /**

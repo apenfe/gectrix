@@ -27,16 +27,22 @@ class Weapon extends Model
         'longitude',
     ];
 
-    public function vehicles()
+    public function vehicle()
     {
-        return $this->hasMany(Vehicle::class);
+        return $this->hasOne(Vehicle::class);
     }
 
-    public function soldiers()
+    public function soldier()
     {
-        return $this->hasMany(Soldier::class);
+        return $this->hasOne(Soldier::class);
     }
 
+    public function commander()
+    {
+        return $this->hasOne(Commander::class);
+    }
+
+    // Define the relationship with the Commander model
     public function commanders()
     {
         return $this->hasMany(Commander::class);
