@@ -16,6 +16,7 @@ class PlatoonFactory extends Factory
      */
     public function definition(): array
     {
+        $logo = 'combat_icons/platoon.png';
         return [
             'name' => $this->faker->name,
             'description' => $this->faker->text,
@@ -24,7 +25,7 @@ class PlatoonFactory extends Factory
             'current_subordinates' => $this->faker->randomNumber(2),
             'latitude' => $this->faker->latitude,
             'longitude' => $this->faker->longitude,
-            'combat_logo' => $this->faker->word
+            'combat_logo' => $logo,
         ];
     }
 }

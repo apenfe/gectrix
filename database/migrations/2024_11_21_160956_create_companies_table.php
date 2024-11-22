@@ -20,7 +20,7 @@ return new class extends Migration
             $table->integer('current_subordinates')->default(0);
             $table->decimal('latitude', 10, 7)->nullable();
             $table->decimal('longitude', 10, 7)->nullable();
-            $table->string('combat_logo'); // por defecto
+            $table->string('combat_logo')->default('combat_icons/company.png');
             $table->foreignId('commander_id')->constrained();
             $table->foreignId('battalion_id')->constrained();
             $table->timestamps();

@@ -16,6 +16,7 @@ class SquadFactory extends Factory
      */
     public function definition(): array
     {
+        $logo = 'combat_icons/squad.png';
         return [
             'name' => $this->faker->name(),
             'description' => $this->faker->sentence(3),
@@ -24,7 +25,7 @@ class SquadFactory extends Factory
             'current_subordinates' => $this->faker->numberBetween(0, 10),
             'latitude' => $this->faker->latitude(),
             'longitude' => $this->faker->longitude(),
-            'combat_logo' => 'default.jpg',
+            'combat_logo' => $logo,
         ];
     }
 }

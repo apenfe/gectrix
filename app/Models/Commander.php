@@ -16,7 +16,6 @@ class Commander extends Model
         'tim',
         'rank',
         'rank_image',
-        'age',
         'scale',
         'specialty',
         'status',
@@ -28,7 +27,6 @@ class Commander extends Model
         'date_of_death',
         'date_of_enlistment',
         'date_of_demobilization',
-        'years_of_service',
         'weapon_id',
     ];
 

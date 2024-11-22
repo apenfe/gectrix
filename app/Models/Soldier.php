@@ -22,7 +22,6 @@ class Soldier extends Model
         'tim',
         'rank',
         'rank_image',
-        'age',
         'scale',
         'specialty',
         'status',
@@ -32,7 +31,6 @@ class Soldier extends Model
         'date_of_death',
         'date_of_enlistment',
         'date_of_demobilization',
-        'years_of_service',
         'squad_id',
         'weapon_id'
     ];

@@ -14,6 +14,7 @@ class BrigadeSeeder extends Seeder
      */
     public function run(): void
     {
+
         // Filtrar comandantes con rango de general y que no sean mandos de otro cuerpo
         $generalCommanders = Commander::where('rank', 'general')
             ->doesntHave('brigade')
@@ -28,7 +29,7 @@ class BrigadeSeeder extends Seeder
                 'status' => 'operativa',
                 'max_subordinates' => 4,
                 'current_subordinates' => 4,
-                'combat_logo' => 'brigades/paracaidista.jpg',
+                'combat_logo' => 'brigades/paracaidista_logo.jpg',
                 'unit_emblem' => 'brigades/paracaidista_emblem.jpg',
                 'commander_id' => $generalCommanders->random()->id
             ]

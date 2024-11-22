@@ -16,6 +16,7 @@ class CompanyFactory extends Factory
      */
     public function definition(): array
     {
+        $logo = 'combat_icons/company.png';
         return [
             'name' => $this->faker->company,
             'description' => $this->faker->text,
@@ -24,7 +25,7 @@ class CompanyFactory extends Factory
             'current_subordinates' => $this->faker->numberBetween(0, 10),
             'latitude' => $this->faker->latitude,
             'longitude' => $this->faker->longitude,
-            'combat_logo' => $this->faker->imageUrl()
+            'combat_logo' => $logo
         ];
     }
 }

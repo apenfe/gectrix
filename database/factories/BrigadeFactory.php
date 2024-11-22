@@ -16,17 +16,20 @@ class BrigadeFactory extends Factory
      */
     public function definition(): array
     {
+        $logo = 'combat_icons/brigade.png';
+        $emblem = 'unit_emblems/Bripac.png';
+
         return [
             'name' => $this->faker->name,
             'description' => $this->faker->text,
-            'army' => $this->faker->randomElement(['tierra', 'aire', 'armada', 'general', 'infanteria_marina']),
+            'army' => $this->faker->randomElement(['tierra', 'aire', 'armada', 'general']),
             'status' => $this->faker->randomElement(['operativa', 'inoperativa']),
             'max_subordinates' => $this->faker->numberBetween(1, 10),
             'current_subordinates' => $this->faker->numberBetween(0, 10),
             'latitude' => $this->faker->latitude,
             'longitude' => $this->faker->longitude,
-            'combat_logo' => $this->faker->imageUrl(),
-            'unit_emblem' => $this->faker->imageUrl()
+            'combat_logo' => $logo,
+            'unit_emblem' => $emblem,
         ];
     }
 }

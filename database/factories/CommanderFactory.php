@@ -16,25 +16,24 @@ class CommanderFactory extends Factory
      */
     public function definition(): array
     {
+        $user = rand(1, 99);
         return [
             'name' => $this->faker->name(),
             'last_name' => $this->faker->lastName(),
             'tim' => $this->faker->unique()->userName(),
             'rank' => $this->faker->randomElement(['General', 'Coronel', 'Mayor', 'Capitán', 'Teniente', 'Subteniente', 'Sargento', 'Cabo', 'Soldado']),
             'rank_image' => 'default.jpg',
-            'age' => $this->faker->numberBetween(18, 60),
             'scale' => $this->faker->randomElement(['oficiales', 'suboficiales', 'tropa']),
             'specialty' => $this->faker->sentence(3),
             'status' => $this->faker->randomElement(['baja', 'operativo', 'abatido']),
             'email' => $this->faker->unique()->safeEmail(),
             'telephone' => $this->faker->unique()->phoneNumber(),
-            'photo' => 'default.jpg',
+            'photo' => 'https://randomuser.me/api/portraits/men/'.$user.'.jpg',
             'salary' => $this->faker->numberBetween(1000, 10000),
             'date_of_birth' => $this->faker->date(),
-            'date_of_death' => $this->faker->date(),
+            'date_of_death' => $this->faker->date(), // ver como mejorar
             'date_of_enlistment' => $this->faker->date(),
             'date_of_demobilization' => $this->faker->date(),
-            'years_of_service' => $this->faker->numberBetween(1, 30),
         ];
     }
 }

@@ -35,7 +35,6 @@ class SoldierSeeder extends Seeder
                 'status' => 'operativo',
                 'date_of_birth' => '1990-05-12',
                 'date_of_enlistment' => '2005-07-15',
-                'years_of_service' => 15,
                 'date_of_death' => null,
                 'date_of_demobilization' => null,
                 'squad_id' => $squads[$i % 768]->id,

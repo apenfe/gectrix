@@ -16,6 +16,9 @@ class BattalionFactory extends Factory
      */
     public function definition(): array
     {
+        // cragar la ruta de la imagen
+        $logo = 'combat_icons/battalion.png';
+
         return [
             'name' => $this->faker->name,
             'description' => $this->faker->text,
@@ -24,7 +27,7 @@ class BattalionFactory extends Factory
             'current_subordinates' => $this->faker->randomNumber(2),
             'latitude' => $this->faker->randomFloat(7, 0, 90),
             'longitude' => $this->faker->randomFloat(7, 0, 180),
-            'combat_logo' => $this->faker->imageUrl()
+            'combat_logo' => $logo,
         ];
     }
 }

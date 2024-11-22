@@ -16,23 +16,22 @@ class SoldierFactory extends Factory
      */
     public function definition(): array
     {
+        $user = rand(1,99);
         return [
             'name' => $this->faker->firstName(),
             'last_name' => $this->faker->lastName(),
             'tim' => $this->faker->unique()->randomNumber(8),
             'rank' => $this->faker->randomElement(['soldado', 'cabo', 'sargento', 'teniente', 'capitan', 'coronel']),
             'rank_image' => 'default.jpg',
-            'age' => $this->faker->numberBetween(18, 50),
             'scale' => $this->faker->randomElement(['tropa', 'suboficial', 'oficial']),
             'specialty' => $this->faker->randomElement(['infanteria', 'caballeria', 'artilleria', 'ingenieros', 'comunicaciones']),
             'status' => $this->faker->randomElement(['baja', 'operativo', 'abatido']),
-            'photo' => 'default.jpg',
+            'photo' => 'https://randomuser.me/api/portraits/men/'.$user.'.jpg',
             'salary' => $this->faker->numberBetween(1000, 5000),
             'date_of_birth' => $this->faker->date(),
             'date_of_death' => $this->faker->date(),
             'date_of_enlistment' => $this->faker->date(),
             'date_of_demobilization' => $this->faker->date(),
-            'years_of_service' => $this->faker->numberBetween(1, 30)
         ];
     }
 }

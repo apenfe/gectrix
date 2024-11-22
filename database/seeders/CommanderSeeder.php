@@ -21,7 +21,6 @@ class CommanderSeeder extends Seeder
             'status' => 'operativo',
             'date_of_birth' => '1987-05-12',
             'date_of_enlistment' => '2005-07-15',
-            'years_of_service' => 16,
             'quantity' => 1 // Cuántas copias queremos de este comandante
         ],
 
@@ -34,7 +33,6 @@ class CommanderSeeder extends Seeder
             'status' => 'operativo',
             'date_of_birth' => '1990-05-12',
             'date_of_enlistment' => '2005-07-15',
-            'years_of_service' => 15,
             'quantity' => 4 // Cuántas copias queremos de este comandante
         ],
         // Teniente Coronel
@@ -46,7 +44,6 @@ class CommanderSeeder extends Seeder
             'status' => 'operativo',
             'date_of_birth' => '1990-05-12',
             'date_of_enlistment' => '2005-07-15',
-            'years_of_service' => 12,
             'quantity' => 8 // Cuántas copias queremos de este comandante
         ],
 
@@ -59,7 +56,6 @@ class CommanderSeeder extends Seeder
             'status' => 'operativo',
             'date_of_birth' => '1990-05-12',
             'date_of_enlistment' => '2005-07-15',
-            'years_of_service' => 10,
             'quantity' => 32 // Cuántas copias queremos de este comandante
         ],
         // Teniente
@@ -71,7 +67,6 @@ class CommanderSeeder extends Seeder
             'status' => 'operativo',
             'date_of_birth' => '1990-05-12',
             'date_of_enlistment' => '2005-07-15',
-            'years_of_service' => 5,
             'quantity' => 128 // Cuántas copias queremos de este comandante
         ],
         // Sargento
@@ -83,7 +78,6 @@ class CommanderSeeder extends Seeder
             'status' => 'operativo',
             'date_of_birth' => '1990-05-12',
             'date_of_enlistment' => '2005-07-15',
-            'years_of_service' => 8,
             'quantity' => 384 // Cuántas copias queremos de este comandante
         ],
 
@@ -96,7 +90,6 @@ class CommanderSeeder extends Seeder
             'status' => 'operativo',
             'date_of_birth' => '1990-05-12',
             'date_of_enlistment' => '2005-07-15',
-            'years_of_service' => 6,
             'quantity' => 768 // Cuántas copias queremos de este comandante
         ]
 

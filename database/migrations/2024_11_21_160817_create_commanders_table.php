@@ -17,20 +17,18 @@ return new class extends Migration
             $table->string('last_name');
             $table->string('tim');
             $table->string('rank');
-            $table->string('rank_image')->default('default.jpg');
-            $table->integer('age');
+            $table->string('rank_image')->default('default.jpg'); // ver como mejorar
             $table->enum('scale', ['oficiales', 'suboficiales','tropa'])->default('suboficiales');
             $table->string('specialty');
             $table->enum('status', ['baja', 'operativo', 'abatido'])->default('operativo');
             $table->string('email')->unique();
             $table->string('telephone')->unique();
-            $table->string('photo')->default('default.jpg');
+            $table->string('photo')->default('default.jpg'); // ver como mejorar
             $table->integer('salary');
             $table->date('date_of_birth');
             $table->date('date_of_death')->nullable();
             $table->date('date_of_enlistment');
             $table->date('date_of_demobilization')->nullable();
-            $table->integer('years_of_service');
             $table->foreignId('weapon_id')->constrained();
             $table->timestamps();
         });

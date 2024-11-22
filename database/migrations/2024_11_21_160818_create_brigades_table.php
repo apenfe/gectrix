@@ -15,13 +15,13 @@ return new class extends Migration
             $table->id();
             $table->string('name');
             $table->text('description')->nullable();
-            $table->enum('army', ['tierra', 'aire', 'armada', 'general', 'infanteria_marina'])->default('tierra');
+            $table->enum('army', ['tierra', 'aire', 'armada', 'general'])->default('tierra');
             $table->enum('status', ['operativa', 'inoperativa'])->default('operativa');
             $table->integer('max_subordinates')->default(4);
             $table->integer('current_subordinates')->default(0);
             $table->decimal('latitude', 10, 7)->nullable();
             $table->decimal('longitude', 10, 7)->nullable();
-            $table->string('combat_logo'); // por defecto
+            $table->string('combat_logo')->default('combat_icons/brigade.png');
             $table->string('unit_emblem');
             $table->foreignId('commander_id')->constrained();
             $table->timestamps();
