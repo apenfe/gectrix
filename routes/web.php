@@ -1,5 +1,11 @@
 <?php
 
+use App\Http\Controllers\BrigadeController;
+use App\Http\Controllers\CommanderController;
+use App\Http\Controllers\PersonalController;
+use App\Http\Controllers\SoldierController;
+use App\Http\Controllers\VehicleController;
+use App\Http\Controllers\WeaponController;
 use Illuminate\Support\Facades\Route;
 
 Route::get('/', function () {
@@ -10,11 +16,11 @@ Route::get('/', function () {
 
 Route::prefix('personal')->group(function () {
     Route::get('/', [PersonalController::class, 'index'])->name('personal.index');
-    Route::get('/vehicles', [VehicleController::class, 'index'])->name('personal.vehiculos');
-    Route::get('/soldiers', [SoldierController::class, 'index'])->name('personal.soldados');
-    Route::get('/commander', [CommanderController::class, 'index'])->name('personal.mandos');
-    Route::get('/weapons', [WeaponController::class, 'index'])->name('personal.armas');
-    Route::get('/brigadas', [BrigateController::class, 'index'])->name('personal.brigadas');
+    Route::get('/vehicles', [VehicleController::class, 'index'])->name('personal.vehicles');
+    Route::get('/soldiers', [SoldierController::class, 'index'])->name('personal.soldiers');
+    Route::get('/commander', [CommanderController::class, 'index'])->name('personal.commanders');
+    Route::get('/weapons', [WeaponController::class, 'index'])->name('personal.weapons');
+    Route::get('/brigadas', [BrigadeController::class, 'index'])->name('personal.brigades');
 });
 
 Route::middleware([
