@@ -38,13 +38,14 @@
                         <!-- Combat Logo -->
                         <div>
                             <p class="text-gray-700 dark:text-gray-300 text-lg font-medium">{{ __('Combat Logo:') }}</p>
-                            <img src="{{ asset($brigades->first()->combat_logo) }}" alt="Combat Logo" class="w-16 h-16 rounded-md border border-gray-300 dark:border-gray-600">
+                            <img src="{{ asset('storage/private/'.$brigades->first()->combat_logo) }}" alt="Combat Logo" class="w-16 h-16 rounded-md border border-gray-300 dark:border-gray-600">
                         </div>
 
                         <!-- Unit Emblem -->
                         <div>
                             <p class="text-gray-700 dark:text-gray-300 text-lg font-medium">{{ __('Unit Emblem:') }}</p>
-                            <img src="{{ Storage::url($brigades->first()->unit_emblem) }}" alt="Unit Emblem" class="w-16 h-16 rounded-md border border-gray-300 dark:border-gray-600">                        </div>
+                            <img src="{{ asset('storage/private/'.$brigades->first()->unit_emblem) }}" alt="Unit Emblem" class="w-16 h-16 rounded-md border border-gray-300 dark:border-gray-600">
+                        </div>
 
                         <!-- Commander -->
                         <p class="text-gray-700 dark:text-gray-300 text-lg">
@@ -68,6 +69,8 @@
                         setInterval(updateBrigadeInfo, 23000);
                     });
                 </script>
+
+
                 {{-- Sección para mostrar las weapons --}}
                 <div class="p-6 bg-white dark:bg-gray-800 border-b border-gray-200 dark:border-gray-700">
                     <h3 class="text-lg font-medium text-gray-900 dark:text-gray-100">{{ __('Weapons') }}</h3>
@@ -97,7 +100,6 @@
                         @endforeach
                     </ul>
                 </div>
-
 
             </div>
         </div>
