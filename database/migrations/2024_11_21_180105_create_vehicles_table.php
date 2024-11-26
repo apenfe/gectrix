@@ -29,7 +29,7 @@ return new class extends Migration
             $table->decimal('latitude', 10, 8);
             $table->decimal('longitude', 11, 8);
             $table->foreignId('weapon_id')->constrained()->onDelete('cascade');
-            $table->foreignId('squad_id')->nullable()->constrained()->onDelete('cascade');
+            $table->foreignId('squad_id')->nullable()->constrained()->onDelete('cascade'); // nullable
             $table->timestamps();
         });
     }

@@ -47,7 +47,7 @@ class Soldier extends Model
 
     public function vehicles()
     {
-        return $this->belongsToMany(Vehicle::class, 'soldiers_vehicles');
+        return $this->hasMany(Vehicle::class, 'soldiers_vehicles');
     }
 
 }
