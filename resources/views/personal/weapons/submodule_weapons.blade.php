@@ -7,7 +7,7 @@
 
     <div class="py-12 relative">
 
-        @include('personal.partials.create_new', ['route' => ''])
+        @include('personal.partials.create_new')
 
         <div class="max-w-[80%] mx-auto sm:px-6 lg:px-8">
             @if(session('success'))

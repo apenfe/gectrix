@@ -33,7 +33,7 @@
                                 <span class="font-medium">{{ __('Type:') }}</span> {{ $weapon->type }}
                             </p>
                             <p class="text-gray-700 dark:text-gray-300">
-                                <span class="font-medium">{{ __('Device ID:') }}</span> {{ $weapon->deviceid }}
+                                <span class="font-medium">{{ __('Device ID:') }}</span> {{ $weapon->deviceId }}
                             </p>
                             <p class="text-gray-700 dark:text-gray-300">
                                 <span class="font-medium">{{ __('Price:') }}</span> ${{ $weapon->price }}
@@ -49,7 +49,7 @@
                                 <span class="font-medium">{{ __('Action:') }}</span> {{ $weapon->action }}
                             </p>
                             <p class="text-gray-700 dark:text-gray-300">
-                                <span class="font-medium">{{ __('Max Range:') }}</span> {{ $weapon->range }} m
+                                <span class="font-medium">{{ __('Max Range:') }}</span> {{ $weapon->maxRange }}
                                 <span class="font-medium">{{ __('meters') }}</span>
                             </p>
                             <p class="text-gray-700 dark:text-gray-300">
@@ -68,7 +68,7 @@
 
                         <!-- Additional Details, eliminar -->
                         <div class="mt-4 flex gap-3">
-                            <a href="{{ route('weapons.show', $weapon) }}"
+                            <a href="{{ route('weapons.edit', $weapon) }}"
                                class="px-4 py-2 bg-blue-500 text-white rounded-md hover:bg-blue-600">
                                 {{ __('Update Weapon') }}
                             </a>

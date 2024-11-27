@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers;
 
+use App\Http\Requests\WeaponRequest;
 use App\Models\Weapon;
 use Illuminate\Http\Request;
 
@@ -9,52 +10,31 @@ class WeaponController extends Controller
 {
     public function index()
     {
-        $weapons = Weapon::paginate(6);
+        $weapons = Weapon::paginate(21);
         return view('personal.weapons.submodule_weapons', compact('weapons'));
     }
 
     public function create()
     {
-        return view('personal.weapons.submodule_weapons_create');
+        return view('personal.weapons.create_weapon');
     }
 
-    public function store(Request $request)
+    public function store(WeaponRequest $request)
     {
-        $request->validate([
-            'name' => 'required',
-            'damage' => 'required',
-            'range' => 'required',
-            'rate_of_fire' => 'required',
-            'clip_size' => 'required',
-            'reload_time' => 'required',
-            'ammo' => 'required',
-            'price' => 'required',
-        ]);
 
-        Weapon::create($request->all());
+        Weapon::create($request->validated());
 
         return redirect()->route('weapons.index')->with('success', 'Weapon created successfully.');
     }
 
     public function edit(Weapon $weapon)
     {
-        return view('personal.weapons.submodule_weapons_edit', compact('weapon'));
+        return view('personal.weapons.update_weapon', compact('weapon'));
     }
 
-    public function update(Request $request, Weapon $weapon)
+    public function update(WeaponRequest $request, Weapon $weapon)
     {
-        $request->validate([
-            'name' => 'required',
-            'damage' => 'required',
-            'range' => 'required',
-            'rate_of_fire' => 'required',
-            'clip_size' => 'required',
-            'reload_time' => 'required',
-            'ammo' => 'required',
-            'price' => 'required',
-        ]);
-
-        $weapon->update($request->all());
+        $weapon->update($request->validated());
 
         return redirect()->route('weapons.index')->with('success', 'Weapon updated successfully.');
     }
