@@ -1,32 +1,31 @@
 <x-app-layout>
 
     <x-slot name="header">
-
-            <nav class="text-gray-500 dark:text-gray-400 text-sm">
-                <ol class="list-reset flex">
-                    @php
-                        $segments = Request::segments();
-                    @endphp
-                    @foreach($segments as $index => $segment)
-                        <li>
-                            <a href="{{ url(implode('/', array_slice($segments, 0, $index + 1))) }}" class="hover:text-gray-700 dark:hover:text-gray-300">
-                                {{ ucfirst($segment) }}
-                            </a>
-                            @if(!$loop->last)
-                                <span class="mx-2"> / </span>
-                            @endif
-                        </li>
-                    @endforeach
-                </ol>
-            </nav>
-
+        @include('personal.partials.migas')
         @include('personal.partials.navigation_personal')
-
     </x-slot>
 
-    <div class="py-12">
+    <div class="py-12 relative">
+
+        @include('personal.partials.create_new', ['route' => ''])
+
         <div class="max-w-[80%] mx-auto sm:px-6 lg:px-8">
-            <div class="bg-white dark:bg-gray-800 overflow-hidden shadow-xl sm:rounded-lg">
+            @if(session('success'))
+                <div class="bg-green-100 border-l-4 border-green-500 text-green-700 p-4" role="alert">
+                    <p class="font-bold">Success</p>
+                    <p>{{ session('success') }}</p>
+                </div>
+            @endif
+            @if(session('error'))
+                <div class="bg-red-100 border-l-4 border-red-500 text-red-700 p-4" role="alert">
+                    <p class="font-bold">Error</p>
+                    <p>{{ session('error') }}</p>
+                </div>
+            @endif
+        </div>
+
+        <div class="max-w-[80%] mx-auto sm:px-6 lg:px-8">
+            <div class="bg-white dark:bg-gray-800 overflow-hidden shadow-xl sm:rounded-lg flex flex-row flex-wrap gap-2 p-6">
                 @foreach($weapons as $weapon)
                   @include('personal.weapons.card_weapon')
                 @endforeach
@@ -35,6 +34,7 @@
                 {{ $weapons->links() }}
             </div>
         </div>
+
     </div>
 
 </x-app-layout>

@@ -23,6 +23,8 @@ Route::prefix('personal')->group(function () {
     Route::get('/brigadas', [BrigadeController::class, 'index'])->name('personal.brigades');
 });
 
+Route::resource('weapons', WeaponController::class);
+
 Route::middleware([
     'auth:sanctum',
     config('jetstream.auth_session'),

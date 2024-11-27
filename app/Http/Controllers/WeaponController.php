@@ -61,6 +61,10 @@ class WeaponController extends Controller
 
     public function destroy(Weapon $weapon)
     {
+        if($weapon->soldier || $weapon->vehicle || $weapon->commander){
+            return redirect()->route('weapons.index')->with('error', 'Weapon is currently assigned.');
+        }
+
         $weapon->delete();
 
         return redirect()->route('weapons.index')->with('success', 'Weapon deleted successfully.');
@@ -68,6 +72,6 @@ class WeaponController extends Controller
 
     public function show(Weapon $weapon)
     {
-        return view('personal.weapons.submodule_weapons_show', compact('weapon'));
+        return view('personal.weapons.show_weapon', compact('weapon'));
     }
 }
