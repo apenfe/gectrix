@@ -20,10 +20,10 @@ return new class extends Migration
             $table->enum('action', ['one-shot','non-automatic', 'semi-automatic', 'automatic']);
             $table->enum('status', ['active', 'inactive'])->default('active');
             $table->unsignedInteger('price')->default(0);
-            $table->string('device-id')->unique();
+            $table->string('deviceId')->unique();
             $table->string('image')->nullable();
             $table->text('description')->nullable();
-            $table->unsignedInteger('max-range');
+            $table->unsignedInteger('maxRange');
             $table->decimal('weight', 5, 2);
             $table->decimal('latitude', 10, 8);
             $table->decimal('longitude', 11, 8);
