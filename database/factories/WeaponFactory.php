@@ -24,10 +24,10 @@ class WeaponFactory extends Factory
             'action' => $this->faker->randomElement(['one-shot','non-automatic', 'semi-automatic', 'automatic']),
             'status' => $this->faker->randomElement(['active', 'inactive']),
             'price' => $this->faker->numberBetween(100, 10000),
-            'device-id' => $this->faker->uuid,
+            'deviceId' => $this->faker->uuid,
             'image' => $this->faker->imageUrl(),
             'description' => $this->faker->text,
-            'max-range' => $this->faker->numberBetween(100, 10000),
+            'maxRange' => $this->faker->numberBetween(100, 10000),
             'weight' => $this->faker->randomFloat(2, 1, 100),
             'latitude' => $this->faker->latitude,
             'longitude' => $this->faker->longitude

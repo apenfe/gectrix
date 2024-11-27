@@ -19,10 +19,10 @@ class WeaponSeeder extends Seeder
             'action' => 'semi-automatic',
             'status' => 'active',
             'price' => 599,
-            'device-id' => null, // Se generará automáticamente
+            'deviceId' => null, // Se generará automáticamente
             'image' => 'weapons/glock17.jpg',
             'description' => 'Standard issue Glock 17 semi-automatic pistol',
-            'max-range' => 50,
+            'maxRange' => 50,
             'weight' => 0.625,
             'quantity' => 200 // Cuántas copias queremos de esta arma
         ],
@@ -34,10 +34,10 @@ class WeaponSeeder extends Seeder
             'action' => 'semi-automatic',
             'status' => 'active',
             'price' => 649,
-            'device-id' => null,
+            'deviceId' => null,
             'image' => 'weapons/beretta92fs.jpg',
             'description' => 'Beretta 92FS service pistol',
-            'max-range' => 50,
+            'maxRange' => 50,
             'weight' => 0.95,
             'quantity' => 500
         ],
@@ -50,10 +50,10 @@ class WeaponSeeder extends Seeder
             'action' => 'automatic',
             'status' => 'active',
             'price' => 1299,
-            'device-id' => null,
+            'deviceId' => null,
             'image' => 'weapons/m4a1.jpg',
             'description' => 'M4A1 carbine standard issue rifle',
-            'max-range' => 500,
+            'maxRange' => 500,
             'weight' => 2.88,
             'quantity' => 200
         ],
@@ -65,10 +65,10 @@ class WeaponSeeder extends Seeder
             'action' => 'automatic',
             'status' => 'active',
             'price' => 2899,
-            'device-id' => null,
+            'deviceId' => null,
             'image' => 'weapons/scar-h.png',
             'description' => 'Special Operations Forces Combat Assault Rifle',
-            'max-range' => 600,
+            'maxRange' => 600,
             'weight' => 3.72,
             'quantity' => 300
         ],
@@ -81,10 +81,10 @@ class WeaponSeeder extends Seeder
             'action' => 'automatic',
             'status' => 'active',
             'price' => 4599,
-            'device-id' => null,
+            'deviceId' => null,
             'image' => 'weapons/m249.jpg',
             'description' => 'Squad Automatic Weapon light machine gun',
-            'max-range' => 800,
+            'maxRange' => 800,
             'weight' => 7.5,
             'quantity' => 120
         ],
@@ -97,10 +97,10 @@ class WeaponSeeder extends Seeder
             'action' => 'non-automatic',
             'status' => 'active',
             'price' => 5999,
-            'device-id' => null,
+            'deviceId' => null,
             'image' => 'weapons/awm.jpg',
             'description' => 'Arctic Warfare Magnum sniper rifle',
-            'max-range' => 1100,
+            'maxRange' => 1100,
             'weight' => 6.5,
             'quantity' => 50
         ],
@@ -113,10 +113,10 @@ class WeaponSeeder extends Seeder
             'action' => 'automatic',
             'status' => 'active',
             'price' => 2999,
-            'device-id' => null,
+            'deviceId' => null,
             'image' => 'weapons/hkg36e.jpg',
             'description' => 'Special Operations Forces Combat Assault Rifle',
-            'max-range' => 1000,
+            'maxRange' => 1000,
             'weight' => 3.5,
             'quantity' => 3072
         ],
@@ -135,7 +135,7 @@ class WeaponSeeder extends Seeder
             for ($i = 0; $i < $quantity; $i++) {
                 Weapon::factory()->create([
                     ...$weaponData,
-                    'device-id' => Str::uuid(), // Generamos un UUID único para cada arma
+                    'deviceId' => Str::uuid(), // Generamos un UUID único para cada arma
                 ]);
             }
         }
