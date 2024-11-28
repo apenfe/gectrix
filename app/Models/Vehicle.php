@@ -32,7 +32,7 @@ class Vehicle extends Model
 
     public function weapon()
     {
-        return $this->hasOne(Weapon::class);
+        return $this->belongsTo(Weapon::class, 'weapon_id');
     }
 
     public function squad()
@@ -41,6 +41,6 @@ class Vehicle extends Model
     }
 
     public function soldiers() {
-        return $this->hasMany(Soldier::class, 'soldiers_vehicles');
+        return $this->belongsToMany(Soldier::class, 'soldiers_vehicles');
     }
 }

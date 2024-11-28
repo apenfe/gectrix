@@ -24,6 +24,7 @@ Route::prefix('personal')->group(function () {
 });
 
 Route::resource('weapons', WeaponController::class);
+Route::resource('vehicles', VehicleController::class);
 
 Route::middleware([
     'auth:sanctum',

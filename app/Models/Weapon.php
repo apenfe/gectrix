@@ -24,22 +24,22 @@ class Weapon extends Model
         'maxRange',
         'weight',
         'latitude',
-        'longitude',
+        'longitude'
     ];
 
     public function vehicle()
     {
-        return $this->hasOne(Vehicle::class);
+        return $this->hasOne(Vehicle::class, 'weapon_id');
     }
 
     public function soldier()
     {
-        return $this->hasOne(Soldier::class);
+        return $this->hasOne(Soldier::class, 'weapon_id');
     }
 
     public function commander()
     {
-        return $this->hasOne(Commander::class);
+        return $this->hasOne(Commander::class, 'weapon_id');
     }
 
 }
