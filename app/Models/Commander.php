@@ -32,7 +32,7 @@ class Commander extends Model
 
     public function weapon()
     {
-        return $this->hasOne(Weapon::class);
+        return $this->belongsTo(Weapon::class, 'weapon_id');
     }
 
     public function brigade()
