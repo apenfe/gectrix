@@ -5,6 +5,7 @@ namespace App\Http\Controllers;
 use App\Http\Requests\WeaponRequest;
 use App\Models\Weapon;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Storage;
 
 class WeaponController extends Controller
 {
@@ -22,7 +23,15 @@ class WeaponController extends Controller
     public function store(WeaponRequest $request)
     {
 
-        Weapon::create($request->validated());
+        $validatedData = $request->validated();
+
+        if ($request->hasFile('image')) {
+            $filename = $request->file('image')->getClientOriginalName();
+            $request->file('image')->storeAs('private/weapons', $filename, 'public');
+            $validatedData['image'] = $filename;  // Agregamos e
+        }
+
+        Weapon::create( $validatedData );
 
         return redirect()->route('weapons.index')->with('success', 'Weapon created successfully.');
     }
@@ -34,14 +43,27 @@ class WeaponController extends Controller
 
     public function update(WeaponRequest $request, Weapon $weapon)
     {
-        $weapon->update($request->validated());
+        $validatedData = $request->validated();
+
+        if ($request->hasFile('image')) {
+
+            if ($weapon->image) {
+                Storage::disk('public')->delete('private/weapons/' . $weapon->image);
+            }
+
+            $filename = $request->file('image')->getClientOriginalName();
+            $request->file('image')->storeAs('private/weapons', $filename, 'public');
+            $validatedData['image'] = $filename;  // Agregamos e
+        }
+
+        $weapon->update($validatedData);  // Actualizamos con todos los datos, incluyendo la imagen
 
         return redirect()->route('weapons.index')->with('success', 'Weapon updated successfully.');
     }
 
     public function destroy(Weapon $weapon)
     {
-        if($weapon->soldier || $weapon->vehicle || $weapon->commander){
+        if ($weapon->soldier || $weapon->vehicle || $weapon->commander) {
             return redirect()->route('weapons.index')->with('error', 'Weapon is currently assigned.');
         }
 

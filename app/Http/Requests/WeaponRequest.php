@@ -30,7 +30,9 @@ class WeaponRequest extends FormRequest
             'status' => 'required',
             'price' => 'required',
             'deviceId' => 'required',
-            'image' => 'required',
+            'image' => $this->isMethod('PUT')
+                ? 'sometimes|image|mimes:jpeg,png,jpg,gif,svg|max:2048'
+                : 'required|image|mimes:jpeg,png,jpg,gif,svg|max:2048',
             'description' => 'required',
             'maxRange' => 'required',
             'weight' => 'required',
@@ -56,6 +58,9 @@ class WeaponRequest extends FormRequest
             'price.required' => 'Price is required',
             'deviceId.required' => 'Device ID is required',
             'image.required' => 'Image is required',
+            'image.image' => 'Image must be an image',
+            'image.mimes' => 'Image must be a file of type: jpeg, png, jpg, gif, svg',
+            'image.max' => 'Image must be smaller than 2048 KB',
             'description.required' => 'Description is required',
             'maxRange.required' => 'Max Range is required',
             'weight.required' => 'Weight is required',

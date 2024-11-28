@@ -5,7 +5,7 @@
     <div class="flex flex-col justify-center items-center">
         <!-- Weapon Image -->
         <div class="w-3/4">
-            <img src="{{ asset('storage/private/'.$weapon->image) }}"
+            <img src="{{ asset('storage/private/weapons/'.$weapon->image) }}"
                  alt="{{ __('Weapon Image') }}"
                  class="w-full h-auto rounded-md border border-gray-300 dark:border-gray-600">
         </div>
