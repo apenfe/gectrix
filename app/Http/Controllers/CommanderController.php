@@ -37,7 +37,7 @@ class CommanderController extends Controller
 
     public function show(Commander $commander)
     {
-        return view('personal.commanders.submodule_commander_show', compact('commander'));
+        return view('personal.commanders.show_commander', compact('commander'));
     }
 
     public function edit(Commander $commander)
@@ -68,4 +68,25 @@ class CommanderController extends Controller
         return redirect()->route('personal.commanders')
             ->with('success', 'Commander deleted successfully');
     }
+
+    public function unroll(Commander $commander)
+    {
+        $commander->date_of_demobilization = now();
+        $commander->status = 'baja';
+        $commander->save();
+
+        return redirect()->route('personal.commanders')
+            ->with('success', 'Commander unrolled successfully');
+    }
+
+    public function kill(Commander $commander)
+    {
+        $commander->date_of_death = now();
+        $commander->status = 'abatido';
+        $commander->save();
+
+        return redirect()->route('personal.commanders')
+            ->with('success', 'Commander killed successfully');
+    }
+
 }

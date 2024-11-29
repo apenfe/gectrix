@@ -50,4 +50,9 @@ class Soldier extends Model
         return $this->hasMany(Vehicle::class, 'soldiers_vehicles');
     }
 
+    public function getArmyAttribute()
+    {
+        return $this->squad?->platoon?->section?->company?->battalion?->brigade?->army;
+    }
+
 }

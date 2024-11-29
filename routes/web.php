@@ -26,7 +26,11 @@ Route::prefix('personal')->group(function () {
 Route::resource('weapons', WeaponController::class);
 Route::resource('vehicles', VehicleController::class);
 Route::resource('soldiers', SoldierController::class);
+Route::post('/soldiers/{soldier}/unroll', [SoldierController::class, 'unroll'])->name('soldiers.unroll');
+Route::post('/soldiers/{soldier}/kill', [SoldierController::class, 'kill'])->name('soldiers.kill');
 Route::resource('commanders', CommanderController::class);
+Route::post('/commanders/{commander}/unroll', [SoldierController::class, 'unroll'])->name('commanders.unroll');
+Route::post('/commanders/{commander}/kill', [SoldierController::class, 'kill'])->name('commanders.kill');
 
 Route::middleware([
     'auth:sanctum',

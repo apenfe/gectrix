@@ -20,6 +20,7 @@ class CommanderSeeder extends Seeder
             'status' => 'operativo',
             'date_of_birth' => '1987-05-12',
             'date_of_enlistment' => '2005-07-15',
+            'rank_image' => 'private/rank_logos/tierra/general.png',
             'quantity' => 1 // Cuántas copias queremos de este comandante
         ],
 
@@ -31,6 +32,7 @@ class CommanderSeeder extends Seeder
             'status' => 'operativo',
             'date_of_birth' => '1990-05-12',
             'date_of_enlistment' => '2005-07-15',
+            'rank_image' => 'private/rank_logos/tierra/coronel.png',
             'quantity' => 4 // Cuántas copias queremos de este comandante
         ],
         // Teniente Coronel
@@ -41,6 +43,7 @@ class CommanderSeeder extends Seeder
             'status' => 'operativo',
             'date_of_birth' => '1990-05-12',
             'date_of_enlistment' => '2005-07-15',
+            'rank_image' => 'private/rank_logos/tierra/tenientecoronel.png',
             'quantity' => 8 // Cuántas copias queremos de este comandante
         ],
 
@@ -52,6 +55,7 @@ class CommanderSeeder extends Seeder
             'status' => 'operativo',
             'date_of_birth' => '1990-05-12',
             'date_of_enlistment' => '2005-07-15',
+            'rank_image' => 'private/rank_logos/tierra/capitan.png',
             'quantity' => 32 // Cuántas copias queremos de este comandante
         ],
         // Teniente
@@ -62,6 +66,8 @@ class CommanderSeeder extends Seeder
             'status' => 'operativo',
             'date_of_birth' => '1990-05-12',
             'date_of_enlistment' => '2005-07-15',
+            'rank_image' => 'private/rank_logos/tierra/teniente.png',
+
             'quantity' => 128 // Cuántas copias queremos de este comandante
         ],
         // Sargento
@@ -72,6 +78,7 @@ class CommanderSeeder extends Seeder
             'status' => 'operativo',
             'date_of_birth' => '1990-05-12',
             'date_of_enlistment' => '2005-07-15',
+            'rank_image' => 'private/rank_logos/tierra/sargento.png',
             'quantity' => 384 // Cuántas copias queremos de este comandante
         ],
 
@@ -83,6 +90,7 @@ class CommanderSeeder extends Seeder
             'status' => 'operativo',
             'date_of_birth' => '1990-05-12',
             'date_of_enlistment' => '2005-07-15',
+            'rank_image' => 'private/rank_logos/tierra/cabo.png',
             'quantity' => 768 // Cuántas copias queremos de este comandante
         ]
 
