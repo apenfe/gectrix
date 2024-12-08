@@ -39,7 +39,7 @@
 
                         @endphp
 
-                        <img src="{{ asset('storage/private/'.$commander->rank_image) }}"
+                        <img src="{{ asset('storage/'.$commander->rank_image) }}"
                              alt="{{ __('Commander Image') }}"
                              class="w-full h-auto rounded-md border border-gray-300 dark:border-gray-600">
                     </div>
