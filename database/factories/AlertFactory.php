@@ -10,7 +10,15 @@ class AlertFactory extends Factory {
     protected $model = Alert::class;
 
     public function definition(): array {
-        return ['created_at' => Carbon::now(),
-            'updated_at' => Carbon::now(),];
+        return [
+            'type' => $this->faker->randomElement(['air-strike', 'ground-attack', 'naval-bombardment']),
+            'latitude' => $this->faker->latitude,
+            'longitude' => $this->faker->longitude,
+            'radius' => $this->faker->numberBetween(1, 100),
+            'start_date' => Carbon::now(),
+            'end_date' => Carbon::now()->addDays(1),
+            'description' => $this->faker->text,
+            'danger_level' => $this->faker->randomElement(['low', 'medium', 'high']),
+        ];
     }
 }

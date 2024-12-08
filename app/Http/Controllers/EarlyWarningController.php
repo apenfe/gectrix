@@ -11,9 +11,8 @@ class EarlyWarningController extends Controller {
     public function __invoke() {
 
         $alerts = Alert::all();
-        $strategics = Strategic::all();
         $targets = Target::all();
 
-        return view('alerta-temprana.module_alert', compact('alerts', 'strategics', 'targets'));
+        return view('alerta-temprana.module_alert', compact('alerts', 'targets'));
     }
 }

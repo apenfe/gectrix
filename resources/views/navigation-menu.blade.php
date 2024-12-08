@@ -151,6 +151,9 @@
             <x-responsive-nav-link href="{{ route('personal.index') }}" :active="request()->routeIs('personal*')">
                 {{ __('Personal') }}
             </x-responsive-nav-link>
+            <x-responsive-nav-link href="{{ route('early-warning') }}" :active="request()->routeIs('alert*')">
+                {{ __('Alerts') }}
+            </x-responsive-nav-link>
         </div>
 
         <!-- Responsive Settings Options -->
