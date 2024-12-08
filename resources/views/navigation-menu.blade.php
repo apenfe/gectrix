@@ -18,6 +18,9 @@
                     <x-nav-link href="{{ route('personal.index') }}" :active="request()->routeIs('personal*')">
                         {{ __('Personal') }}
                     </x-nav-link>
+                    <x-nav-link href="{{ route('early-warning') }}" :active="request()->routeIs('alert*')">
+                        {{ __('Alerts') }}
+                    </x-nav-link>
                 </div>
             </div>
 

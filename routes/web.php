@@ -2,6 +2,7 @@
 
 use App\Http\Controllers\BrigadeController;
 use App\Http\Controllers\CommanderController;
+use App\Http\Controllers\EarlyWarningController;
 use App\Http\Controllers\PersonalController;
 use App\Http\Controllers\SoldierController;
 use App\Http\Controllers\VehicleController;
@@ -12,7 +13,7 @@ Route::get('/', function () {
     return view('welcome');
 });
 
-//Route::view('/personal', 'personal.module_personal')->name('personal');
+Route::get('/early-warning', EarlyWarningController::class)->name('early-warning');
 
 Route::prefix('personal')->group(function () {
     Route::get('/', [PersonalController::class, 'index'])->name('personal.index');

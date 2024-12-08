@@ -1,5 +1,6 @@
 <?php
 
+use App\Models\Alert;
 use App\Models\Battalion;
 use App\Models\Brigade;
 use App\Models\Commander;
@@ -9,6 +10,8 @@ use App\Models\Regiment;
 use App\Models\Section;
 use App\Models\Soldier;
 use App\Models\Squad;
+use App\Models\Strategic;
+use App\Models\Target;
 use App\Models\User;
 use App\Models\Vehicle;
 use App\Models\Weapon;
@@ -56,5 +59,18 @@ it('gives back successful response for personal', function () {
     Vehicle::factory()->count(1)->create();
 
     get(route('personal.index'))
+        ->assertOk();
+});
+
+it('gives back successful response for alerts', function () {
+
+    $user = User::factory()->create();
+    $this->actingAs($user);
+
+    Alert::factory()->count(3)->create();
+    Target::factory()->count(3)->create();
+    Strategic::factory()->count(3)->create();
+
+    get(route('early-warning'))
         ->assertOk();
 });
