@@ -34,7 +34,7 @@ class CommanderFactory extends Factory
             'status' => $this->faker->randomElement(['baja', 'operativo']),
             'email' => $this->faker->unique()->safeEmail(),
             'telephone' => $this->faker->unique()->phoneNumber(),
-            'photo' => 'https://randomuser.me/api/portraits/men/'.$user.'.jpg',
+            'photo' => 'https://randomuser.me/Api/portraits/men/'.$user.'.jpg',
             'salary' => $this->faker->numberBetween(1000, 10000),
             'date_of_birth' => $this->faker->date(),
             'date_of_death' => null, // ver como mejorar

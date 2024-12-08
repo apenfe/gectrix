@@ -31,7 +31,7 @@ class SoldierFactory extends Factory
             'scale' => $this->faker->randomElement(['tropa', 'suboficial', 'oficial']),
             'specialty' => $this->faker->randomElement(['infanteria', 'caballeria', 'artilleria', 'ingenieros', 'comunicaciones']),
             'status' => $this->faker->randomElement(['baja', 'operativo', 'abatido']),
-            'photo' => 'https://randomuser.me/api/portraits/men/'.$user.'.jpg',
+            'photo' => 'https://randomuser.me/Api/portraits/men/'.$user.'.jpg',
             'salary' => $this->faker->numberBetween(1000, 5000),
             'date_of_birth' => $this->faker->date(),
             'date_of_death' => $this->faker->date(),
