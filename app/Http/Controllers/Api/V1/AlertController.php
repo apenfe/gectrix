@@ -57,10 +57,7 @@ class AlertController extends Controller
             return response()->json(['message' => 'Alert has ended'], 200);
         }
 
-        return response()->json([
-            'data' => alertResource::make($alert),
-            'message'=> 'Active alert',
-        ], 200);
+        return new AlertResource($alert);
     }
 
     public function update(AlertRequest $request, $id)

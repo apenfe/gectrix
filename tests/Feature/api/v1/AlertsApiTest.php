@@ -49,7 +49,22 @@ it('everybody can get an alert', function () {
     $response = $this->get('/api/v1/alerts/'.$alert->id);
     // assert
     $response->assertStatus(200);
-    $response->assertJson(['data' => $alert->toArray()]);
+    $response->assertJson([
+        'data' => [
+            'id' => $alert->id,
+            'type' => $alert->type,
+            'location' => "https://www.google.com/maps/search/?api=1&query={$alert->latitude},{$alert->longitude}",
+            'radius' => "{$alert->radius} km",
+            'start_date' => $alert->start_date->toISOString(),
+            'end_date' => $alert->end_date->toISOString(),
+            'duration' => $alert->end_date->diffForHumans($alert->start_date),
+            'status' => 'active',
+            'description' => $alert->description,
+            'danger_level' => $alert->danger_level,
+            'created_at' => $alert->created_at->toISOString(),
+            'updated_at' => $alert->updated_at->toISOString(),
+        ]
+    ]);
 });
 
 it('only token can-create can create an alert', function () {
@@ -134,17 +149,44 @@ it('everybody can get an alert given a position if position is in area', functio
     $response = $this->postJson('/api/v1/alerts/position', $position);
 
     // assert
-    // response is 200
-    // response has alert data
-    // assert
     $response->assertStatus(200)
         ->assertJsonStructure([
-            'data',
+            'data' => [
+                '*' => [
+                    'id',
+                    'type',
+                    'location',
+                    'radius',
+                    'start_date',
+                    'end_date',
+                    'duration',
+                    'status',
+                    'description',
+                    'danger_level',
+                    'created_at',
+                    'updated_at',
+                ]
+            ],
             'message'
-        ])
-        ->assertJson([
-            'message' => 'Alert in this position',
-            'data' => [$alert->toArray()]  // Note que data es un array de alertas
         ]);
+    $response->assertJson([
+        'data' => [
+            [
+                'id' => $alert->id,
+                'type' => $alert->type,
+                'location' => "https://www.google.com/maps/search/?api=1&query={$alert->latitude},{$alert->longitude}",
+                'radius' => "{$alert->radius} km",
+                'start_date' => $alert->start_date->toISOString(),
+                'end_date' => $alert->end_date->toISOString(),
+                'duration' => $alert->end_date->diffForHumans($alert->start_date),
+                'status' => 'active',
+                'description' => $alert->description,
+                'danger_level' => $alert->danger_level,
+                'created_at' => $alert->created_at->toISOString(),
+                'updated_at' => $alert->updated_at->toISOString(),
+            ]
+        ],
+        'message' => 'Alert in this position'
+    ]);
 
 });
