@@ -16,6 +16,6 @@ class Alert extends Model {
         'start_date',
         'end_date',
         'description',
-        'danger_level',
+        'danger_level'
     ];
 }

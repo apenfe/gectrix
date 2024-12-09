@@ -1,10 +1,8 @@
 <?php
 
 use Illuminate\Support\Facades\Route;
-use App\Http\Controllers\Api\V1\AlertController;
-use App\Http\Controllers\Api\V1\TargetController;
 
+// si recibo api/v1 redirijo a routes/api/v1/api_v1.php
 Route::prefix('v1')->group(function () {
-    Route::apiResource('targets', TargetController::class);
-    Route::apiResource('alerts', AlertController::class);
+    require base_path('routes/api/v1/api_v1.php');
 });
