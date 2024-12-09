@@ -6,24 +6,26 @@ use App\Http\Controllers\Controller;
 use App\Http\Requests\AlertRequest;
 use App\Http\Resources\AlertResource;
 use App\Models\Alert;
-use App\Models\User;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Cache;
 
 class AlertController extends Controller
 {
 
     public function index()
     {
-        // Get all active alerts
-        $alerts = Alert::query()
-            ->where('end_date', '>=', now())
-            ->get();
+        // Get all active alerts from cache
+        $alerts = Cache::rememberForever('alerts', function () {
+            return Alert::query()
+                ->where('end_date', '>=', now())
+                ->get();
+        });
 
         if( $alerts->isEmpty() ) {
             return response()->json(['message' => 'No active alerts'], 200);
         }
 
-        // devolver alertResource
+        // devolver alertResource con los datos de la caché
         return response()->json([
             'message'=> count($alerts).' active alerts',
             'data' => alertResource::collection($alerts),
