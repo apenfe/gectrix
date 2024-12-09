@@ -9,3 +9,4 @@ Route::apiResource('alerts', AlertController::class)->except(['update', 'destroy
 Route::post('alerts', [AlertController::class, 'store'])->middleware('auth:sanctum');
 Route::delete('alerts/{alert}', [AlertController::class, 'destroy'])->middleware('auth:sanctum');
 Route::put('alerts/{alert}', [AlertController::class, 'update'])->middleware('auth:sanctum');
+Route::post('alerts/position', [AlertController::class, 'position']);

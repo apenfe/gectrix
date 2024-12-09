@@ -65,5 +65,8 @@ class DatabaseSeeder extends Seeder
         // asignar soldados a los vehículos
         $this->call(SoldierVehicleSeeder::class);
 
+        // crear alertas
+        $this->call(AlertSeeder::class);
+
     }
 }
