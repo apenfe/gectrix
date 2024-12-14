@@ -14,6 +14,8 @@ class AlertController extends Controller
 
     public function index()
     {
+
+
         // Get all active alerts from cache
         $alerts = Cache::rememberForever('alerts', function () {
             return Alert::query()
@@ -114,7 +116,7 @@ class AlertController extends Controller
         }
 
         if( !$result ) {
-            return response()->json(['message' => 'No alerts in this position'], 200);
+            return response()->json(['message' => 'No alerts in this position'], 404);
         }
 
         return response()->json([

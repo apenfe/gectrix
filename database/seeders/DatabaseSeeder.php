@@ -68,5 +68,8 @@ class DatabaseSeeder extends Seeder
         // crear alertas
         $this->call(AlertSeeder::class);
 
+        // crear objetivos
+        $this->call(TargetSeeder::class);
+
     }
 }

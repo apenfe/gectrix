@@ -190,3 +190,47 @@ it('everybody can get an alert given a position if position is in area', functio
     ]);
 
 });
+
+it('works limit of five uses of api in 1 minute', function () {
+    // arrange
+    $alert = Alert::factory()->create();
+
+    $position = [
+        'latitude' => $alert->latitude,
+        'longitude' => $alert->longitude
+    ];
+
+    // act
+    $response = $this->postJson('/api/v1/alerts/position', $position);
+    $response = $this->postJson('/api/v1/alerts/position', $position);
+    $response = $this->postJson('/api/v1/alerts/position', $position);
+    $response = $this->postJson('/api/v1/alerts/position', $position);
+    $response = $this->postJson('/api/v1/alerts/position', $position);
+    $response = $this->postJson('/api/v1/alerts/position', $position);
+
+    // assert
+    $response->assertStatus(429);
+    $response->assertJson([
+        'status' => 429,
+        'message' => 'Too many requests',
+    ]);
+
+});
+
+it('dont show alerts finished in index', function () {
+    // arrange
+    // una terminada ayer
+    $alertOne = Alert::factory(['start_date' => Carbon::yesterday(), 'end_date' => Carbon::yesterday()])->create();
+    // una terminada hoy
+    $alertTwo = Alert::factory(['start_date' => Carbon::today(), 'end_date' => Carbon::tomorrow()])->create();
+    // una terminada mañana
+    $alertThree = Alert::factory(['start_date' => Carbon::yesterday(), 'end_date' => Carbon::tomorrow()])->create();
+
+    // act
+    $response = $this->get('/api/v1/alerts');
+
+    // assert
+    $response->assertStatus(200);
+    $response->assertJsonCount(2);
+    $response->assertJsonMissing(['id' => $alertOne->id]);
+});

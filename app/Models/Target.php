@@ -21,4 +21,9 @@ class Target extends Model {
         'setup_date',
         'deactivation_date',
     ];
+
+    protected $hidden = [
+        'created_at',
+        'updated_at',
+    ];
 }
