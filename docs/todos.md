@@ -38,9 +38,9 @@
    7. Implementar leaflet para visualizaciones avanzadas en mapa.
 2. Módulo de alerta temprana.
    1. Crear modelos y relaciones. (OK)
-   2. Crear controladores. 
-   3. Crear rutas.
-   5. Crear vistas.
+   2. Crear controladores. '''********'''
+   3. Crear rutas. '''********'''
+   5. Crear vistas. 
       1. vista general con todos datos.
       2. vista objetivos potenciales.
       3. vista puntos estratégicos.
@@ -48,7 +48,7 @@
    4. Crear cruds manuales de todos ellos.
    5. Bot de telegram para alertas.
    6. Implementar leaflet para visualizaciones avanzadas en mapa.
-3. Agregar componentes tailwind al proyecto.
+3. Agregar componentes tailwind al proyecto. (OK)
 
 ## 3. API REST
 1. Módulo de alerta temprana.
@@ -57,5 +57,5 @@
       1. se debe poder hacer consultas generales y además dando posición exacta. (OK)
       2. Cachear las consultas. (OK)
       3. Crear limitación de uso de la API. (OK)
-      4. Crear autenticación de la API por defecto con permisos limitados para publica
-   3. API privada para objetivos y puntos estratégicos.
+      4. Crear autenticación de la API por defecto con permisos limitados para publica '''********'''
+   3. API privada para objetivos y puntos estratégicos. '''********'''

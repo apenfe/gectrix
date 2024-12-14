@@ -1,0 +1,584 @@
+.highlight {
+  color: #929292
+}
+
+.highlight .hll {
+  background-color: #EFEFEF
+}
+
+.highlight .c {
+  color: #929292
+}
+
+.highlight .err {
+  background: #C82829;
+  color: #FFFFFF
+}
+
+.highlight .k {
+  color: #8959A8
+}
+
+.highlight .l {
+  color: #F5871F
+}
+
+.highlight .n {
+  color: #929292
+}
+
+.highlight .o {
+  color: #545454
+}
+
+.highlight .p {
+  color: #929292
+}
+
+.highlight .cm {
+  color: #929292
+}
+
+.highlight .cp {
+  color: #929292
+}
+
+.highlight .c1 {
+  color: #929292
+}
+
+.highlight .cs {
+  color: #929292
+}
+
+.highlight .gd {
+  color: #C82829
+}
+
+.highlight .ge {
+  font-style: italic
+}
+
+.highlight .gh {
+  color: #545454;
+  font-weight: bold
+}
+
+.highlight .gi {
+  color: #718C00
+}
+
+.highlight .gp {
+  color: #718C00;
+  font-weight: bold
+}
+
+.highlight .gs {
+  font-weight: bold
+}
+
+.highlight .gu {
+  color: #3E999F;
+  font-weight: bold
+}
+
+.highlight .kc {
+  color: #8959A8
+}
+
+.highlight .kd {
+  color: #8959A8
+}
+
+.highlight .kn {
+  color: #3E999F
+}
+
+.highlight .kp {
+  color: #4271AE
+}
+
+.highlight .kr {
+  color: #8959A8
+}
+
+.highlight .kt {
+  color: #EAB700
+}
+
+.highlight .ld {
+  color: #718C00
+}
+
+.highlight .m {
+  color: #F5871F
+}
+
+.highlight .s {
+  color: #b7bb02
+}
+
+.highlight .na {
+  color: #4893f5
+}
+
+.highlight .nb {
+  color: #4271AE
+}
+
+.highlight .nc {
+  color: #EAB700
+}
+
+.highlight .no {
+  color: #EAB700
+}
+
+.highlight .nd {
+  color: #3E999F
+}
+
+.highlight .ni {
+  color: #545454
+}
+
+.highlight .ne {
+  color: #C82829
+}
+
+.highlight .nf {
+  color: #4271AE
+}
+
+.highlight .nl {
+  color: #545454
+}
+
+.highlight .nn {
+  color: #EAB700
+}
+
+.highlight .nx {
+  color: #4271AE
+}
+
+.highlight .py {
+  color: #545454
+}
+
+.highlight .nt {
+  color: #3E999F
+}
+
+.highlight .nv {
+  color: #C82829
+}
+
+.highlight .ow {
+  color: #3E999F
+}
+
+.highlight .w {
+  color: #545454
+}
+
+.highlight .mf {
+  color: #F5871F
+}
+
+.highlight .mh {
+  color: #F5871F
+}
+
+.highlight .mi {
+  color: #F5871F
+}
+
+.highlight .mo {
+  color: #F5871F
+}
+
+.highlight .sb {
+  color: #718C00
+}
+
+.highlight .sc {
+  color: #545454
+}
+
+.highlight .sd {
+  color: #929292
+}
+
+.highlight .s2 {
+  color: #718C00
+}
+
+.highlight .se {
+  color: #F5871F
+}
+
+.highlight .sh {
+  color: #718C00
+}
+
+.highlight .si {
+  color: #F5871F
+}
+
+.highlight .sx {
+  color: #718C00
+}
+
+.highlight .sr {
+  color: #718C00
+}
+
+.highlight .s1 {
+  color: #718C00
+}
+
+.highlight .ss {
+  color: #718C00
+}
+
+.highlight .bp {
+  color: #545454
+}
+
+.highlight .vc {
+  color: #C82829
+}
+
+.highlight .vg {
+  color: #C82829
+}
+
+.highlight .vi {
+  color: #C82829
+}
+
+.highlight .il {
+  color: #F5871F
+}
+
+*,
+*::after,
+*::before {
+  box-sizing: inherit
+}
+
+html {
+  box-sizing: border-box;
+  min-height: 100%
+}
+
+body {
+  background-color: #FCFCFC;
+  box-sizing: inherit;
+  color: #333333;
+  display: block;
+  font-family: "Raleway", "Helvetica Neue", "Helvetica", "Roboto", "Arial", sans-serif;
+  font-size: 16px;
+  -webkit-font-smoothing: antialiased;
+  line-height: 1.5
+}
+
+header {
+  max-width: 1200px;
+  margin: 0 auto 4.5em
+}
+
+header::after {
+  clear: both;
+  content: "";
+  display: table
+}
+
+header h1 {
+  background: transparent url("/assets/logo.svg") no-repeat center;
+  background-size: 300px;
+  height: 5em
+}
+
+header h1 a {
+  background-color: transparent;
+  display: block;
+  height: 100%;
+  opacity: 0
+}
+
+header h2 {
+  color: #333333;
+  margin-bottom: 1em;
+  text-align: center
+}
+
+header h4 {
+  color: #333333;
+  text-align: center
+}
+
+main {
+  background-color: #FCFCFC;
+  padding: 0 1.5em
+}
+
+main::after {
+  clear: both;
+  content: "";
+  display: table
+}
+
+main section.message {
+  background-color: #fff5f5;
+  border: 1px solid #fc8181;
+  color: #c53030;
+  display: none;
+  margin-bottom: 2.5em;
+  padding: 1em
+}
+
+main section.message.show {
+  display: block
+}
+
+main section.demo::after,
+main section.paste::after {
+  clear: both;
+  content: "";
+  display: table
+}
+
+main section.demo #save_message,
+main section.paste #save_message {
+  background: #fefcbf;
+  display: none;
+  font-weight: 500;
+  margin-left: 2em;
+  padding: 0.5em 1em;
+  vertical-align: middle
+}
+
+main section.demo #save_message.show,
+main section.paste #save_message.show {
+  display: inline-block
+}
+
+main section.demo .source,
+main section.paste .source {
+  display: block;
+  float: left;
+  margin-right: 2.35765%;
+  position: relative;
+  width: 48.82117%
+}
+
+main section.demo button,
+main section.paste button {
+  background-color: #ec627a;
+  border: 1px solid #e41e40;
+  border-radius: 3px;
+  color: #ffffff;
+  cursor: pointer;
+  display: inline-block;
+  font-size: 16px;
+  -webkit-font-smoothing: antialiased;
+  font-weight: bold;
+  line-height: 1;
+  padding: 0.75em 1em;
+  text-decoration: none;
+  vertical-align: middle;
+  white-space: nowrap
+}
+
+main section.demo button.disabled,
+main section.paste button.disabled {
+  background-color: #e2e8f0;
+  border: 1px solid #cbd5e0;
+  cursor: not-allowed
+}
+
+main section.demo form,
+main section.paste form {
+  margin-bottom: 0
+}
+
+main section.demo label,
+main section.paste label {
+  font-weight: bold;
+  margin-bottom: 0.375em
+}
+
+main section.demo pre,
+main section.paste pre {
+  background: #FFFFFF;
+  border: 1px solid #f7bdc7;
+  border-radius: 3px;
+  color: #929292;
+  display: block;
+  float: left;
+  font: -webkit-control;
+  font-family: monospace;
+  font-size: 16px;
+  height: 20em;
+  line-height: 1.5;
+  margin-right: 0;
+  margin-top: 0;
+  overflow-y: scroll;
+  padding: 0.5em;
+  white-space: pre-wrap
+}
+
+main section.demo pre {
+  width: 48.82117%
+}
+
+main section.paste pre {
+  width: 100%
+}
+
+main section.demo select,
+main section.paste select {
+  margin-bottom: 1.5em;
+  max-width: 100%;
+  opacity: 0.6;
+  outline: none;
+  position: absolute;
+  right: 0.5em;
+  top: -2em;
+  width: auto
+}
+
+main section.demo textarea,
+main section.paste textarea {
+  background-color: white;
+  border: 1px solid #f7bdc7;
+  border-radius: 3px;
+  box-sizing: border-box;
+  -webkit-box-sizing: border-box;
+  -moz-box-sizing: border-box;
+  font: -webkit-control;
+  font-family: monospace;
+  font-size: 16px;
+  height: 20em;
+  line-height: 1.5;
+  margin-bottom: 0.75em;
+  padding: 0.5em;
+  resize: vertical;
+  transition: border-color;
+  -webkit-transition: border-color;
+  -moz-transition: border-color;
+  white-space: pre-wrap;
+  width: 100%
+}
+
+main section.paste aside {
+  float: right;
+  margin-bottom: -5em;
+  opacity: 0.6;
+  padding: 0.75em 1em 1em 1em;
+  position: relative
+}
+
+main section.paste aside span {
+  display: block
+}
+
+main section.key-features {
+  clear: both;
+  margin-top: 4.5em
+}
+
+main section.key-features li {
+  float: left;
+  display: block;
+  margin-right: 2.35765%;
+  width: 31.76157%
+}
+
+main section.key-features li:before {
+  background-color: transparent;
+  background-position: top center;
+  background-repeat: no-repeat;
+  background-size: 100%;
+  border: 2px solid #EC627A;
+  border-radius: 76px;
+  content: '';
+  display: block;
+  height: 76px;
+  margin: 0 auto 1.5em;
+  width: 76px
+}
+
+main section.key-features li:last-child {
+  margin-right: 0
+}
+
+main section.key-features li.languages:before {
+  background-image: url("/assets/icon_languages.png")
+}
+
+main section.key-features li.parsing:before {
+  background-image: url("/assets/icon_parsing.png")
+}
+
+main section.key-features li.pygments:before {
+  background-image: url("/assets/icon_pygments.png")
+}
+
+main section.key-features li h3 {
+  height: 1.25em;
+  margin-bottom: 0.75em;
+  text-align: center
+}
+
+h1 {
+  font-size: 36px;
+  line-height: 1.25;
+  margin: 0;
+  text-rendering: optimizeLegibility
+}
+
+h2 {
+  font-size: 19.2px;
+  line-height: 1.25;
+  margin: 0;
+  text-rendering: optimizeLegibility
+}
+
+h3 {
+  font-size: 24px
+}
+
+h4 {
+  font-size: 16px;
+  line-height: 1.25;
+  margin: 0;
+  text-rendering: optimizeLegibility
+}
+
+p {
+  margin: 0 0 0.75em
+}
+
+a {
+  font-weight: 800;
+  text-decoration: none;
+  transition: color 0.1s linear;
+  -webkit-transition: color 0.1s linear;
+  -moz-transition: color 0.1s linear
+}
+
+input,
+label,
+select {
+  display: block
+}
+
+ul,
+ol {
+  list-style-type: none;
+  margin: 0;
+  padding: 0
+}

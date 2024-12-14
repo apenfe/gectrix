@@ -10,6 +10,9 @@
         <!-- Fonts -->
         <link rel="preconnect" href="https://fonts.bunny.net">
         <link href="https://fonts.bunny.net/css?family=figtree:400,500,600&display=swap" rel="stylesheet" />
+        <link rel="stylesheet" href="/assets/styles/tailwind.min.css">
+        <link rel="stylesheet" href="/assets/styles/fontawesome/css/all.min.css" />
+        <link rel="stylesheet" href="/assets/styles/highlight.css" />
 
         <link rel="stylesheet" href="https://unpkg.com/leaflet@1.7.1/dist/leaflet.css" />
 
