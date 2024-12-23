@@ -25,7 +25,7 @@ it('shows all targets if user is auth and role is admin', function () {
     $admin = User::factory()->create(['role' => 'admin']);
     $this->actingAs($admin);
 
-    // craer 3 targets
+    // crear 3 targets
     $targets = Target::factory()->count(3)->create();
 
     // act

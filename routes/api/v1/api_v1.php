@@ -1,6 +1,7 @@
 <?php
 
 use App\Http\Controllers\Api\V1\AlertController;
+use App\Http\Controllers\Api\V1\auth\AuthController;
 use App\Http\Controllers\Api\V1\TargetController;
 
 Route::apiResource('targets', TargetController::class);
@@ -20,3 +21,6 @@ Route::middleware(['throttle:alerts'])->group(function () {
     Route::put('alerts/{alert}', [AlertController::class, 'update'])->middleware('auth:sanctum');
     Route::post('alerts/position', [AlertController::class, 'position']);
 });
+
+Route::post('login', [AuthController::class, 'login'])->name('login');
+Route::post('change-token', [AuthController::class, 'changeToken'])->middleware('auth:sanctum')->name('change-token');
