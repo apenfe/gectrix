@@ -3,8 +3,18 @@
 namespace App\Providers;
 
 use App\Models\Alert;
+use App\Models\Commander;
+use App\Models\Soldier;
+use App\Models\SoldierVehicle;
 use App\Models\Target;
+use App\Models\Vehicle;
+use App\Models\Weapon;
 use App\Observers\AlertObserver;
+use App\Observers\personal\CommanderObserver;
+use App\Observers\personal\SoldierObserver;
+use App\Observers\personal\SoldierVehicleObserver;
+use App\Observers\personal\VehicleObserver;
+use App\Observers\personal\WeaponObserver;
 use App\Observers\TargetObserver;
 use Illuminate\Cache\RateLimiting\Limit;
 use Illuminate\Support\Facades\RateLimiter;
@@ -56,5 +66,10 @@ class AppServiceProvider extends ServiceProvider
 
         Alert::observe(AlertObserver::class);
         Target::observe(TargetObserver::class);
+        Weapon::observe(WeaponObserver::class);
+        Vehicle::observe(VehicleObserver::class);
+        Soldier::observe(SoldierObserver::class);
+        Commander::observe(CommanderObserver::class);
+        SoldierVehicle::observe(SoldierVehicleObserver::class);
     }
 }

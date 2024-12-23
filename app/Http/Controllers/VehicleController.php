@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use App\Models\Vehicle;
+use Cache;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Storage;
 
@@ -11,7 +12,6 @@ class VehicleController extends Controller
     public function index()
     {
         $vehicles = Vehicle::paginate(10);
-
         return view('personal.vehicles.submodule_vehicles', compact('vehicles'));
     }
 
