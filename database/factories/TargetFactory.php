@@ -19,7 +19,7 @@ class TargetFactory extends Factory
             'description' => $this->faker->text(),
             'latitude' => $this->faker->latitude(),
             'longitude' => $this->faker->longitude(),
-            'radius' => $this->faker->numberBetween(1, 1000),
+            'radius' => $this->faker->numberBetween(1, 100),
             'image' => $this->faker->imageUrl(),
             'logo' => $this->faker->imageUrl(),
             'setup_date' => Carbon::now(),

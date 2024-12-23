@@ -65,7 +65,7 @@ class TargetController extends Controller
             return response()->json(['message' => 'Unauthorized'], 403);
         }
 
-        if (! $target) {
+        if (! $target->exists()) {
             return response()->json(['message' => 'Target not found'], 404);
         }
 
@@ -85,7 +85,7 @@ class TargetController extends Controller
             return response()->json(['message' => 'Unauthorized'], 403);
         }
 
-        if (! $target) {
+        if (! $target->exists()) {
             return response()->json(['message' => 'Target not found'], 404);
         }
 
@@ -103,11 +103,11 @@ class TargetController extends Controller
     {
 
         // Verificar si el usuario está autenticado
-        if (! auth()->check() && auth()->user()->role != 'admin') {
+        if (! auth()->check() || auth()->user()->role != 'admin') {
             return response()->json(['message' => 'Unauthorized'], 403);
         }
 
-        if (! $target) {
+        if (! $target->exists()) {
             return response()->json(['message' => 'Target not found'], 404);
         }
 

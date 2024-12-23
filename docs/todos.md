@@ -36,6 +36,7 @@
    5. Crear cliente mqtt 
    6. Exportación importación datos con EXCEL/PDF
    7. Implementar leaflet para visualizaciones avanzadas en mapa.
+   8. Cachear tablas
 2. Módulo de alerta temprana.
    1. Crear modelos y relaciones. (OK)
    2. Crear controladores. '''********'''
@@ -48,14 +49,15 @@
    4. Crear cruds manuales de todos ellos.
    5. Bot de telegram para alertas.
    6. Implementar leaflet para visualizaciones avanzadas en mapa.
+   7. Cachear tablas (OK)
 3. Agregar componentes tailwind al proyecto. (OK)
 
 ## 3. API REST
-1. Módulo de alerta temprana.
+1. Módulo de alerta temprana. (OK)
    1. Crear rutas api. (OK)
    2. API pública para alertas. (OK)
       1. se debe poder hacer consultas generales y además dando posición exacta. (OK)
       2. Cachear las consultas. (OK)
       3. Crear limitación de uso de la API. (OK)
       4. Crear autenticación de la API por defecto con permisos limitados para pública '''********''' (OK)
-   3. API privada para objetivos y puntos estratégicos. '''********'''
+   3. API privada para objetivos y puntos estratégicos. '''********''' (OK)
