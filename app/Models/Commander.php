@@ -72,22 +72,21 @@ class Commander extends Model
 
     public function getArmyAttribute()
     {
-        if($this->rank == 'general'){
+        if ($this->rank == 'general') {
             return $this->brigade->army;
-        }elseif($this->rank == 'coronel'){
+        } elseif ($this->rank == 'coronel') {
             return $this->regiment->brigade->army;
-        }elseif($this->rank == 'teniente coronel'){
+        } elseif ($this->rank == 'teniente coronel') {
             return $this->battalion->brigade->army;
-        }elseif($this->rank == 'capitan'){
+        } elseif ($this->rank == 'capitan') {
             return $this->company->battalion->brigade->army;
-        }elseif($this->rank == 'teniente'){
+        } elseif ($this->rank == 'teniente') {
             return $this->section->company->battalion->brigade->army;
-        }elseif($this->rank == 'sargento'){
+        } elseif ($this->rank == 'sargento') {
             return $this->platoon->section->company->battalion->brigade->army;
-        }elseif($this->rank == 'cabo') {
+        } elseif ($this->rank == 'cabo') {
             return $this->squad->platoon->section->company->battalion->brigade->army;
         }
 
     }
-
 }

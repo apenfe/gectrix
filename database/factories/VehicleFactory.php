@@ -31,7 +31,7 @@ class VehicleFactory extends Factory
             'description' => $this->faker->text,
             'weight' => $this->faker->randomFloat(2, 1, 100),
             'latitude' => $this->faker->latitude,
-            'longitude' => $this->faker->longitude
+            'longitude' => $this->faker->longitude,
         ];
     }
 }

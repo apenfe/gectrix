@@ -2,19 +2,6 @@
 
 namespace Database\Seeders;
 
-use App\Models\Battalion;
-use App\Models\Brigade;
-use App\Models\Commander;
-use App\Models\Company;
-use App\Models\Platoon;
-use App\Models\Regiment;
-use App\Models\Section;
-use App\Models\Soldier;
-use App\Models\Squad;
-use App\Models\User;
-
-use App\Models\Vehicle;
-use App\Models\Weapon;
 use Illuminate\Database\Seeder;
 
 class DatabaseSeeder extends Seeder

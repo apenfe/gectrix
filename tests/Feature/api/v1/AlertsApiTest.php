@@ -39,7 +39,7 @@ it('shows to everybody no alerts if no active alerts', function () {
     // assert
     $response->assertStatus(200);
     // No active alerts
-    $response->assertJson(['message'=>'No active alerts']);
+    $response->assertJson(['message' => 'No active alerts']);
 });
 
 it('everybody can get an alert', function () {
@@ -63,7 +63,7 @@ it('everybody can get an alert', function () {
             'danger_level' => $alert->danger_level,
             'created_at' => $alert->created_at->toISOString(),
             'updated_at' => $alert->updated_at->toISOString(),
-        ]
+        ],
     ]);
 });
 
@@ -81,11 +81,11 @@ it('only token can-create can create an alert', function () {
         'start_date' => Carbon::now(),
         'end_date' => Carbon::tomorrow(),
         'description' => 'Test alert',
-        'danger_level' => 'high'
+        'danger_level' => 'high',
     ];
 
     // act
-    $response = $this->postJson('/api/v1/alerts', $alertData, ['Authorization' => 'Bearer ' . $token]);
+    $response = $this->postJson('/api/v1/alerts', $alertData, ['Authorization' => 'Bearer '.$token]);
 
     // assert
     $response->assertStatus(201);
@@ -108,11 +108,11 @@ it('only token can-update can update an alert', function () {
         'start_date' => Carbon::now(),
         'end_date' => Carbon::tomorrow(),
         'description' => 'Updated test alert',
-        'danger_level' => 'medium'
+        'danger_level' => 'medium',
     ];
 
     // act
-    $response = $this->putJson('/api/v1/alerts/'. $alert->id, $updatedAlertData, ['Authorization' => 'Bearer ' . $token]);
+    $response = $this->putJson('/api/v1/alerts/'.$alert->id, $updatedAlertData, ['Authorization' => 'Bearer '.$token]);
 
     // assert
     $response->assertStatus(201);
@@ -128,7 +128,7 @@ it('only token can-delete can delete an alert', function () {
     $alert = Alert::factory()->create();
 
     // act
-    $response = $this->deleteJson('/api/v1/alerts/' . $alert->id, [], ['Authorization' => 'Bearer ' . $token]);
+    $response = $this->deleteJson('/api/v1/alerts/'.$alert->id, [], ['Authorization' => 'Bearer '.$token]);
 
     // assert
     $response->assertStatus(204);
@@ -142,7 +142,7 @@ it('everybody can get an alert given a position if position is in area', functio
 
     $position = [
         'latitude' => $alert->latitude,
-        'longitude' => $alert->longitude
+        'longitude' => $alert->longitude,
     ];
 
     // act
@@ -165,9 +165,9 @@ it('everybody can get an alert given a position if position is in area', functio
                     'danger_level',
                     'created_at',
                     'updated_at',
-                ]
+                ],
             ],
-            'message'
+            'message',
         ]);
     $response->assertJson([
         'data' => [
@@ -184,9 +184,9 @@ it('everybody can get an alert given a position if position is in area', functio
                 'danger_level' => $alert->danger_level,
                 'created_at' => $alert->created_at->toISOString(),
                 'updated_at' => $alert->updated_at->toISOString(),
-            ]
+            ],
         ],
-        'message' => 'Alert in this position'
+        'message' => 'Alert in this position',
     ]);
 
 });
@@ -197,7 +197,7 @@ it('works limit of five uses of api in 1 minute', function () {
 
     $position = [
         'latitude' => $alert->latitude,
-        'longitude' => $alert->longitude
+        'longitude' => $alert->longitude,
     ];
 
     // act

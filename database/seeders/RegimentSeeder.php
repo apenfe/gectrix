@@ -2,10 +2,8 @@
 
 namespace Database\Seeders;
 
-use App\Models\Brigade;
 use App\Models\Commander;
 use App\Models\Regiment;
-use Illuminate\Database\Console\Seeds\WithoutModelEvents;
 use Illuminate\Database\Seeder;
 
 class RegimentSeeder extends Seeder
@@ -30,7 +28,7 @@ class RegimentSeeder extends Seeder
                 'current_subordinates' => 2,
                 'combat_logo' => 'regiments/infanteria.jpg',
                 'commander_id' => $generalCommanders[0]->id,
-                'brigade_id' => 1
+                'brigade_id' => 1,
             ],
             [
                 'name' => 'Regimiento de Infantería nº 2',
@@ -40,7 +38,7 @@ class RegimentSeeder extends Seeder
                 'current_subordinates' => 2,
                 'combat_logo' => 'regiments/infanteria.jpg',
                 'commander_id' => $generalCommanders[1]->id,
-                'brigade_id' => 1
+                'brigade_id' => 1,
             ],
             [
                 'name' => 'Regimiento de Infantería nº 3',
@@ -50,7 +48,7 @@ class RegimentSeeder extends Seeder
                 'current_subordinates' => 2,
                 'combat_logo' => 'regiments/infanteria.jpg',
                 'commander_id' => $generalCommanders[2]->id,
-                'brigade_id' => 1
+                'brigade_id' => 1,
             ],
             [
                 'name' => 'Regimiento de Infantería nº 4',
@@ -60,7 +58,7 @@ class RegimentSeeder extends Seeder
                 'current_subordinates' => 2,
                 'combat_logo' => 'regiments/infanteria.jpg',
                 'commander_id' => $generalCommanders[3]->id,
-                'brigade_id' => 1
+                'brigade_id' => 1,
             ],
         ];
 

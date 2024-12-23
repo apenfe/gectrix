@@ -40,7 +40,8 @@ class Vehicle extends Model
         return $this->belongsTo(Squad::class);
     }
 
-    public function soldiers() {
+    public function soldiers()
+    {
         return $this->belongsToMany(Soldier::class, 'soldiers_vehicles');
     }
 }

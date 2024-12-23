@@ -17,6 +17,7 @@ class SquadFactory extends Factory
     public function definition(): array
     {
         $logo = 'combat_icons/squad.png';
+
         return [
             'name' => $this->faker->name(),
             'description' => $this->faker->sentence(3),

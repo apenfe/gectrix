@@ -20,7 +20,7 @@ class Section extends Model
         'longitude',
         'combat_logo',
         'commander_id',
-        'company_id'
+        'company_id',
     ];
 
     public function commander()

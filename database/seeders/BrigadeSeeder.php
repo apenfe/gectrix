@@ -4,7 +4,6 @@ namespace Database\Seeders;
 
 use App\Models\Brigade;
 use App\Models\Commander;
-use Illuminate\Database\Console\Seeds\WithoutModelEvents;
 use Illuminate\Database\Seeder;
 
 class BrigadeSeeder extends Seeder
@@ -31,8 +30,8 @@ class BrigadeSeeder extends Seeder
                 'current_subordinates' => 4,
                 'combat_logo' => 'brigades/paracaidista_logo.jpg',
                 'unit_emblem' => 'brigades/paracaidista_emblem.jpg',
-                'commander_id' => $generalCommanders->random()->id
-            ]
+                'commander_id' => $generalCommanders->random()->id,
+            ],
         ];
 
         // Insertar las brigadas en la base de datos

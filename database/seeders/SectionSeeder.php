@@ -2,11 +2,9 @@
 
 namespace Database\Seeders;
 
-use App\Models\Battalion;
 use App\Models\Commander;
 use App\Models\Company;
 use App\Models\Section;
-use Illuminate\Database\Console\Seeds\WithoutModelEvents;
 use Illuminate\Database\Seeder;
 
 class SectionSeeder extends Seeder
@@ -30,14 +28,14 @@ class SectionSeeder extends Seeder
             $companyId = $companies[$i % 32]->id;
 
             Section::create([
-                'name' => 'Sección de Infantería nº ' . ($i + 1),
+                'name' => 'Sección de Infantería nº '.($i + 1),
                 'description' => 'Sección de Infantería ligera',
                 'status' => 'operativa',
                 'max_subordinates' => 3,
                 'current_subordinates' => 3,
                 'combat_logo' => 'sections/infanteria.jpg',
                 'commander_id' => $generalCommanders[$i]->id,
-                'company_id' => $companyId
+                'company_id' => $companyId,
             ]);
         }
     }

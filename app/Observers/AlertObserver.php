@@ -5,7 +5,8 @@ namespace App\Observers;
 use App\Models\Alert;
 use Illuminate\Support\Facades\Cache;
 
-class AlertObserver {
+class AlertObserver
+{
     /**
      * Handle the Category "created" event.
      */
@@ -25,8 +26,8 @@ class AlertObserver {
     /**
      * Handle the Category "deleted" event.
      */
-    public function deleted(Alert $alert): void {
+    public function deleted(Alert $alert): void
+    {
         Cache::forget('alerts');
     }
-
 }

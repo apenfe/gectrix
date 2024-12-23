@@ -4,9 +4,7 @@ namespace Database\Seeders;
 
 use App\Models\Commander;
 use App\Models\Weapon;
-use Illuminate\Database\Console\Seeds\WithoutModelEvents;
 use Illuminate\Database\Seeder;
-use Illuminate\Support\Str;
 
 class CommanderSeeder extends Seeder
 {
@@ -21,7 +19,7 @@ class CommanderSeeder extends Seeder
             'date_of_birth' => '1987-05-12',
             'date_of_enlistment' => '2005-07-15',
             'rank_image' => 'private/rank_logos/tierra/general.png',
-            'quantity' => 1 // Cuántas copias queremos de este comandante
+            'quantity' => 1, // Cuántas copias queremos de este comandante
         ],
 
         // Coronel
@@ -33,7 +31,7 @@ class CommanderSeeder extends Seeder
             'date_of_birth' => '1990-05-12',
             'date_of_enlistment' => '2005-07-15',
             'rank_image' => 'private/rank_logos/tierra/coronel.png',
-            'quantity' => 4 // Cuántas copias queremos de este comandante
+            'quantity' => 4, // Cuántas copias queremos de este comandante
         ],
         // Teniente Coronel
         [
@@ -44,7 +42,7 @@ class CommanderSeeder extends Seeder
             'date_of_birth' => '1990-05-12',
             'date_of_enlistment' => '2005-07-15',
             'rank_image' => 'private/rank_logos/tierra/tenientecoronel.png',
-            'quantity' => 8 // Cuántas copias queremos de este comandante
+            'quantity' => 8, // Cuántas copias queremos de este comandante
         ],
 
         // Capitan
@@ -56,7 +54,7 @@ class CommanderSeeder extends Seeder
             'date_of_birth' => '1990-05-12',
             'date_of_enlistment' => '2005-07-15',
             'rank_image' => 'private/rank_logos/tierra/capitan.png',
-            'quantity' => 32 // Cuántas copias queremos de este comandante
+            'quantity' => 32, // Cuántas copias queremos de este comandante
         ],
         // Teniente
         [
@@ -68,7 +66,7 @@ class CommanderSeeder extends Seeder
             'date_of_enlistment' => '2005-07-15',
             'rank_image' => 'private/rank_logos/tierra/teniente.png',
 
-            'quantity' => 128 // Cuántas copias queremos de este comandante
+            'quantity' => 128, // Cuántas copias queremos de este comandante
         ],
         // Sargento
         [
@@ -79,7 +77,7 @@ class CommanderSeeder extends Seeder
             'date_of_birth' => '1990-05-12',
             'date_of_enlistment' => '2005-07-15',
             'rank_image' => 'private/rank_logos/tierra/sargento.png',
-            'quantity' => 384 // Cuántas copias queremos de este comandante
+            'quantity' => 384, // Cuántas copias queremos de este comandante
         ],
 
         // Cabo
@@ -91,8 +89,8 @@ class CommanderSeeder extends Seeder
             'date_of_birth' => '1990-05-12',
             'date_of_enlistment' => '2005-07-15',
             'rank_image' => 'private/rank_logos/tierra/cabo.png',
-            'quantity' => 768 // Cuántas copias queremos de este comandante
-        ]
+            'quantity' => 768, // Cuántas copias queremos de este comandante
+        ],
 
     ];
 
@@ -102,7 +100,7 @@ class CommanderSeeder extends Seeder
     public function run(): void
     {
         // Crear las armas predefinidas con sus cantidades específicas
-        foreach ($this->predefinedCommanders as $commanderData ) {
+        foreach ($this->predefinedCommanders as $commanderData) {
             $quantity = $commanderData['quantity'];
             unset($commanderData['quantity']); // Removemos quantity ya que no es parte del modelo
 
@@ -111,7 +109,7 @@ class CommanderSeeder extends Seeder
                     ...$commanderData,
                     'date_of_death' => null,
                     'date_of_demobilization' => null,
-                    'weapon_id' => Weapon::doesntHave('commander')->pluck('id')->random()
+                    'weapon_id' => Weapon::doesntHave('commander')->pluck('id')->random(),
                 ]);
             }
         }

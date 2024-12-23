@@ -15,6 +15,7 @@ use App\Models\User;
 use App\Models\Vehicle;
 use App\Models\Weapon;
 use Illuminate\Foundation\Testing\RefreshDatabase;
+
 use function Pest\Laravel\get;
 
 uses(RefreshDatabase::class);
@@ -51,9 +52,9 @@ it('gives back successful response for personal', function () {
     Platoon::factory(['section_id' => 1, 'commander_id' => 6])->create();
     Squad::factory(['platoon_id' => 1, 'commander_id' => 7])->create();
 
-    Soldier::factory([ 'squad_id' => 1, 'weapon_id' => 8])->create();
-    Soldier::factory([ 'squad_id' => 1, 'weapon_id' => 9])->create();
-    Soldier::factory([ 'squad_id' => 1, 'weapon_id' => 10])->create();
+    Soldier::factory(['squad_id' => 1, 'weapon_id' => 8])->create();
+    Soldier::factory(['squad_id' => 1, 'weapon_id' => 9])->create();
+    Soldier::factory(['squad_id' => 1, 'weapon_id' => 10])->create();
 
     Vehicle::factory()->count(1)->create();
 

@@ -15,7 +15,6 @@ class Soldier extends Model
      *
      * @var array<string>
      */
-
     protected $fillable = [
         'name',
         'last_name',
@@ -32,7 +31,7 @@ class Soldier extends Model
         'date_of_enlistment',
         'date_of_demobilization',
         'squad_id',
-        'weapon_id'
+        'weapon_id',
     ];
 
     public function squad()
@@ -54,5 +53,4 @@ class Soldier extends Model
     {
         return $this->squad?->platoon?->section?->company?->battalion?->brigade?->army;
     }
-
 }

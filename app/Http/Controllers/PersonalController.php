@@ -7,7 +7,6 @@ use App\Models\Commander;
 use App\Models\Soldier;
 use App\Models\Vehicle;
 use App\Models\Weapon;
-use Illuminate\Http\Request;
 
 class PersonalController extends Controller
 {

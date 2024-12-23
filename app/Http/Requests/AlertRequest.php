@@ -4,8 +4,10 @@ namespace App\Http\Requests;
 
 use Illuminate\Foundation\Http\FormRequest;
 
-class AlertRequest extends FormRequest {
-    public function rules(): array {
+class AlertRequest extends FormRequest
+{
+    public function rules(): array
+    {
         return [
             'type' => 'required|in:air-strike,ground-attack,naval-bombardment',
             'latitude' => 'required|numeric',
@@ -18,11 +20,13 @@ class AlertRequest extends FormRequest {
         ];
     }
 
-    public function authorize(): bool {
+    public function authorize(): bool
+    {
         return true;
     }
 
-    public function messages(): array {
+    public function messages(): array
+    {
         return [
             'type.required' => 'Type is required',
             'type.in' => 'Type must be air-strike, ground-attack or naval-bombardment',

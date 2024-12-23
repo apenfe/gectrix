@@ -18,7 +18,7 @@ return new class extends Migration
             $table->string('tim');
             $table->string('rank');
             $table->string('rank_image')->default('default.jpg'); // ver como mejorar
-            $table->enum('scale', ['oficiales', 'suboficiales','tropa'])->default('suboficiales');
+            $table->enum('scale', ['oficiales', 'suboficiales', 'tropa'])->default('suboficiales');
             $table->string('specialty');
             $table->enum('status', ['baja', 'operativo', 'abatido'])->default('operativo');
             $table->string('email')->unique();

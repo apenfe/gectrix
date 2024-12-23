@@ -7,8 +7,10 @@ use Illuminate\Http\Request;
 use Illuminate\Http\Resources\Json\JsonResource;
 
 /** @mixin Target */
-class TargetResource extends JsonResource {
-    public function toArray(Request $request): array {
+class TargetResource extends JsonResource
+{
+    public function toArray(Request $request): array
+    {
         return [
             'id' => $this->id,
             'priority' => $this->priority,

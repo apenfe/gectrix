@@ -3,10 +3,8 @@
 namespace Database\Seeders;
 
 use App\Models\Commander;
-use App\Models\Company;
 use App\Models\Platoon;
 use App\Models\Section;
-use Illuminate\Database\Console\Seeds\WithoutModelEvents;
 use Illuminate\Database\Seeder;
 
 class PlatoonSeeder extends Seeder
@@ -27,14 +25,14 @@ class PlatoonSeeder extends Seeder
         for ($i = 0; $i < 384; $i++) {
 
             Platoon::create([
-                'name' => 'Pelotón de Infantería nº ' . ($i + 1),
+                'name' => 'Pelotón de Infantería nº '.($i + 1),
                 'description' => 'Pelotón de Infantería ligera',
                 'status' => 'operativa',
                 'max_subordinates' => 2,
                 'current_subordinates' => 2,
                 'combat_logo' => 'platoons/infanteria.jpg',
                 'commander_id' => $generalCommanders[$i]->id,
-                'section_id' => $sections[$i % 128]->id
+                'section_id' => $sections[$i % 128]->id,
             ]);
         }
     }

@@ -6,10 +6,12 @@ use App\Models\Alert;
 use Illuminate\Database\Eloquent\Factories\Factory;
 use Illuminate\Support\Carbon;
 
-class AlertFactory extends Factory {
+class AlertFactory extends Factory
+{
     protected $model = Alert::class;
 
-    public function definition(): array {
+    public function definition(): array
+    {
         return [
             'type' => $this->faker->randomElement(['air-strike', 'ground-attack', 'naval-bombardment']),
             'latitude' => $this->faker->latitude,

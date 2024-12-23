@@ -5,7 +5,6 @@ namespace Database\Seeders;
 use App\Models\Battalion;
 use App\Models\Commander;
 use App\Models\Regiment;
-use Illuminate\Database\Console\Seeds\WithoutModelEvents;
 use Illuminate\Database\Seeder;
 
 class BattalionSeeder extends Seeder
@@ -32,7 +31,7 @@ class BattalionSeeder extends Seeder
                 'current_subordinates' => 4,
                 'combat_logo' => 'battalions/infanteria.jpg',
                 'commander_id' => $generalCommanders[0]->id,
-                'regiment_id' => $regiments[0]->id
+                'regiment_id' => $regiments[0]->id,
             ],
             [
                 'name' => 'Batallón de Infantería nº 2',
@@ -42,7 +41,7 @@ class BattalionSeeder extends Seeder
                 'current_subordinates' => 4,
                 'combat_logo' => 'battalions/infanteria.jpg',
                 'commander_id' => $generalCommanders[1]->id,
-                'regiment_id' => $regiments[0]->id
+                'regiment_id' => $regiments[0]->id,
             ],
             [
                 'name' => 'Batallón de Infantería nº 3',
@@ -52,7 +51,7 @@ class BattalionSeeder extends Seeder
                 'current_subordinates' => 4,
                 'combat_logo' => 'battalions/infanteria.jpg',
                 'commander_id' => $generalCommanders[2]->id,
-                'regiment_id' => $regiments[1]->id
+                'regiment_id' => $regiments[1]->id,
             ],
             [
                 'name' => 'Batallón de Infantería nº 4',
@@ -62,7 +61,7 @@ class BattalionSeeder extends Seeder
                 'current_subordinates' => 4,
                 'combat_logo' => 'battalions/infanteria.jpg',
                 'commander_id' => $generalCommanders[3]->id,
-                'regiment_id' => $regiments[1]->id
+                'regiment_id' => $regiments[1]->id,
             ],
             [
                 'name' => 'Batallón de Infantería nº 5',
@@ -72,7 +71,7 @@ class BattalionSeeder extends Seeder
                 'current_subordinates' => 4,
                 'combat_logo' => 'battalions/infanteria.jpg',
                 'commander_id' => $generalCommanders[4]->id,
-                'regiment_id' => $regiments[2]->id
+                'regiment_id' => $regiments[2]->id,
             ],
             [
                 'name' => 'Batallón de Infantería nº 6',
@@ -82,7 +81,7 @@ class BattalionSeeder extends Seeder
                 'current_subordinates' => 4,
                 'combat_logo' => 'battalions/infanteria.jpg',
                 'commander_id' => $generalCommanders[5]->id,
-                'regiment_id' => $regiments[2]->id
+                'regiment_id' => $regiments[2]->id,
             ],
             [
                 'name' => 'Batallón de Infantería nº 7',
@@ -92,7 +91,7 @@ class BattalionSeeder extends Seeder
                 'current_subordinates' => 4,
                 'combat_logo' => 'battalions/infanteria.jpg',
                 'commander_id' => $generalCommanders[6]->id,
-                'regiment_id' => $regiments[3]->id
+                'regiment_id' => $regiments[3]->id,
             ],
             [
                 'name' => 'Batallón de Infantería nº 8',
@@ -102,7 +101,7 @@ class BattalionSeeder extends Seeder
                 'current_subordinates' => 4,
                 'combat_logo' => 'battalions/infanteria.jpg',
                 'commander_id' => $generalCommanders[7]->id,
-                'regiment_id' => $regiments[3]->id
+                'regiment_id' => $regiments[3]->id,
             ],
 
         ];

@@ -4,9 +4,7 @@ namespace Database\Seeders;
 
 use App\Models\Commander;
 use App\Models\Platoon;
-use App\Models\Section;
 use App\Models\Squad;
-use Illuminate\Database\Console\Seeds\WithoutModelEvents;
 use Illuminate\Database\Seeder;
 
 class SquadSeeder extends Seeder
@@ -27,14 +25,14 @@ class SquadSeeder extends Seeder
         for ($i = 0; $i < 768; $i++) {
 
             Squad::create([
-                'name' => 'Escuadra de Infantería nº ' . ($i + 1),
+                'name' => 'Escuadra de Infantería nº '.($i + 1),
                 'description' => 'Escuadra de Infantería ligera',
                 'status' => 'operativa',
                 'max_subordinates' => 4,
                 'current_subordinates' => 4,
                 'combat_logo' => 'squads/infanteria.jpg',
                 'commander_id' => $generalCommanders[$i]->id,
-                'platoon_id' => $platoons[$i % 384]->id
+                'platoon_id' => $platoons[$i % 384]->id,
             ]);
         }
     }

@@ -5,9 +5,10 @@ namespace Database\Seeders;
 use App\Models\Alert;
 use Illuminate\Database\Seeder;
 
-class AlertSeeder extends Seeder {
-
-    public function run(): void {
+class AlertSeeder extends Seeder
+{
+    public function run(): void
+    {
         $alerts = [
             [
                 'type' => 'air-strike',
@@ -17,7 +18,7 @@ class AlertSeeder extends Seeder {
                 'start_date' => now(),
                 'end_date' => now()->addDays(1),
                 'description' => 'Air strike in Madrid',
-                'danger_level' => 'high'
+                'danger_level' => 'high',
             ],
             [
                 'type' => 'ground-attack',
@@ -27,7 +28,7 @@ class AlertSeeder extends Seeder {
                 'start_date' => now(),
                 'end_date' => now()->addDays(1),
                 'description' => 'Ground attack in Barcelona',
-                'danger_level' => 'medium'
+                'danger_level' => 'medium',
             ],
             [
                 'type' => 'naval-bombardment',
@@ -37,8 +38,8 @@ class AlertSeeder extends Seeder {
                 'start_date' => now(),
                 'end_date' => now()->addDays(1),
                 'description' => 'Naval bombardment in Sevilla',
-                'danger_level' => 'low'
-            ]
+                'danger_level' => 'low',
+            ],
         ];
 
         foreach ($alerts as $alert) {

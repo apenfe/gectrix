@@ -24,7 +24,7 @@ class Weapon extends Model
         'maxRange',
         'weight',
         'latitude',
-        'longitude'
+        'longitude',
     ];
 
     public function vehicle()
@@ -41,5 +41,4 @@ class Weapon extends Model
     {
         return $this->hasOne(Commander::class, 'weapon_id');
     }
-
 }

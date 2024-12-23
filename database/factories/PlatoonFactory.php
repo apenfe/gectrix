@@ -17,6 +17,7 @@ class PlatoonFactory extends Factory
     public function definition(): array
     {
         $logo = 'combat_icons/platoon.png';
+
         return [
             'name' => $this->faker->name,
             'description' => $this->faker->text,

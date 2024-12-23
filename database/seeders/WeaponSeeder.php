@@ -3,7 +3,6 @@
 namespace Database\Seeders;
 
 use App\Models\Weapon;
-use Illuminate\Database\Console\Seeds\WithoutModelEvents;
 use Illuminate\Database\Seeder;
 use Illuminate\Support\Str;
 
@@ -24,7 +23,7 @@ class WeaponSeeder extends Seeder
             'description' => 'Standard issue Glock 17 semi-automatic pistol',
             'maxRange' => 50,
             'weight' => 0.625,
-            'quantity' => 200 // Cuántas copias queremos de esta arma
+            'quantity' => 200, // Cuántas copias queremos de esta arma
         ],
         [
             'brand' => 'Beretta',
@@ -39,7 +38,7 @@ class WeaponSeeder extends Seeder
             'description' => 'Beretta 92FS service pistol',
             'maxRange' => 50,
             'weight' => 0.95,
-            'quantity' => 500
+            'quantity' => 500,
         ],
         // Rifles de asalto
         [
@@ -55,7 +54,7 @@ class WeaponSeeder extends Seeder
             'description' => 'M4A1 carbine standard issue rifle',
             'maxRange' => 500,
             'weight' => 2.88,
-            'quantity' => 200
+            'quantity' => 200,
         ],
         [
             'brand' => 'FN Herstal',
@@ -70,7 +69,7 @@ class WeaponSeeder extends Seeder
             'description' => 'Special Operations Forces Combat Assault Rifle',
             'maxRange' => 600,
             'weight' => 3.72,
-            'quantity' => 300
+            'quantity' => 300,
         ],
         // Ametralladoras
         [
@@ -86,7 +85,7 @@ class WeaponSeeder extends Seeder
             'description' => 'Squad Automatic Weapon light machine gun',
             'maxRange' => 800,
             'weight' => 7.5,
-            'quantity' => 120
+            'quantity' => 120,
         ],
         // Rifles de francotirador
         [
@@ -102,7 +101,7 @@ class WeaponSeeder extends Seeder
             'description' => 'Arctic Warfare Magnum sniper rifle',
             'maxRange' => 1100,
             'weight' => 6.5,
-            'quantity' => 50
+            'quantity' => 50,
         ],
         // fusil de asalto
         [
@@ -118,7 +117,7 @@ class WeaponSeeder extends Seeder
             'description' => 'Special Operations Forces Combat Assault Rifle',
             'maxRange' => 1000,
             'weight' => 3.5,
-            'quantity' => 3072
+            'quantity' => 3072,
         ],
     ];
 
@@ -141,6 +140,6 @@ class WeaponSeeder extends Seeder
         }
 
         // Crear algunas armas aleatorias adicionales usando el factory directamente
-       // Weapon::factory(50)->create(); // Crear 50 armas aleatorias adicionales
+        // Weapon::factory(50)->create(); // Crear 50 armas aleatorias adicionales
     }
 }

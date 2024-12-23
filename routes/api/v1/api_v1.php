@@ -4,13 +4,13 @@ use App\Http\Controllers\Api\V1\AlertController;
 use App\Http\Controllers\Api\V1\auth\AuthController;
 use App\Http\Controllers\Api\V1\TargetController;
 
-Route::apiResource('targets', TargetController::class);
+//Route::apiResource('targets', TargetController::class);
 
-Route::middleware(['throttle:targets'])->group(function () {
-    Route::apiResource('targets', TargetController::class)->except(['update', 'destroy', 'store']);
-    Route::post('targets', [TargetController::class, 'store'])->middleware('auth:sanctum');
-    Route::delete('targets/{target}', [TargetController::class, 'destroy'])->middleware('auth:sanctum');
-    Route::put('targets/{target}', [TargetController::class, 'update'])->middleware('auth:sanctum');
+Route::middleware(['throttle:targets', 'auth:sanctum'])->group(function () {
+    Route::apiResource('targets', TargetController::class)->except(['update', 'destroy', 'store']);//->middleware('auth:sanctum');
+    Route::post('targets', [TargetController::class, 'store']);
+    Route::delete('targets/{target}', [TargetController::class, 'destroy']);
+    Route::put('targets/{target}', [TargetController::class, 'update']);
     Route::post('targets/position', [TargetController::class, 'position']);
 });
 

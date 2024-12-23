@@ -88,5 +88,4 @@ class CommanderController extends Controller
         return redirect()->route('personal.commanders')
             ->with('success', 'Commander killed successfully');
     }
-
 }

@@ -11,6 +11,7 @@ class VehicleController extends Controller
     public function index()
     {
         $vehicles = Vehicle::paginate(10);
+
         return view('personal.vehicles.submodule_vehicles', compact('vehicles'));
     }
 
@@ -65,7 +66,7 @@ class VehicleController extends Controller
         ]);
 
         if ($vehicle->image) {
-            Storage::disk('public')->delete('private/vehicles/' . $vehicle->image);
+            Storage::disk('public')->delete('private/vehicles/'.$vehicle->image);
         }
 
         $filename = $request->file('image')->getClientOriginalName();

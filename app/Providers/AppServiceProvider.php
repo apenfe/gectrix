@@ -35,7 +35,7 @@ class AppServiceProvider extends ServiceProvider
             return Limit::perMinute(5)->by($request->user()?->id ?: $request->ip())->response(function () {
                 return response()->json([
                     'status' => 429,
-                    'message' => 'Too many requests'
+                    'message' => 'Too many requests',
                 ], 429);
             });
         });
@@ -49,7 +49,7 @@ class AppServiceProvider extends ServiceProvider
             return Limit::perMinute(10)->by($request->user()?->id ?: $request->ip())->response(function () {
                 return response()->json([
                     'status' => 429,
-                    'message' => 'Too many requests'
+                    'message' => 'Too many requests',
                 ], 429);
             });
         });

@@ -5,8 +5,6 @@ namespace Database\Seeders;
 use App\Models\Battalion;
 use App\Models\Commander;
 use App\Models\Company;
-use App\Models\Regiment;
-use Illuminate\Database\Console\Seeds\WithoutModelEvents;
 use Illuminate\Database\Seeder;
 
 class CompanySeeder extends Seeder
@@ -26,18 +24,18 @@ class CompanySeeder extends Seeder
         // Insertar los regimientos en la base de datos
         for ($i = 0; $i < 32; $i++) {
 
-            	// Asignar un batallón a cada compañía teniendo en cuanta que son 8
+            // Asignar un batallón a cada compañía teniendo en cuanta que son 8
             $battalionId = $battalions[$i % 8]->id;
 
             Company::create([
-                'name' => 'Compañía de Infantería nº ' . ($i + 1),
+                'name' => 'Compañía de Infantería nº '.($i + 1),
                 'description' => 'Compañía de Infantería ligera',
                 'status' => 'operativa',
                 'max_subordinates' => 4,
                 'current_subordinates' => 4,
                 'combat_logo' => 'companies/infanteria.jpg',
                 'commander_id' => $generalCommanders[$i]->id,
-                'battalion_id' => $battalionId
+                'battalion_id' => $battalionId,
             ]);
         }
     }

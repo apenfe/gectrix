@@ -5,9 +5,10 @@ namespace Database\Seeders;
 use App\Models\Target;
 use Illuminate\Database\Seeder;
 
-class TargetSeeder extends Seeder {
-
-    public function run(): void {
+class TargetSeeder extends Seeder
+{
+    public function run(): void
+    {
         // Objetivos a crear
         $targets = [
             [
@@ -22,7 +23,7 @@ class TargetSeeder extends Seeder {
                 'logo' => 'https://via.placeholder.com/150',
                 'setup_date' => now(),
                 'deactivation_date' => now()->addDays(1),
-                'action' => 'attack'
+                'action' => 'attack',
             ],
             [
                 'priority' => 'medium',
@@ -36,7 +37,7 @@ class TargetSeeder extends Seeder {
                 'logo' => 'https://via.placeholder.com/150',
                 'setup_date' => now(),
                 'deactivation_date' => now()->addDays(1),
-                'action' => 'defense'
+                'action' => 'defense',
             ],
             [
                 'priority' => 'high',
@@ -50,8 +51,8 @@ class TargetSeeder extends Seeder {
                 'logo' => 'https://via.placeholder.com/150',
                 'setup_date' => now(),
                 'deactivation_date' => now()->addDays(1),
-                'action' => 'reconnaissance'
-            ]
+                'action' => 'reconnaissance',
+            ],
         ];
 
         // Crear objetivos

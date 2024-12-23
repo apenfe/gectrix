@@ -20,7 +20,7 @@ class Platoon extends Model
         'longitude',
         'combat_logo',
         'commander_id',
-        'section_id'
+        'section_id',
     ];
 
     public function commander()

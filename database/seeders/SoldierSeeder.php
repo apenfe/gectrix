@@ -2,12 +2,9 @@
 
 namespace Database\Seeders;
 
-use App\Models\Commander;
-use App\Models\Platoon;
 use App\Models\Soldier;
 use App\Models\Squad;
 use App\Models\Weapon;
-use Illuminate\Database\Console\Seeds\WithoutModelEvents;
 use Illuminate\Database\Seeder;
 
 class SoldierSeeder extends Seeder
@@ -37,7 +34,7 @@ class SoldierSeeder extends Seeder
                 'date_of_death' => null,
                 'date_of_demobilization' => null,
                 'squad_id' => $squads[$i % 768]->id,
-                'weapon_id' => $freeWeapons[$i]->id
+                'weapon_id' => $freeWeapons[$i]->id,
             ]);
 
         }

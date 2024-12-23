@@ -4,7 +4,6 @@ namespace App\Http\Controllers;
 
 use App\Http\Requests\WeaponRequest;
 use App\Models\Weapon;
-use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Storage;
 
 class WeaponController extends Controller
@@ -12,6 +11,7 @@ class WeaponController extends Controller
     public function index()
     {
         $weapons = Weapon::paginate(21);
+
         return view('personal.weapons.submodule_weapons', compact('weapons'));
     }
 
@@ -31,7 +31,7 @@ class WeaponController extends Controller
             $validatedData['image'] = $filename;  // Agregamos e
         }
 
-        Weapon::create( $validatedData );
+        Weapon::create($validatedData);
 
         return redirect()->route('weapons.index')->with('success', 'Weapon created successfully.');
     }
@@ -48,7 +48,7 @@ class WeaponController extends Controller
         if ($request->hasFile('image')) {
 
             if ($weapon->image) {
-                Storage::disk('public')->delete('private/weapons/' . $weapon->image);
+                Storage::disk('public')->delete('private/weapons/'.$weapon->image);
             }
 
             $filename = $request->file('image')->getClientOriginalName();

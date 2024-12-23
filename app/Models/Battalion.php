@@ -20,7 +20,7 @@ class Battalion extends Model
         'longitude',
         'combat_logo',
         'commander_id',
-        'regiment_id'
+        'regiment_id',
     ];
 
     public function commander()
@@ -37,5 +37,4 @@ class Battalion extends Model
     {
         return $this->hasMany(Company::class);
     }
-
 }

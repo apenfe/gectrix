@@ -57,5 +57,5 @@
       1. se debe poder hacer consultas generales y además dando posición exacta. (OK)
       2. Cachear las consultas. (OK)
       3. Crear limitación de uso de la API. (OK)
-      4. Crear autenticación de la API por defecto con permisos limitados para pública '''********'''
+      4. Crear autenticación de la API por defecto con permisos limitados para pública '''********''' (OK)
    3. API privada para objetivos y puntos estratégicos. '''********'''

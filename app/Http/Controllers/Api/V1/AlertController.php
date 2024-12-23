@@ -11,10 +11,8 @@ use Illuminate\Support\Facades\Cache;
 
 class AlertController extends Controller
 {
-
     public function index()
     {
-
 
         // Get all active alerts from cache
         $alerts = Cache::rememberForever('alerts', function () {
@@ -23,21 +21,21 @@ class AlertController extends Controller
                 ->get();
         });
 
-        if( $alerts->isEmpty() ) {
+        if ($alerts->isEmpty()) {
             return response()->json(['message' => 'No active alerts'], 200);
         }
 
         // devolver alertResource con los datos de la caché
         return response()->json([
-            'message'=> count($alerts).' active alerts',
+            'message' => count($alerts).' active alerts',
             'data' => alertResource::collection($alerts),
-            ], 200);
+        ], 200);
     }
 
     public function store(AlertRequest $request)
     {
         // Only token can-create can create an alert
-        if (!$request->user()->tokenCan('can-create')) {
+        if (! $request->user()->tokenCan('can-create')) {
             return response()->json(['message' => 'Unauthorized'], 403);
         }
 
@@ -51,11 +49,11 @@ class AlertController extends Controller
     {
         $alert = Alert::find($id);
 
-        if( !$alert ) {
+        if (! $alert) {
             return response()->json(['message' => 'Alert not found'], 404);
         }
 
-        if( $alert->end_date < now() ) {
+        if ($alert->end_date < now()) {
             return response()->json(['message' => 'Alert has ended'], 200);
         }
 
@@ -65,13 +63,13 @@ class AlertController extends Controller
     public function update(AlertRequest $request, $id)
     {
         // Only token can-create can create an alert
-        if (!$request->user()->tokenCan('can-update')) {
+        if (! $request->user()->tokenCan('can-update')) {
             return response()->json(['message' => 'Unauthorized'], 403);
         }
 
         $alert = Alert::find($id);
 
-        if( !$alert ) {
+        if (! $alert) {
             return response()->json(['message' => 'Alert not found'], 404);
         }
 
@@ -82,13 +80,13 @@ class AlertController extends Controller
 
     public function destroy(Request $request, $id)
     {
-        if (!$request->user()->tokenCan('can-delete')) {
+        if (! $request->user()->tokenCan('can-delete')) {
             return response()->json(['message' => 'Unauthorized'], 403);
         }
 
         $alert = Alert::find($id);
 
-        if (!$alert) {
+        if (! $alert) {
             return response()->json(['message' => 'Alert not found'], 404);
         }
 
@@ -110,19 +108,18 @@ class AlertController extends Controller
 
         foreach ($alerts as $alert) {
             $distancia = Alert::calcularDistancia($position['latitude'], $position['longitude'], $alert->latitude, $alert->longitude);
-            if( $distancia <= $alert->radius ) {
+            if ($distancia <= $alert->radius) {
                 $result[] = $alert;
             }
         }
 
-        if( !$result ) {
+        if (! $result) {
             return response()->json(['message' => 'No alerts in this position'], 404);
         }
 
         return response()->json([
             'data' => alertResource::collection($result),
-            'message'=> 'Alert in this position',
+            'message' => 'Alert in this position',
         ], 200);
     }
-
 }

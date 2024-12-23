@@ -10,6 +10,7 @@ class SoldierController extends Controller
     public function index()
     {
         $soldiers = Soldier::paginate(20);
+
         return view('personal.soldiers.submodule_soldiers', compact('soldiers'));
     }
 
@@ -86,5 +87,4 @@ class SoldierController extends Controller
 
         return redirect()->back()->with('status', 'Fecha de fallecimiento actualizada');
     }
-
 }

@@ -17,7 +17,7 @@ return new class extends Migration
             $table->string('model');
             $table->string('caliber');
             $table->enum('type', ['pistol', 'rifle', 'machine gun', 'sniper rifle', 'grenade launcher', 'rocket launcher', 'mortar', 'missile launcher', 'laser gun', 'plasma gun', 'ion gun', 'microwave gun']);
-            $table->enum('action', ['one-shot','non-automatic', 'semi-automatic', 'automatic']);
+            $table->enum('action', ['one-shot', 'non-automatic', 'semi-automatic', 'automatic']);
             $table->enum('status', ['active', 'inactive'])->default('active');
             $table->unsignedInteger('price')->default(0);
             $table->string('deviceId')->unique();

@@ -6,10 +6,12 @@ use App\Models\Target;
 use Illuminate\Database\Eloquent\Factories\Factory;
 use Illuminate\Support\Carbon;
 
-class TargetFactory extends Factory {
+class TargetFactory extends Factory
+{
     protected $model = Target::class;
 
-    public function definition(): array {
+    public function definition(): array
+    {
         return [
             'priority' => $this->faker->randomElement(['low', 'medium', 'high']),
             'status' => $this->faker->boolean(),

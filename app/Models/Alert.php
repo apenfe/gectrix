@@ -5,7 +5,8 @@ namespace App\Models;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
 
-class Alert extends Model {
+class Alert extends Model
+{
     use HasFactory;
 
     protected $fillable = [
@@ -16,12 +17,12 @@ class Alert extends Model {
         'start_date',
         'end_date',
         'description',
-        'danger_level'
+        'danger_level',
     ];
 
     protected $casts = [
         'start_date' => 'datetime',
-        'end_date' => 'datetime'
+        'end_date' => 'datetime',
     ];
 
     public static function calcularDistancia($lat1, $lon1, $lat2, $lon2)

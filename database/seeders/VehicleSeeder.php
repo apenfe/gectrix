@@ -4,9 +4,7 @@ namespace Database\Seeders;
 
 use App\Models\Vehicle;
 use App\Models\Weapon;
-use Illuminate\Database\Console\Seeds\WithoutModelEvents;
 use Illuminate\Database\Seeder;
-use Illuminate\Support\Str;
 
 class VehicleSeeder extends Seeder
 {
@@ -21,7 +19,7 @@ class VehicleSeeder extends Seeder
             'price' => 30000,
             'image' => 'vehicles/jeep.png',
             'description' => 'Off-road vehicle',
-            'quantity' => 10
+            'quantity' => 10,
         ],
         // Tanques
         [
@@ -33,7 +31,7 @@ class VehicleSeeder extends Seeder
             'price' => 5000000,
             'image' => 'vehicles/tank.jpeg',
             'description' => 'Main battle tank',
-            'quantity' => 5
+            'quantity' => 5,
         ],
         // 8X8
         [
@@ -45,8 +43,8 @@ class VehicleSeeder extends Seeder
             'price' => 1000000,
             'image' => 'vehicles/truck.jpeg',
             'description' => 'Armored personnel carrier',
-            'quantity' => 5
-        ]
+            'quantity' => 5,
+        ],
 
     ];
 
@@ -63,7 +61,7 @@ class VehicleSeeder extends Seeder
             for ($i = 0; $i < $quantity; $i++) {
                 Vehicle::factory()->create([
                     ...$vehicleData,
-                    'weapon_id' => Weapon::doesntHave('commander')->pluck('id')->random()
+                    'weapon_id' => Weapon::doesntHave('commander')->pluck('id')->random(),
                 ]);
             }
         }

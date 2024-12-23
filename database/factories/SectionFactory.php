@@ -17,6 +17,7 @@ class SectionFactory extends Factory
     public function definition(): array
     {
         $logo = 'combat_icons/section.png';
+
         return [
             'name' => $this->faker->name,
             'description' => $this->faker->text,

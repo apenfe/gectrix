@@ -2,7 +2,6 @@
 
 namespace Database\Factories;
 
-use App\Models\Brigade;
 use Illuminate\Database\Eloquent\Factories\Factory;
 
 /**
@@ -17,7 +16,7 @@ class SoldierFactory extends Factory
      */
     public function definition(): array
     {
-        $user = rand(1,99);
+        $user = rand(1, 99);
 
         // obtener la primerA brigada de la que depende el soldado es de tierra, armada, o aire
         $brigade = 'tierra';

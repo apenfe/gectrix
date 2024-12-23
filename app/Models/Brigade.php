@@ -10,7 +10,6 @@ class Brigade extends Model
     /** @use HasFactory<\Database\Factories\BrigadeFactory> */
     use HasFactory;
 
-
     protected $fillable = [
         'name',
         'description',
@@ -22,7 +21,7 @@ class Brigade extends Model
         'longitude',
         'combat_logo',
         'unit_emblem',
-        'commander_id'
+        'commander_id',
     ];
 
     public function commander()
@@ -34,5 +33,4 @@ class Brigade extends Model
     {
         return $this->hasMany(Regiment::class);
     }
-
 }

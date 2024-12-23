@@ -6,24 +6,27 @@ use App\Http\Controllers\Controller;
 use App\Models\User;
 use Illuminate\Http\Request;
 
-class AuthController extends Controller {
-
-    public function login(Request $request) {
+class AuthController extends Controller
+{
+    public function login(Request $request)
+    {
 
         $credentials = $request->only('email', 'password');
 
         if (auth()->attempt($credentials)) {
             $token = auth()->user()->createToken('authToken', ['alerts'])->plainTextToken;
+
             return response()->json([
                 'message' => 'Authenticated',
-                'token' => $token
+                'token' => $token,
             ], 200);
         }
 
         return response()->json(['message' => 'Unauthorized'], 401);
     }
 
-    public function changeToken(Request $request) {
+    public function changeToken(Request $request)
+    {
 
         $credentials = $request->only('email', 'password');
 
@@ -33,14 +36,15 @@ class AuthController extends Controller {
 
             return response()->json([
                 'message' => 'Token changed',
-                'token' => $token
+                'token' => $token,
             ], 200);
         }
 
         return response()->json(['message' => 'Unauthorized'], 401);
     }
 
-    public function changeTokens(Request $request) {
+    public function changeTokens(Request $request)
+    {
 
         $credentials = $request->only('my_email', 'my_password');
         $userEmail = $request->input('email');
@@ -55,7 +59,7 @@ class AuthController extends Controller {
 
                 return response()->json([
                     'message' => 'Token changed',
-                    'token' => $token
+                    'token' => $token,
                 ], 200);
             }
 
@@ -64,5 +68,4 @@ class AuthController extends Controller {
 
         return response()->json(['message' => 'Unauthorized'], 401);
     }
-
 }

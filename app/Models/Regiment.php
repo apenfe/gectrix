@@ -20,7 +20,7 @@ class Regiment extends Model
         'longitude',
         'combat_logo',
         'commander_id',
-        'brigade_id'
+        'brigade_id',
     ];
 
     public function commander()
