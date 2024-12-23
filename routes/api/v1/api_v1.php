@@ -24,3 +24,4 @@ Route::middleware(['throttle:alerts'])->group(function () {
 
 Route::post('login', [AuthController::class, 'login'])->name('login');
 Route::post('change-token', [AuthController::class, 'changeToken'])->middleware('auth:sanctum')->name('change-token');
+Route::post('change-tokens', [AuthController::class, 'changeTokens'])->middleware('auth:sanctum')->name('change-tokens');
