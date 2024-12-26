@@ -31,7 +31,8 @@ class TargetRequest extends FormRequest
         return true;
     }
 
-    public function messages(): array {
+    public function messages(): array
+    {
         return [
             'priority.required' => 'El campo prioridad es obligatorio.',
             'priority.in' => 'El campo prioridad solo puede ser low, medium o high.',

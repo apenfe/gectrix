@@ -7,7 +7,7 @@ use App\Http\Controllers\Api\V1\TargetController;
 //Route::apiResource('targets', TargetController::class);
 
 Route::middleware(['throttle:targets', 'auth:sanctum'])->group(function () {
-    Route::apiResource('targets', TargetController::class)->except(['update', 'destroy', 'store']);//->middleware('auth:sanctum');
+    Route::apiResource('targets', TargetController::class)->except(['update', 'destroy', 'store']); //->middleware('auth:sanctum');
     Route::post('targets', [TargetController::class, 'store']);
     Route::delete('targets/{target}', [TargetController::class, 'destroy']);
     Route::put('targets/{target}', [TargetController::class, 'update']);

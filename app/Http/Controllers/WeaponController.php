@@ -4,7 +4,6 @@ namespace App\Http\Controllers;
 
 use App\Http\Requests\WeaponRequest;
 use App\Models\Weapon;
-use Cache;
 use Illuminate\Support\Facades\Storage;
 
 class WeaponController extends Controller

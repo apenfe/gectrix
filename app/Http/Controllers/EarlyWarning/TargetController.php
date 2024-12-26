@@ -1,10 +1,9 @@
 <?php
 
-namespace App\Http\Controllers\Api\V1;
+namespace App\Http\Controllers\EarlyWarning;
 
 use App\Http\Controllers\Controller;
 use App\Http\Requests\TargetRequest;
-use App\Http\Resources\TargetResource;
 use App\Models\Target;
 use Cache;
 use Illuminate\Support\Facades\Storage;
@@ -13,41 +12,20 @@ class TargetController extends Controller
 {
     public function index()
     {
-
-        // Verificar si el usuario está autenticado
-        if (! auth()->check()) {
-            return response()->json(['message' => 'Unauthorized'], 403);
-        }
-
-        // Verificar si el usuario es administrador
-        if (auth()->user()->role != 'admin') {
-            return response()->json(['message' => 'Unauthorized'], 403);
-        }
-
-        // Get all active alerts from cache
-        $targets = Cache::rememberForever('targets', function () {
-            return Target::all();
+        $targets = Cache::rememberForever('targets_paginates', function () {
+            return Target::paginate(10);
         });
 
-        if ($targets->isEmpty()) {
-            return response()->json(['message' => 'No active targets'], 200);
-        }
+        return view('alerta-temprana.targets.index', compact('targets'));
+    }
 
-        // devolver alertResource con los datos de la caché
-        return response()->json([
-            'message' => count($targets).' active targets',
-            'data' => targetResource::collection($targets),
-        ], 200);
+    public function create()
+    {
+        return view('alerta-temprana.targets.create');
     }
 
     public function store(TargetRequest $request)
     {
-
-        // Verificar si el usuario está autenticado
-        if (! auth()->check() && auth()->user()->role != 'admin') {
-            return response()->json(['message' => 'Unauthorized'], 403);
-        }
-
         // verificar si sube image, guardar la imagen en disco y bbdd
         if ($request->hasFile('image')) {
             $image = $request->file('image');
@@ -69,45 +47,22 @@ class TargetController extends Controller
         // Crear un nuevo target
         $target = Target::create($request->all());
 
-        // devolver alertResource con los datos del nuevo target
-        return response()->json([
-            'message' => 'Target created',
-            'data' => new TargetResource($target),
-        ], 201);
+        // Redirigir a la vista de índice de targets con un mensaje de éxito
+        return redirect()->route('targets.index')->with('success', 'Target created successfully.');
     }
 
     public function show(Target $target)
     {
+        return view('alerta-temprana.targets.show', compact('target'));
+    }
 
-        // Verificar si el usuario está autenticado
-        if (! auth()->check() && auth()->user()->role != 'admin') {
-            return response()->json(['message' => 'Unauthorized'], 403);
-        }
-
-        if (! $target->exists()) {
-            return response()->json(['message' => 'Target not found'], 404);
-        }
-
-        // devolver alertResource con los datos del target
-        return response()->json([
-            'message' => 'Target found',
-            'data' => new TargetResource($target),
-        ], 200);
-
+    public function edit(Target $target)
+    {
+        return view('alerta-temprana.targets.edit', compact('target'));
     }
 
     public function update(TargetRequest $request, Target $target)
     {
-
-        // Verificar si el usuario está autenticado
-        if (! auth()->check() && auth()->user()->role != 'admin') {
-            return response()->json(['message' => 'Unauthorized'], 403);
-        }
-
-        if (! $target->exists()) {
-            return response()->json(['message' => 'Target not found'], 404);
-        }
-
         // verificar si sube image, guardar la imagen usando Storage
         if ($request->hasFile('image')) {
             $image = $request->file('image');
@@ -151,25 +106,12 @@ class TargetController extends Controller
         // Actualizar el target
         $target->update($request->all());
 
-        // devolver alertResource con los datos del target actualizado
-        return response()->json([
-            'message' => 'Target updated',
-            'data' => new TargetResource($target),
-        ], 200);
+        // Redirigir a la vista de índice de targets con un mensaje de éxito
+        return redirect()->route('targets.index')->with('success', 'Target updated successfully.');
     }
 
     public function destroy(Target $target)
     {
-
-        // Verificar si el usuario está autenticado
-        if (! auth()->check() || auth()->user()->role != 'admin') {
-            return response()->json(['message' => 'Unauthorized'], 403);
-        }
-
-        if (! $target->exists()) {
-            return response()->json(['message' => 'Target not found'], 404);
-        }
-
         // borrar la imagen y el logo si existen
         if ($target->image) {
             $image_path = public_path().'/targets/images/'.$target->image;
@@ -188,10 +130,7 @@ class TargetController extends Controller
         // Eliminar el target
         $target->delete();
 
-        // devolver alertResource con los datos del target eliminado
-        return response()->json([
-            'message' => 'Target deleted',
-            'data' => new TargetResource($target),
-        ], 200);
+        // Redirigir a la vista de índice de targets con un mensaje de éxito
+        return redirect()->route('targets.index')->with('success', 'Target deleted successfully.');
     }
 }

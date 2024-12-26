@@ -2,7 +2,9 @@
 
 use App\Http\Controllers\BrigadeController;
 use App\Http\Controllers\CommanderController;
-use App\Http\Controllers\EarlyWarningController;
+use App\Http\Controllers\EarlyWarning\AlertController;
+use App\Http\Controllers\EarlyWarning\EarlyWarningController;
+use App\Http\Controllers\EarlyWarning\TargetController;
 use App\Http\Controllers\PersonalController;
 use App\Http\Controllers\SoldierController;
 use App\Http\Controllers\VehicleController;
@@ -14,6 +16,8 @@ Route::get('/', function () {
 });
 
 Route::get('/early-warning', EarlyWarningController::class)->name('early-warning');
+Route::resource('alerts', AlertController::class);
+Route::resource('targets', TargetController::class);
 
 Route::prefix('personal')->group(function () {
     Route::get('/', [PersonalController::class, 'index'])->name('personal.index');

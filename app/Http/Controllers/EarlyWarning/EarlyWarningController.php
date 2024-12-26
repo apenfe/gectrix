@@ -1,7 +1,8 @@
 <?php
 
-namespace App\Http\Controllers;
+namespace App\Http\Controllers\EarlyWarning;
 
+use App\Http\Controllers\Controller;
 use App\Models\Alert;
 use App\Models\Target;
 use Cache;
@@ -12,11 +13,11 @@ class EarlyWarningController extends Controller
     {
 
         $alerts = Cache::rememberForever('alerts', function () {
-            return Alert::all();
+            return Alert::paginate(3);
         });
 
         $targets = Cache::rememberForever('targets', function () {
-            return Target::all();
+            return Target::paginate(3);
         });
 
         return view('alerta-temprana.module_alert', compact('alerts', 'targets'));

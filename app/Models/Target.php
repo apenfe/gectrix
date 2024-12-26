@@ -21,7 +21,7 @@ class Target extends Model
         'logo',
         'setup_date',
         'deactivation_date',
-        'action'
+        'action',
     ];
 
     protected $hidden = [

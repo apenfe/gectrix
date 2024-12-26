@@ -3,7 +3,6 @@
 namespace App\Http\Controllers;
 
 use App\Models\Soldier;
-use Cache;
 use Illuminate\Http\Request;
 
 class SoldierController extends Controller

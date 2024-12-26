@@ -5,17 +5,20 @@ namespace App\Observers\personal;
 use App\Models\Weapon;
 use Cache;
 
-class WeaponObserver {
-
-    public function created(Weapon $weapon): void {
+class WeaponObserver
+{
+    public function created(Weapon $weapon): void
+    {
         Cache::forget('weapons');
     }
 
-    public function updated(Weapon $weapon): void {
+    public function updated(Weapon $weapon): void
+    {
         Cache::forget('weapons');
     }
 
-    public function deleted(Weapon $weapon): void {
+    public function deleted(Weapon $weapon): void
+    {
         Cache::forget('weapons');
     }
 }

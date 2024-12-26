@@ -40,8 +40,8 @@
    9. Mejorar cacheo de bbdd
 2. Módulo de alerta temprana.
    1. Crear modelos y relaciones. (OK)
-   2. Crear controladores. '''********'''
-   3. Crear rutas. '''********'''
+   2. Crear controladores. '''********''' (OK)
+   3. Crear rutas. '''********''' (OK)
    5. Crear vistas. 
       1. vista general con todos datos.
       2. vista objetivos potenciales.

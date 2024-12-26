@@ -120,7 +120,7 @@ it('can create a target if user is auth and role is admin', function () {
         'deactivation_date' => now()->addDay()->toDateTimeString(),
         'action' => 'attack',
         'image' => $image,
-        'logo' => $logo
+        'logo' => $logo,
     ];
 
     // act
@@ -161,7 +161,7 @@ it('can edit a target if user is auth and role is admin', function () {
         'deactivation_date' => now()->addDay()->toDateTimeString(),
         'action' => 'attack',
         'image' => $image,
-        'logo' => $logo
+        'logo' => $logo,
     ];
 
     // act
