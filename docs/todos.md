@@ -36,7 +36,8 @@
    5. Crear cliente mqtt 
    6. Exportación importación datos con EXCEL/PDF
    7. Implementar leaflet para visualizaciones avanzadas en mapa.
-   8. Cachear tablas
+   8. Cachear tablas (OK)
+   9. Mejorar cacheo de bbdd
 2. Módulo de alerta temprana.
    1. Crear modelos y relaciones. (OK)
    2. Crear controladores. '''********'''

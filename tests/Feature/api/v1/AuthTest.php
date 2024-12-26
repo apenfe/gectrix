@@ -11,7 +11,7 @@ it('gives a basic alerts token to authenticated users', function () {
     $data = ['email' => $user->email, 'password' => 'password'];
 
     // act
-    $response = $this->postJson('/api/v1/login', $data);
+    $response = $this->postJson('/api/v1/loginapi', $data);
 
     // assert
     $response->assertStatus(200);

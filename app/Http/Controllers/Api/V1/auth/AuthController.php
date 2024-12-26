@@ -8,7 +8,7 @@ use Illuminate\Http\Request;
 
 class AuthController extends Controller
 {
-    public function login(Request $request)
+    public function loginapi(Request $request)
     {
 
         $credentials = $request->only('email', 'password');

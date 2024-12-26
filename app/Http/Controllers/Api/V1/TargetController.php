@@ -47,6 +47,24 @@ class TargetController extends Controller
             return response()->json(['message' => 'Unauthorized'], 403);
         }
 
+        // verificar si sube image, guardar la imagen en disco y bbdd
+        if ($request->hasFile('image')) {
+            $image = $request->file('image');
+            $name = time().'.'.$image->getClientOriginalExtension();
+            $destinationPath = public_path('/targets/images');
+            $image->move($destinationPath, $name);
+            $request->merge(['image' => $name]);
+        }
+
+        // verificar si sube logo, guardar el logo en disco y bbdd
+        if ($request->hasFile('logo')) {
+            $image = $request->file('logo');
+            $name = time().'.'.$image->getClientOriginalExtension();
+            $destinationPath = public_path('/targets/logos');
+            $image->move($destinationPath, $name);
+            $request->merge(['logo' => $name]);
+        }
+
         // Crear un nuevo target
         $target = Target::create($request->all());
 
@@ -89,6 +107,36 @@ class TargetController extends Controller
             return response()->json(['message' => 'Target not found'], 404);
         }
 
+        // verificar si sube image, guardar la imagen en disco y bbdd, borrar la anterior si existe
+        if ($request->hasFile('image')) {
+            $image = $request->file('image');
+            $name = time().'.'.$image->getClientOriginalExtension();
+            $destinationPath = public_path('/targets/images');
+            $image->move($destinationPath, $name);
+            $request->merge(['image' => $name]);
+            if ($target->image) {
+                $image_path = public_path().'/targets/images/'.$target->image;
+                if (file_exists($image_path)) {
+                    unlink($image_path);
+                }
+            }
+        }
+
+        // verificar si sube logo, guardar el logo en disco y bbdd, borrar el logo anterior si existe
+        if ($request->hasFile('logo')) {
+            $image = $request->file('logo');
+            $name = time().'.'.$image->getClientOriginalExtension();
+            $destinationPath = public_path('/targets/logos');
+            $image->move($destinationPath, $name);
+            $request->merge(['logo' => $name]);
+            if ($target->logo) {
+                $image_path = public_path().'/targets/logos/'.$target->logo;
+                if (file_exists($image_path)) {
+                    unlink($image_path);
+                }
+            }
+        }
+
         // Actualizar el target
         $target->update($request->all());
 
@@ -109,6 +157,21 @@ class TargetController extends Controller
 
         if (! $target->exists()) {
             return response()->json(['message' => 'Target not found'], 404);
+        }
+
+        // borrar la imagen y el logo si existen
+        if ($target->image) {
+            $image_path = public_path().'/targets/images/'.$target->image;
+            if (file_exists($image_path)) {
+                unlink($image_path);
+            }
+        }
+
+        if ($target->logo) {
+            $image_path = public_path().'/targets/logos/'.$target->logo;
+            if (file_exists($image_path)) {
+                unlink($image_path);
+            }
         }
 
         // Eliminar el target

@@ -17,8 +17,8 @@ return new class extends Migration
             $table->decimal('latitude', 10, 8);
             $table->decimal('longitude', 11, 8);
             $table->unsignedInteger('radius');
-            $table->string('image');
-            $table->string('logo');
+            $table->string('image')->nullable();
+            $table->string('logo')->nullable();
             $table->date('setup_date');
             $table->date('deactivation_date');
             $table->enum('action', ['attack', 'defense', 'reconnaissance']);
