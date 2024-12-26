@@ -10,9 +10,9 @@
         <!-- Fonts -->
         <link rel="preconnect" href="https://fonts.bunny.net">
         <link href="https://fonts.bunny.net/css?family=figtree:400,500,600&display=swap" rel="stylesheet" />
-        <link rel="stylesheet" href="/assets/styles/tailwind.min.css">
-        <link rel="stylesheet" href="/assets/styles/fontawesome/css/all.min.css" />
-        <link rel="stylesheet" href="/assets/styles/highlight.css" />
+        <link rel="stylesheet" href="{{ asset('assets/styles/tailwind.min.css') }}">
+        <link rel="stylesheet" href="{{ asset('assets/styles/fontawesome/css/all.min.css') }}" />
+        <link rel="stylesheet" href="{{ asset('assets/styles/highlight.css') }}" />
 
         <link rel="stylesheet" href="https://unpkg.com/leaflet@1.7.1/dist/leaflet.css" />
 
@@ -30,9 +30,9 @@
             @livewire('navigation-menu')
 
             <!-- Page Heading -->
-            @if (isset($header))
-                <header class="bg-white dark:bg-gray-800 shadow">
-                    <div class="max-w-7xl mx-auto py-6 px-4 sm:px-6 lg:px-8">
+            @if ( isset($header) )
+                <header class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+                    <div class="w-full">
                         {{ $header }}
                     </div>
                 </header>
