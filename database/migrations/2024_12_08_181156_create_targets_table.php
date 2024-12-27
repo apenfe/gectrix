@@ -10,18 +10,18 @@ return new class extends Migration
     {
         Schema::create('targets', function (Blueprint $table) {
             $table->id();
-            $table->enum('priority', ['low', 'medium', 'high']);
-            $table->boolean('status')->default(true);
-            $table->string('name');
-            $table->string('description');
+//            $table->enum('priority', ['low', 'medium', 'high']);
+//            $table->boolean('status')->default(true);
+//            $table->string('name');
+//            $table->string('description');
             $table->decimal('latitude', 10, 8);
             $table->decimal('longitude', 11, 8);
-            $table->unsignedInteger('radius');
-            $table->string('image')->nullable();
+//            $table->unsignedInteger('radius');
+//            $table->string('image')->nullable();
             $table->string('logo')->nullable();
-            $table->date('setup_date');
-            $table->date('deactivation_date');
-            $table->enum('action', ['attack', 'defense', 'reconnaissance']);
+//            $table->date('setup_date');
+//            $table->date('deactivation_date');
+//            $table->enum('action', ['attack', 'defense', 'reconnaissance']);
             $table->timestamps();
         });
     }
