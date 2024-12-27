@@ -43,7 +43,7 @@
    2. Crear controladores. '''********''' (OK)
    3. Crear rutas. '''********''' (OK)
    5. Crear vistas. 
-      1. vista general con todos datos.
+      1. vista general con todos datos. 
       2. vista objetivos potenciales.
       3. vista puntos estratégicos.
       4. vista de alertas.
