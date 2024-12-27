@@ -42,15 +42,17 @@
    1. Crear modelos y relaciones. (OK)
    2. Crear controladores. '''********''' (OK)
    3. Crear rutas. '''********''' (OK)
-   5. Crear vistas. 
-      1. vista general con todos datos. 
-      2. vista objetivos potenciales.
-      3. vista puntos estratégicos.
-      4. vista de alertas.
-   4. Crear cruds manuales de todos ellos.
+   5. Crear vistas. (OK)
+      1. vista general con todos datos. (OK)
+      2. vista objetivos potenciales. (OK)
+      3. vista puntos estratégicos. (OK)
+      4. vista de alertas. (OK)
+   4. Crear cruds manuales de todos ellos. (OK)
    5. Bot de telegram para alertas.
    6. Implementar leaflet para visualizaciones avanzadas en mapa.
    7. Cachear tablas (OK)
+   8. API IMAGENES SATELITE
+   9. MEJORA VISUALIZACION INDEX
 3. Agregar componentes tailwind al proyecto. (OK)
 
 ## 3. API REST
