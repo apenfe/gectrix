@@ -1,4 +1,4 @@
-<div class="w-full md:w-1/3">
+<div class="w-full md:w-1/4">
     <div class="shadow-lg rounded-lg relative flex flex-col min-w-0 break-words bg-white w-full mb-6">
         <div class="relative">
             <img alt="..." class="w-full flex-shrink-0 rounded-t-lg" src="{{ $target->image != null ? asset('/targets/images/'.$target->image) : asset('/targets/images/target.png') }}">

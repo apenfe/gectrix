@@ -13,6 +13,7 @@ class AlertObserver
     public function created(Alert $alert): void
     {
         Cache::forget('alerts');
+        Cache::forget('alerts_paginates');
     }
 
     /**
@@ -21,6 +22,7 @@ class AlertObserver
     public function updated(Alert $alert): void
     {
         Cache::forget('alerts');
+        Cache::forget('alerts_paginates');
     }
 
     /**
@@ -29,5 +31,6 @@ class AlertObserver
     public function deleted(Alert $alert): void
     {
         Cache::forget('alerts');
+        Cache::forget('alerts_paginates');
     }
 }

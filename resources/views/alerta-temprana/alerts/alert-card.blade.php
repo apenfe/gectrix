@@ -1,4 +1,4 @@
-<div class="w-full md:w-1/3">
+<div class="w-full md:w-1/4">
     <div class="shadow-lg rounded-lg relative flex flex-col min-w-0 break-words bg-white w-full mb-6">
         <div class="relative">
             <img alt="..." class="w-full flex-shrink-0 rounded-t-lg" src="https://uy.usembassy.gov/wp-content/uploads/sites/170/2022/12/Alert-Graphics-for-MW_ALERT-750x450.jpg">

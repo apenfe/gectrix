@@ -13,7 +13,7 @@
         </div>
 
         <div class="max-w-[80%] mx-auto sm:px-6 lg:px-8">
-            <div class="bg-white dark:bg-gray-800 overflow-hidden shadow-xl sm:rounded-lg flex flex-row flex-wrap gap-2 p-6">
+            <div class="bg-white dark:bg-gray-800 overflow-hidden shadow-xl sm:rounded-lg flex flex-row flex-wrap gap-4 p-6 justify-center">
                 @foreach( $alerts as $alert )
                     @include('alerta-temprana.alerts.alert-card')
                 @endforeach
