@@ -9,7 +9,7 @@
 
     <div class="py-12">
         <div class="max-w-[90%] mx-auto sm:px-6 lg:px-8 mb-4">
-            <div class="bg-white dark:bg-gray-800 overflow-hidden shadow-xl sm:rounded-lg">
+            <div class="bg-white dark:bg-gray-800 overflow-hidden shadow-xl sm:rounded-lg flex m-auto p-4 gap-6 justify-center">
 
                 @if( $alerts->isEmpty() )
                     <div class="p-6 sm:px-20 bg-white dark:bg-gray-800 border-b border-gray-200 dark:border-gray-700">
@@ -19,17 +19,13 @@
                     </div>
                 @else
                     @foreach( $alerts as $alert )
-                        <div class="p-6 sm:px-20 bg-white dark:bg-gray-800 border-b border-gray-200 dark:border-gray-700">
-                            <div class="flex items center">
-                                <div class="ml-4 text-lg text-gray-600 dark:text-gray-300 leading-7 font-semibold">{{ $alert->radius }}</div>
-                            </div>
-                        </div>
+                        @include('alerta-temprana.alerts.alert-card')
                     @endforeach
                 @endif
             </div>
         </div>
         <div class="max-w-[90%] mx-auto sm:px-6 lg:px-8">
-            <div class="bg-white dark:bg-gray-800 overflow-hidden shadow-xl sm:rounded-lg">
+            <div class="bg-white dark:bg-gray-800 overflow-hidden shadow-xl sm:rounded-lg flex m-auto p-4 gap-6 justify-center">
                 @if( $targets->isEmpty() )
                     <div class="p-6 sm:px-20 bg-white dark:bg-gray-800 border-b border-gray-200 dark:border-gray-700">
                         <div class="flex items center">
@@ -38,11 +34,7 @@
                     </div>
                 @else
                     @foreach( $targets as $target )
-                        <div class="p-6 sm:px-20 bg-white dark:bg-gray-800 border-b border-gray-200 dark:border-gray-700">
-                            <div class="flex items center">
-                                <div class="ml-4 text-lg text-gray-600 dark:text-gray-300 leading-7 font-semibold">{{ $target->name }}</div>
-                            </div>
-                        </div>
+                        @include('alerta-temprana.targets.target-card')
                     @endforeach
                 @endif
             </div>
