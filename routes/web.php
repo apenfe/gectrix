@@ -7,6 +7,7 @@ use App\Http\Controllers\EarlyWarning\EarlyWarningController;
 use App\Http\Controllers\EarlyWarning\TargetController;
 use App\Http\Controllers\PersonalController;
 use App\Http\Controllers\SoldierController;
+use App\Http\Controllers\TelegramController;
 use App\Http\Controllers\VehicleController;
 use App\Http\Controllers\WeaponController;
 use Illuminate\Support\Facades\Route;
@@ -18,6 +19,7 @@ Route::get('/', function () {
 Route::get('/early-warning', EarlyWarningController::class)->name('early-warning');
 Route::resource('alerts', AlertController::class);
 Route::resource('targets', TargetController::class);
+Route::post('/telegram', [TelegramController::class, 'store'])->name('telegram.store');
 
 Route::prefix('personal')->group(function () {
     Route::get('/', [PersonalController::class, 'index'])->name('personal.index');
