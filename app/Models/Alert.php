@@ -46,4 +46,36 @@ class Alert extends Model
 
         return $distancia;
     }
+
+    public function scopeDescription($query, $description)
+    {
+        if ($description) {
+            return $query->where('description', 'like', '%' . $description . '%');
+        }
+        return $query;
+    }
+
+    public function scopeDangerLevel($query, $danger_level)
+    {
+        if ($danger_level) {
+            return $query->where('danger_level', $danger_level);
+        }
+        return $query;
+    }
+
+    public function scopeDateRange($query, $start_date, $end_date)
+    {
+        if ($start_date && $end_date) {
+            return $query->whereBetween('created_at', [$start_date, $end_date]);
+        }
+        return $query;
+    }
+
+    public function scopeType($query, $type)
+    {
+        if ($type) {
+            return $query->where('type', $type);
+        }
+        return $query;
+    }
 }

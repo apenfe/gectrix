@@ -8,6 +8,33 @@
     </x-slot>
 
     <div class="py-12">
+        <div class="max-w-[90%] mx-auto sm:px-6 lg:px-8 bg-white dark:bg-gray-800 overflow-hidden shadow-xl sm:rounded-lg flex m-auto p-4 justify-center mb-4">
+            <form method="GET" action="{{ route('early-warning') }}" class="w-full flex gap-4">
+                <input type="text" name="description" placeholder="Buscar alerta..." class="form-input w-full">
+                <select name="danger_level" class="form-select w-full">
+                    <option value="">Nivel de peligro</option>
+                    <option value="low">Bajo</option>
+                    <option value="medium">Medio</option>
+                    <option value="high">Alto</option>
+                </select>
+{{--                type --}}
+                <select name="type" class="form-select w-full">
+                    <option value="">Tipo de alerta</option>
+                    <option value="air-strike">Ataque aéreo</option>
+                    <option value="ground-attack">Ataque terrestre</option>
+                    <option value="naval-bombardment">Ataque naval</option>
+                </select>
+                {{--                start date --}}
+                <input type="date" name="start_date" class="form-input w-full">
+                {{--                end date --}}
+                <input type="date" name="end_date" class="form-input w-full">
+                <button type="submit" class="btn btn-primary">Buscar</button>
+            </form>
+        </div>
+        <div class="max-w-[90%] mx-auto sm:px-6 lg:px-8 bg-white dark:bg-gray-800 overflow-hidden shadow-xl sm:rounded-lg flex m-auto p-4 justify-center mb-4">
+            <div id="map" class="w-full h-96"></div>
+        </div>
+
         <div class="max-w-[90%] mx-auto sm:px-6 lg:px-8 mb-4">
             <div class="bg-white dark:bg-gray-800 overflow-hidden shadow-xl sm:rounded-lg flex m-auto p-4 gap-6 justify-center">
 
@@ -18,12 +45,13 @@
                         </div>
                     </div>
                 @else
-                    @foreach( $alerts as $alert )
+                    @foreach( $alerts->take(3) as $alert )
                         @include('alerta-temprana.alerts.alert-card')
                     @endforeach
                 @endif
             </div>
         </div>
+
         <div class="max-w-[90%] mx-auto sm:px-6 lg:px-8">
             <div class="bg-white dark:bg-gray-800 overflow-hidden shadow-xl sm:rounded-lg flex m-auto p-4 gap-6 justify-center">
                 @if( $targets->isEmpty() )
@@ -33,12 +61,53 @@
                         </div>
                     </div>
                 @else
-                    @foreach( $targets as $target )
+                    @foreach( $targets->take(3) as $target )
                         @include('alerta-temprana.targets.target-card')
                     @endforeach
                 @endif
             </div>
         </div>
     </div>
+
+    <script>
+        // script para cargar el mapa de leaflet donde se muestran los targets y alertas con su radio de accion
+        var map = L.map('map').setView([{{ $alerts->first()->latitude }}, {{ $alerts->first()->longitude }}], 5);
+
+        L.tileLayer('https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png', {
+            maxZoom: 19,
+        }).addTo(map);
+
+        @foreach( $targets as $target )
+            L.circle([{{ $target->latitude }}, {{ $target->longitude }}], {
+                color: 'red',
+                fillColor: '#00c4ff',
+                fillOpacity: 0.5,
+                radius: {{ $target->radius*1000 }}
+            }).addTo(map).bindPopup("Objetivo: {{ $target->name }}");
+        @endforeach
+
+            // si la alerta esta terminada poner en gris
+        @foreach( $alerts as $alert )
+            L.circle([{{ $alert->latitude }}, {{ $alert->longitude }}], {
+                color: '{{ $alert->end_date <= now() ? "gray" : "blue" }}',
+                fillColor: '{{ $alert->end_date <= now() ? "gray" : "#00c4ff" }}',
+                fillOpacity: 0.5,
+                radius: {{ $alert->radius*1000 }}
+            }).addTo(map).bindPopup("Alerta: {{ $alert->name }}");
+        @endforeach
+
+        // agregar popup a cada target y alerta
+        @foreach( $targets as $target )
+            L.marker([{{ $target->latitude }}, {{ $target->longitude }}]).addTo(map)
+                .bindPopup("Objetivo: {{ $target->name }}");
+        @endforeach
+
+        @foreach( $alerts as $alert )
+            L.marker([{{ $alert->latitude }}, {{ $alert->longitude }}]).addTo(map)
+            .bindPopup("Alerta: {{ $alert->type }}<br>Latitud: {{ $alert->latitude }}<br>Longitud: {{ $alert->longitude }}<br>Radio: {{ $alert->radius }}<br>Descripción: {{ $alert->description }} <br>Danger Level: {{ $alert->danger_level }} <br><a href='{{ route('alerts.show', $alert->id) }}'>Ver detalles</a>");
+        @endforeach
+
+
+    </script>
 
 </x-app-layout>

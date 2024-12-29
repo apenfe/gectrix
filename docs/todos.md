@@ -50,7 +50,8 @@
    4. Crear cruds manuales de todos ellos. (OK)
    5. Bot de telegram para alertas. (OK)
    6. asignar id de telegram a cada usuario y mejorar mensajes telegram (OK)
-   6. Implementar leaflet para visualizaciones avanzadas en mapa.
+   6. Implementar leaflet para visualizaciones avanzadas en mapa. (OK)
+   7. Filtros en mapa 
    7. Cachear tablas (OK)
    8. API IMAGENES SATELITE
    9. MEJORA VISUALIZACION INDEX (OK)
