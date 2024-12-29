@@ -81,6 +81,14 @@
                 @endif
             @endif
         </div>
+
+        {{--    id de telegram    --}}
+        <div class="col-span-6 sm:col-span-4">
+            <x-label for="telegram_id" value="{{ __('Telegram ID') }}" />
+            <x-input id="telegram_id" type="text" class="mt-1 block w-full" wire:model="state.telegram_id" required autocomplete="telegram_id" />
+            <x-input-error for="telegram_id" class="mt-2" />
+        </div>
+
     </x-slot>
 
     <x-slot name="actions">

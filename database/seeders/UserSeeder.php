@@ -17,6 +17,7 @@ class UserSeeder extends Seeder
             'email' => 'admin@admin.admin',
             'password' => bcrypt('12345678Aa*'),
             'role' => 'admin',
+            'telegram_id' => '744214723',
         ]);
 
         User::factory()->create([

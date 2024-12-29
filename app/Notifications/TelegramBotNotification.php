@@ -39,7 +39,7 @@ class TelegramBotNotification extends Notification
     {
         try {
             return (new TelegramMessage)
-                ->to('744214723')
+                ->to(auth()->user()->telegram_id)
                 ->content($this->message);
         }catch (\Exception $e) {
             logger()->error("Error sending telegram message: " . $e->getMessage());

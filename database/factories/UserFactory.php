@@ -37,6 +37,7 @@ class UserFactory extends Factory
             'profile_photo_path' => null,
             'current_team_id' => null,
             'role' => 'user',
+            'telegram_id' => null,
         ];
     }
 

@@ -3,6 +3,7 @@
 namespace App\Http\Controllers\EarlyWarning;
 
 use App\Http\Controllers\Controller;
+use App\Http\Controllers\TelegramController;
 use App\Http\Requests\AlertRequest;
 use App\Models\Alert;
 use Cache;
@@ -31,6 +32,8 @@ class AlertController extends Controller
         // Crear una nueva alerta con los datos validados
         $alert = Alert::create($validated);
 
+        app(TelegramController::class)->store($alert);
+
         // Redirigir a la vista de índice de alertas con un mensaje de éxito
         return redirect()->route('alerts.index')->with('success', 'Alerta creada exitosamente.');
     }
@@ -52,6 +55,8 @@ class AlertController extends Controller
 
         // Actualizar la alerta con los datos validados
         $alert->update($validated);
+
+        app(TelegramController::class)->store($alert);
 
         // Redirigir a la vista de índice de alertas con un mensaje de éxito
         return redirect()->route('alerts.index')->with('success', 'Alerta actualizada exitosamente.');

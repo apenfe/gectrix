@@ -11,9 +11,9 @@ uses(RefreshDatabase::class);
 
 it('shows alerts overview', function () {
     // arrange
-    $firstAlert = Alert::factory()->create(['radius' => 100]);
-    $secondAlert = Alert::factory()->create(['radius' => 200]);
-    $thirdAlert = Alert::factory()->create(['radius' => 300]);
+    $firstAlert = Alert::factory()->create(['danger_level' => 'high']);
+    $secondAlert = Alert::factory()->create(['danger_level' => 'medium']);
+    $thirdAlert = Alert::factory()->create(['danger_level' => 'low']);
 
     $user = User::factory()->create();
     $this->actingAs($user);
@@ -24,9 +24,9 @@ it('shows alerts overview', function () {
     get(route('early-warning'))
         ->assertOk()
         ->assertSeeText([
-            $firstAlert->radius,
-            $secondAlert->radius,
-            $thirdAlert->radius,
+            $firstAlert->danger_level,
+            $secondAlert->danger_level,
+            $thirdAlert->danger_level,
         ]);
 });
 

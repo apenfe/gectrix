@@ -48,7 +48,8 @@
       3. vista puntos estratégicos. (OK)
       4. vista de alertas. (OK)
    4. Crear cruds manuales de todos ellos. (OK)
-   5. Bot de telegram para alertas.
+   5. Bot de telegram para alertas. (OK)
+   6. asignar id de telegram a cada usuario y mejorar mensajes telegram (OK)
    6. Implementar leaflet para visualizaciones avanzadas en mapa.
    7. Cachear tablas (OK)
    8. API IMAGENES SATELITE
