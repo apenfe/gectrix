@@ -25,9 +25,23 @@ class EarlyWarningController extends Controller
             ->type($type)
             ->get();
 
-        $targets = Cache::rememberForever('targets', function () {
-            return Target::all();
-        });
+        $priority = $request->input('priority');
+        $status = $request->input('status');
+        $name = $request->input('name');
+        $description = $request->input('description');
+        $setup_date = $request->input('setup_date');
+        $deactivation_date = $request->input('deactivation_date');
+        $action = $request->input('action');
+
+        $targets = Target::query()
+            ->priority($priority)
+            ->status($status)
+            ->name($name)
+            ->description($description)
+            ->setupDate($setup_date)
+            ->deactivationDate($deactivation_date)
+            ->action($action)
+            ->get();
 
         return view('alerta-temprana.module_alert', compact('alerts', 'targets'));
     }

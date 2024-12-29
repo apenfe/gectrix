@@ -28,4 +28,60 @@ class Target extends Model
         'created_at',
         'updated_at',
     ];
+
+    public function scopePriority($query, $priority)
+    {
+        if ($priority) {
+            return $query->where('priority', $priority);
+        }
+        return $query;
+    }
+
+    public function scopeStatus($query, $status)
+    {
+        if ($status) {
+            return $query->where('status', $status);
+        }
+        return $query;
+    }
+
+    public function scopeName($query, $name)
+    {
+        if ($name) {
+            return $query->where('name', 'like', '%' . $name . '%');
+        }
+        return $query;
+    }
+
+    public function scopeDescription($query, $description)
+    {
+        if ($description) {
+            return $query->where('description', 'like', '%' . $description . '%');
+        }
+        return $query;
+    }
+
+    public function scopeSetupDate($query, $setup_date)
+    {
+        if ($setup_date) {
+            return $query->whereDate('setup_date', $setup_date);
+        }
+        return $query;
+    }
+
+    public function scopeDeactivationDate($query, $deactivation_date)
+    {
+        if ($deactivation_date) {
+            return $query->whereDate('deactivation_date', $deactivation_date);
+        }
+        return $query;
+    }
+
+    public function scopeAction($query, $action)
+    {
+        if ($action) {
+            return $query->where('action', $action);
+        }
+        return $query;
+    }
 }
