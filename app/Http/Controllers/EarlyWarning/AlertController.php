@@ -6,15 +6,24 @@ use App\Http\Controllers\Controller;
 use App\Http\Controllers\TelegramController;
 use App\Http\Requests\AlertRequest;
 use App\Models\Alert;
-use Cache;
+use Illuminate\Http\Request;
 
 class AlertController extends Controller
 {
-    public function index()
+    public function index(Request $request)
     {
-        $alerts = Cache::rememberForever('alerts_paginates', function () {
-            return Alert::paginate(10);
-        });
+        $type = $request->input('type');
+        $start_date = $request->input('start_date');
+        $end_date = $request->input('end_date');
+        $description = $request->input('description');
+        $danger_level = $request->input('danger_level');
+
+        $alerts = Alert::query()
+            ->description($description)
+            ->dangerLevel($danger_level)
+            ->dateRange($start_date, $end_date)
+            ->type($type)
+            ->paginate(9);
 
         return view('alerta-temprana.alerts.index', compact('alerts'));
     }

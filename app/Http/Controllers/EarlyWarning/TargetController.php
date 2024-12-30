@@ -6,15 +6,30 @@ use App\Http\Controllers\Controller;
 use App\Http\Requests\TargetRequest;
 use App\Models\Target;
 use Cache;
+use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Storage;
 
 class TargetController extends Controller
 {
-    public function index()
+    public function index(Request $request)
     {
-        $targets = Cache::rememberForever('targets_paginates', function () {
-            return Target::paginate(10);
-        });
+        $priority = $request->input('priority');
+        $status = $request->input('status');
+        $name = $request->input('name');
+        $description = $request->input('description');
+        $setup_date = $request->input('setup_date');
+        $deactivation_date = $request->input('deactivation_date');
+        $action = $request->input('action');
+
+        $targets = Target::query()
+            ->priority($priority)
+            ->status($status)
+            ->name($name)
+            ->description($description)
+            ->setupDate($setup_date)
+            ->deactivationDate($deactivation_date)
+            ->action($action)
+            ->paginate(9);
 
         return view('alerta-temprana.targets.index', compact('targets'));
     }

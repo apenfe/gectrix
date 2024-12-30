@@ -7,9 +7,9 @@
 
     <div class="py-12 relative">
         <div class="max-w-[80%] mx-auto sm:px-6 lg:px-8">
-            <div class="bg-white dark:bg-gray-800 overflow-hidden shadow-xl sm:rounded-lg flex flex-row flex-wrap gap-2 p-6">
+            <div class="bg-white dark:bg-gray-800 overflow-hidden shadow-xl sm:rounded-lg p-6 mb-4 m-auto">
                 <!-- Columna de información -->
-                <div class="w-full md:w-1/2 space-y-4">
+                <div class="w-full md:w-4/4 space-y-4">
                     <!-- Tipo de Alerta -->
                     <div class="bg-gray-100 dark:bg-gray-700 rounded-lg p-4">
                         <h3 class="text-lg font-semibold text-gray-700 dark:text-gray-300 mb-2">Tipo de Alerta</h3>
@@ -62,11 +62,18 @@
                 </div>
 
                 <!-- Columna del mapa -->
-                <div class="w-full md:w-1/2">
+                <div class="w-full md:w-4/4 mt-4">
                     <div class="bg-gray-100 dark:bg-gray-700 rounded-lg p-4 h-full">
                         <h3 class="text-lg font-semibold text-gray-700 dark:text-gray-300 mb-2">Ubicación</h3>
                         <div id="map" class="h-[400px] rounded-lg"></div>
                     </div>
+                </div>
+
+{{--                boton volver al index--}}
+                <div class="flex items center justify-end mt-4">
+                    <a href="{{ route('alerts.index') }}" class="bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded">
+                        Volver
+                    </a>
                 </div>
             </div>
         </div>

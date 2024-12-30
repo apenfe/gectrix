@@ -1,69 +1,11 @@
 <x-app-layout>
 
     <x-slot name="header">
-        <h2 class="font-semibold text-xl text-gray-800 dark:text-gray-200 leading-tight">
-            {{ __('Alerts') }}
-        </h2>
         @include('alerta-temprana.partials.navigation_alert')
+        @include('alerta-temprana.partials.header')
     </x-slot>
 
     <div class="py-12">
-        <div class="max-w-[90%] mx-auto sm:px-6 lg:px-8 bg-white dark:bg-gray-800 overflow-hidden shadow-xl sm:rounded-lg flex m-auto p-4 justify-center mb-4">
-            <form method="GET" action="{{ route('early-warning') }}" class="w-full flex gap-4">
-                <input type="text" name="description" placeholder="Buscar alerta..." class="form-input w-full">
-                <select name="danger_level" class="form-select w-full">
-                    <option value="">Nivel de peligro</option>
-                    <option value="low">Bajo</option>
-                    <option value="medium">Medio</option>
-                    <option value="high">Alto</option>
-                </select>
-{{--                type --}}
-                <select name="type" class="form-select w-full">
-                    <option value="">Tipo de alerta</option>
-                    <option value="air-strike">Ataque aéreo</option>
-                    <option value="ground-attack">Ataque terrestre</option>
-                    <option value="naval-bombardment">Ataque naval</option>
-                </select>
-                {{--                start date --}}
-                <input type="date" name="start_date" class="form-input w-full">
-                {{--                end date --}}
-                <input type="date" name="end_date" class="form-input w-full">
-                <button type="submit" class="btn btn-primary">Buscar Alert</button>
-            </form>
-        </div>
-        <div class="max-w-[90%] mx-auto sm:px-6 lg:px-8 bg-white dark:bg-gray-800 overflow-hidden shadow-xl sm:rounded-lg flex m-auto p-4 justify-center mb-4">
-            <form method="GET" action="{{ route('early-warning') }}" class="w-full flex gap-4">
-{{--                priority --}}
-                <select name="priority" class="form-select w-full">
-                    <option value="">Prioridad</option>
-                    <option value="low">Bajo</option>
-                    <option value="medium">Medio</option>
-                    <option value="high">Alto</option>
-                </select>
-{{--                status --}}
-                <select name="status" class="form-select w-full">
-                    <option value="">Estado</option>
-                    <option value="true">Activa</option>
-                    <option value="false">Inactiva</option>
-                </select>
-{{--                name --}}
-                <input type="text" name="name" placeholder="Buscar objetivo..." class="form-input w-full">
-{{--                description --}}
-                <input type="text" name="description" placeholder="Buscar descripción..." class="form-input w-full">
-{{--                setup date --}}
-                <input type="date" name="setup_date" class="form-input w-full">
-{{--                deactivation date --}}
-                <input type="date" name="deactivation_date" class="form-input w-full">
-{{--                action--}}
-                <select name="action" class="form-select w-full">
-                    <option value="">Acción</option>
-                    <option value="attack">Atacar</option>
-                    <option value="defense">Defender</option>
-                    <option value="reconnaissance">Reconocimiento</option>
-                </select>
-                <button type="submit" class="btn btn-primary">Buscar Target</button>
-            </form>
-        </div>
         <div class="max-w-[90%] mx-auto sm:px-6 lg:px-8 bg-white dark:bg-gray-800 overflow-hidden shadow-xl sm:rounded-lg flex m-auto p-4 justify-center mb-4">
             <div id="map" class="w-full h-96"></div>
         </div>

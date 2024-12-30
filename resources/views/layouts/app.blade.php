@@ -31,11 +31,11 @@
 
             <!-- Page Heading -->
             @if ( isset($header) )
-                <header class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+                <section class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
                     <div class="w-full">
                         {{ $header }}
                     </div>
-                </header>
+                </section>
             @endif
 
             <!-- Page Content -->

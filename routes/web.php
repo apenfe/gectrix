@@ -20,6 +20,7 @@ Route::get('/early-warning', EarlyWarningController::class)->name('early-warning
 Route::resource('alerts', AlertController::class);
 Route::resource('targets', TargetController::class);
 Route::post('/telegram', [TelegramController::class, 'store'])->name('telegram.store');
+Route::post('/telegram/{alert}', [TelegramController::class, 'notifyAlert'])->name('telegram.notify');
 
 Route::prefix('personal')->group(function () {
     Route::get('/', [PersonalController::class, 'index'])->name('personal.index');

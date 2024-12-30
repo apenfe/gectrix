@@ -39,9 +39,9 @@
                                 @method('DELETE')
                                 <button type="submit" class="inline-flex text-center rounded-full mr-3 items-center justify-center w-8 h-8 text-sm text-red-500 bg-red-200"><i class="fas fa-trash"></i></button>
                             </form>
-                            <form action="{{ route('telegram.store') }}" method="POST">
+                            <form action="{{ route('telegram.notify', $alert) }}" method="POST">
                                 @csrf
-                                <button type="submit" class="inline-flex text-center rounded-full mr-3 items-center justify-center w-8 h-8 text-sm text-blue-500 bg-blue-200"><i class="fas fa-telegram"></i></button>
+                                <button type="submit" class="inline-flex text-center rounded-full mr-3 items-center justify-center w-8 h-8 text-sm text-blue-500 bg-blue-200"><i class="fab fa-telegram"></i></button>
                             </form>
                         </div>
                     </li>

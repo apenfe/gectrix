@@ -43,7 +43,7 @@
 <script>
     document.addEventListener('DOMContentLoaded', function() {
         // Inicializar el mapa
-        const map = L.map('map').setView([{{ $alert->latitude ?? 0 }}, {{ $alert->longitude ?? 0 }}], 13);
+        const map = L.map('map').setView([{{ $alert->latitude ?? 40.3297957 }}, {{ $alert->longitude ?? -3.6804199 }}], 5);
 
         // Añadir la capa de OpenStreetMap
         L.tileLayer('https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png', {
