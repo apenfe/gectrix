@@ -12,7 +12,7 @@
 </div>
 <div class="mb-4 w-full">
     <label for="name" class="block text-gray-700 dark:text-gray-300">Nombre</label>
-    <input type="text" id="name" name="name" class="mt-1 block w-full" value="{{ old('name', $target->name ?? '') }}" required>
+    <input type="text" id="name" name="name" class="mt-1 block w-full" value="{{ old('name', $target->name ?? '') }}" >
 </div>
 <div class="mb-4 w-full">
     <label for="description" class="block text-gray-700 dark:text-gray-300">Descripción</label>
@@ -20,15 +20,15 @@
 </div>
 <div class="mb-4 w-full">
     <label for="latitude" class="block text-gray-700 dark:text-gray-300">Latitud</label>
-    <input type="text" id="latitude" name="latitude" class="mt-1 block w-full" value="{{ old('latitude', $target->latitude ?? '') }}" required>
+    <input type="text" id="latitude" name="latitude" class="mt-1 block w-full" value="{{ old('latitude', $target->latitude ?? '') }}" >
 </div>
 <div class="mb-4 w-full">
     <label for="longitude" class="block text-gray-700 dark:text-gray-300">Longitud</label>
-    <input type="text" id="longitude" name="longitude" class="mt-1 block w-full" value="{{ old('longitude', $target->longitude ?? '') }}" required>
+    <input type="text" id="longitude" name="longitude" class="mt-1 block w-full" value="{{ old('longitude', $target->longitude ?? '') }}" >
 </div>
 <div class="mb-4 w-full">
     <label for="radius" class="block text-gray-700 dark:text-gray-300">Radio de Afectación (km)</label>
-    <input type="number" id="radius" name="radius" class="mt-1 block w-full" value="{{ old('radius', $target->radius ?? '') }}" required>
+    <input type="number" id="radius" name="radius" class="mt-1 block w-full" value="{{ old('radius', $target->radius ?? '') }}" >
 </div>
 <div class="mb-4 w-full">
     <label for="image" class="block text-gray-700 dark:text-gray-300">Imagen</label>
@@ -40,11 +40,11 @@
 </div>
 <div class="mb-4 w-full">
     <label for="setup_date" class="block text-gray-700 dark:text-gray-300">Fecha de Configuración</label>
-    <input type="date" id="setup_date" name="setup_date" class="mt-1 block w-full" value="{{ old('setup_date', $target->setup_date ?? '') }}" required>
+    <input type="date" id="setup_date" name="setup_date" class="mt-1 block w-full" value="{{ old('setup_date', $target->setup_date ?? '') }}" >
 </div>
 <div class="mb-4 w-full">
     <label for="deactivation_date" class="block text-gray-700 dark:text-gray-300">Fecha de Desactivación</label>
-    <input type="date" id="deactivation_date" name="deactivation_date" class="mt-1 block w-full" value="{{ old('deactivation_date', $target->deactivation_date ?? '') }}" required>
+    <input type="date" id="deactivation_date" name="deactivation_date" class="mt-1 block w-full" value="{{ old('deactivation_date', $target->deactivation_date ?? '') }}" >
 </div>
 <div class="mb-4 w-full">
     <label for="action" class="block text-gray-700 dark:text-gray-300">Acción</label>
@@ -59,7 +59,7 @@
 <script>
     document.addEventListener('DOMContentLoaded', function() {
         // Inicializar el mapa
-        const map = L.map('map').setView([{{ $alert->latitude ?? 0 }}, {{ $alert->longitude ?? 0 }}], 13);
+        const map = L.map('map').setView([{{ $alert->latitude ?? 40.3716589 }}, {{ $alert->longitude ?? -3.6859131 }}], 5);
 
         // Añadir la capa de OpenStreetMap
         L.tileLayer('https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png', {

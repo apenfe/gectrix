@@ -35,7 +35,7 @@ class User extends Authenticatable
         'email',
         'password',
         'role',
-        'telegram_id'
+        'telegram_id',
     ];
 
     /**

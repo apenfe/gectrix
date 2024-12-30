@@ -2,7 +2,7 @@
 
 namespace App\Http\Controllers;
 
-use App\Http\Requests\WeaponRequest;
+use App\Http\Requests\Personal\WeaponRequest;
 use App\Models\Weapon;
 use Illuminate\Support\Facades\Storage;
 

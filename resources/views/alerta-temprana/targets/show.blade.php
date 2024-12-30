@@ -2,13 +2,18 @@
 
     <x-slot name="header">
         @include('alerta-temprana.partials.navigation_alert')
-        @include('alerta-temprana.partials.header')
     </x-slot>
 
     {{-- Vista Blade: show.blade.php o details.blade.php --}}
     <div class="py-12 relative">
         <div class="max-w-[80%] mx-auto sm:px-6 lg:px-8">
             <div class="bg-white dark:bg-gray-800 overflow-hidden shadow-xl sm:rounded-lg flex flex-row flex-wrap gap-2 p-6">
+                <!-- Botón de Volver -->
+                <div class="w-full mb-4">
+                    <a href="{{ route('targets.index') }}" class="inline-flex items-center px-4 py-2 bg-blue-500 border border-transparent rounded-md font-semibold text-xs text-white uppercase tracking-widest hover:bg-blue-700 focus:outline-none focus:border-blue-900 focus:ring ring-blue-300 disabled:opacity-25 transition ease-in-out duration-150">
+                        Volver a la lista de objetivos
+                    </a>
+                </div>
                 <!-- Contenedor principal de la tarjeta -->
                 <div class="w-full flex flex-col md:flex-row gap-6">
                     <!-- Columna de información -->
@@ -68,7 +73,7 @@
             // Inicializar el mapa cuando el documento esté listo
             document.addEventListener('DOMContentLoaded', function() {
                 // Inicializar el mapa
-                const map = L.map('map').setView([{{ $target->latitude }}, {{ $target->longitude }}], 13);
+                const map = L.map('map').setView([{{ $target->latitude }}, {{ $target->longitude }}], 9);
 
                 // Agregar el tile layer de OpenStreetMap
                 L.tileLayer('https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png', {

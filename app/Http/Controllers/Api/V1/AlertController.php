@@ -3,7 +3,7 @@
 namespace App\Http\Controllers\Api\V1;
 
 use App\Http\Controllers\Controller;
-use App\Http\Requests\AlertRequest;
+use App\Http\Requests\EarlyWarning\AlertRequest;
 use App\Http\Resources\AlertResource;
 use App\Models\Alert;
 use Illuminate\Http\Request;

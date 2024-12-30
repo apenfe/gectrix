@@ -2,7 +2,6 @@
 
     <x-slot name="header">
         @include('alerta-temprana.partials.navigation_alert')
-        @include('alerta-temprana.partials.header')
     </x-slot>
 
     <div class="py-12 relative">

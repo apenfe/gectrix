@@ -5,12 +5,11 @@ namespace App\Http\Controllers\EarlyWarning;
 use App\Http\Controllers\Controller;
 use App\Models\Alert;
 use App\Models\Target;
-use Cache;
 use Illuminate\Http\Request;
 
 class EarlyWarningController extends Controller
 {
-    public function __invoke(Request $request )
+    public function __invoke(Request $request)
     {
         $type = $request->input('type');
         $start_date = $request->input('start_date');

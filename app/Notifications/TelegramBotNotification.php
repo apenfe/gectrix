@@ -3,8 +3,6 @@
 namespace App\Notifications;
 
 use Illuminate\Bus\Queueable;
-use Illuminate\Contracts\Queue\ShouldQueue;
-use Illuminate\Notifications\Messages\MailMessage;
 use Illuminate\Notifications\Notification;
 use NotificationChannels\Telegram\TelegramChannel;
 use NotificationChannels\Telegram\TelegramMessage;
@@ -12,6 +10,7 @@ use NotificationChannels\Telegram\TelegramMessage;
 class TelegramBotNotification extends Notification
 {
     use Queueable;
+
     private $message;
 
     /**
@@ -41,8 +40,8 @@ class TelegramBotNotification extends Notification
             return (new TelegramMessage)
                 ->to(auth()->user()->telegram_id)
                 ->content($this->message);
-        }catch (\Exception $e) {
-            logger()->error("Error sending telegram message: " . $e->getMessage());
+        } catch (\Exception $e) {
+            logger()->error('Error sending telegram message: '.$e->getMessage());
         }
 
     }

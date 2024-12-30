@@ -5,11 +5,12 @@ namespace App\Http\Controllers;
 use App\Models\Alert;
 use App\Notifications\TelegramBotNotification;
 
-class TelegramController extends Controller {
+class TelegramController extends Controller
+{
+    public function store(?Alert $alert = null)
+    {
 
-    public function store(Alert $alert = null) {
-
-        if($alert) {
+        if ($alert) {
             $message = "This is Gectrix alert report system:\n";
             $message .= "Type of alert: $alert->type\n";
             $message .= "Start date: $alert->start_date\n";
@@ -18,7 +19,7 @@ class TelegramController extends Controller {
             $message .= "Danger level: $alert->danger_level\n";
             $message .= "Ubicación: https://www.google.com/maps?q=$alert->latitude,$alert->longitude\n";
         } else {
-            $message = "Hello, this is a test message from the Laravel application.";
+            $message = 'Hello, this is a test message from the Laravel application.';
         }
 
         $user = auth()->user();
@@ -27,7 +28,8 @@ class TelegramController extends Controller {
         return redirect()->route('alerts.index')->with('success', 'Alerta creada y notificada exitosamente.');
     }
 
-    public function notifyAlert(Alert $alert) {
+    public function notifyAlert(Alert $alert)
+    {
         $message = "This is Gectrix alert report system (Reminder):\n";
         $message .= "Type of alert: $alert->type\n";
         $message .= "Start date: $alert->start_date\n";
@@ -41,5 +43,4 @@ class TelegramController extends Controller {
 
         return redirect()->route('alerts.index')->with('success', 'Reminder de alerta notificado exitosamente.');
     }
-
 }

@@ -3,9 +3,8 @@
 namespace App\Http\Controllers\EarlyWarning;
 
 use App\Http\Controllers\Controller;
-use App\Http\Requests\TargetRequest;
+use App\Http\Requests\EarlyWarning\TargetRequest;
 use App\Models\Target;
-use Cache;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Storage;
 
