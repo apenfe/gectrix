@@ -1,15 +1,16 @@
 <?php
 
 namespace App\Http\Controllers;
+
 use GuzzleHttp\Client;
 
-class CopernicusController extends Controller {
-
+class CopernicusController extends Controller
+{
     public function sentinel2()
     {
         $accessToken = session('copernicus_access_token');
 
-        if (!$accessToken) {
+        if (! $accessToken) {
             return response()->json(['error' => 'No access token found.'], 400);
         }
 
@@ -18,7 +19,7 @@ class CopernicusController extends Controller {
         ]);
 
         // Coordenadas de Murcia (bounding box: [minLon, minLat, maxLon, maxLat])
-        $bbox= [-5.389, 35.86, -5.270, 35.92];
+        $bbox = [-5.389, 35.86, -5.270, 35.92];
 
         // Fechas en formato ISO 8601
         $startDate = now()->subDays(90)->toISOString(); // Últimos 90 días
@@ -45,7 +46,7 @@ class CopernicusController extends Controller {
             $data = json_decode($response->getBody()->getContents(), true);
 
             // Si hay productos disponibles, los retornamos
-            if (!empty($data['features'])) {
+            if (! empty($data['features'])) {
                 // Extraemos los enlaces a los productos
                 $productos = [];
                 foreach ($data['features'] as $feature) {
@@ -101,7 +102,7 @@ class CopernicusController extends Controller {
             $data = json_decode($response->getBody()->getContents(), true);
 
             // Si hay productos disponibles, los retornamos
-            if (!empty($data['features'])) {
+            if (! empty($data['features'])) {
                 // Extraemos los enlaces a los productos
                 $productos = [];
                 foreach ($data['features'] as $feature) {
@@ -165,7 +166,7 @@ class CopernicusController extends Controller {
             $data = json_decode($response->getBody()->getContents(), true);
 
             // Si hay productos disponibles, los retornamos
-            if (!empty($data['features'])) {
+            if (! empty($data['features'])) {
                 // Extraemos los enlaces a los productos
                 $productos = [];
                 foreach ($data['features'] as $feature) {
@@ -212,7 +213,7 @@ class CopernicusController extends Controller {
 
             return response()->download($path);
         } catch (\Exception $e) {
-            return response()->json(['error' => 'No se pudo descargar el producto: ' . $e->getMessage()], 500);
+            return response()->json(['error' => 'No se pudo descargar el producto: '.$e->getMessage()], 500);
         }
     }
 
@@ -224,7 +225,7 @@ class CopernicusController extends Controller {
         $clientId = env('COPERNICUS_CLIENT_ID');
         $tokenUrl = env('COPERNICUS_TOKEN_URL');
 
-        $client = new Client();
+        $client = new Client;
 
         try {
             // Realizar la solicitud POST para obtener el token
@@ -234,7 +235,7 @@ class CopernicusController extends Controller {
                     'password' => $password,
                     'grant_type' => 'password',
                     'client_id' => $clientId,
-                ]
+                ],
             ]);
 
             // Decodificar la respuesta JSON
@@ -248,11 +249,12 @@ class CopernicusController extends Controller {
 
             return response()->json([
                 'access_token' => $accessToken,
-                'expires_in' => $data['expires_in']
+                'expires_in' => $data['expires_in'],
             ]);
 
         } catch (\Exception $e) {
-            Log::error('Error al obtener el ACCESS_TOKEN: ' . $e->getMessage());
+            Log::error('Error al obtener el ACCESS_TOKEN: '.$e->getMessage());
+
             return response()->json(['error' => 'No se pudo obtener el token de acceso'], 500);
         }
     }
