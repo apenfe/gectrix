@@ -43,13 +43,13 @@ class TargetController extends Controller
         $validatedData = $request->validated();
 
         if ($request->hasFile('image')) {
-            $filename = time() . '_' . $request->file('image')->getClientOriginalName();
+            $filename = time().'_'.$request->file('image')->getClientOriginalName();
             $request->file('image')->storeAs('private/targets', $filename, 'public');
             $validatedData['image'] = $filename;  // Agregamos e
         }
 
         if ($request->hasFile('logo')) {
-            $filename = time() . '_' . $request->file('logo')->getClientOriginalName();
+            $filename = time().'_'.$request->file('logo')->getClientOriginalName();
             $request->file('logo')->storeAs('private/targets', $filename, 'public');
             $validatedData['logo'] = $filename;  // Agregamos e
         }
@@ -81,7 +81,7 @@ class TargetController extends Controller
                 Storage::disk('public')->delete('private/targets/'.$target->image);
             }
 
-            $filename = time() . '_' . $request->file('image')->getClientOriginalName();
+            $filename = time().'_'.$request->file('image')->getClientOriginalName();
             $request->file('image')->storeAs('private/targets', $filename, 'public');
             $validatedData['image'] = $filename;  // Agregamos e
         } else {
@@ -94,10 +94,10 @@ class TargetController extends Controller
                 Storage::disk('public')->delete('private/targets/'.$target->logo);
             }
 
-            $filename = time() . '_' . $request->file('logo')->getClientOriginalName();
+            $filename = time().'_'.$request->file('logo')->getClientOriginalName();
             $request->file('logo')->storeAs('private/targets', $filename, 'public');
             $validatedData['logo'] = $filename;  // Agregamos e
-        }else {
+        } else {
             unset($validatedData['logo']);
         }
 

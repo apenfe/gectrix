@@ -11,7 +11,7 @@ class TargetRequest extends FormRequest
 
         return [
             'priority' => ['required', 'in:low,medium,high'],
-            'status' => ['required','boolean'],
+            'status' => ['required', 'boolean'],
             'name' => ['required', 'string', 'max:255'],
             'description' => ['required', 'string', 'max:255'],
             'latitude' => ['required', 'numeric', 'between:-90,90'],

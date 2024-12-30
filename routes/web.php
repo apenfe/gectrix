@@ -2,6 +2,7 @@
 
 use App\Http\Controllers\BrigadeController;
 use App\Http\Controllers\CommanderController;
+use App\Http\Controllers\CopernicusController;
 use App\Http\Controllers\EarlyWarning\AlertController;
 use App\Http\Controllers\EarlyWarning\EarlyWarningController;
 use App\Http\Controllers\EarlyWarning\TargetController;
@@ -21,6 +22,12 @@ Route::resource('alerts', AlertController::class);
 Route::resource('targets', TargetController::class);
 Route::post('/telegram', [TelegramController::class, 'store'])->name('telegram.store');
 Route::post('/telegram/{alert}', [TelegramController::class, 'notifyAlert'])->name('telegram.notify');
+
+Route::get('/copernicus/token', [CopernicusController::class, 'getAccessToken']);
+Route::get('/sentinel', [CopernicusController::class, 'sentinel']);
+Route::get('/sentinel1', [CopernicusController::class, 'sentinel1']);
+Route::get('/sentinel2', [CopernicusController::class, 'sentinel2']);
+Route::get('/descargar-imagen', [CopernicusController::class, 'descargarProducto']);
 
 Route::prefix('personal')->group(function () {
     Route::get('/', [PersonalController::class, 'index'])->name('personal.index');
