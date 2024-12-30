@@ -11,16 +11,16 @@ class TargetRequest extends FormRequest
 
         return [
             'priority' => ['required', 'in:low,medium,high'],
-            'status' => ['boolean'],
+            'status' => ['required','boolean'],
             'name' => ['required', 'string', 'max:255'],
             'description' => ['required', 'string', 'max:255'],
             'latitude' => ['required', 'numeric', 'between:-90,90'],
             'longitude' => ['required', 'numeric', 'between:-180,180'],
             'radius' => ['required', 'integer', 'min:1', 'max:100'],
-            'image' => ['nullable', 'image', 'mimes:jpeg,png,jpg,gif,svg', 'max:2048'],
-            'logo' => ['nullable', 'image', 'mimes:jpeg,png,jpg,gif,svg', 'max:2048'],
+            'image' => 'nullable|image|mimes:jpeg,png,jpg,gif,svg|max:2048',
+            'logo' => 'nullable|image|mimes:jpeg,png,jpg,gif,svg|max:2048',
             'setup_date' => ['required', 'date'],
-            'deactivation_date' => ['required', 'date'],
+            'deactivation_date' => ['nullable', 'date'],
             'action' => ['required', 'in:attack,defense,reconnaissance'],
         ];
 

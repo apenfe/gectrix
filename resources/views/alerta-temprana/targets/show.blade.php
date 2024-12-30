@@ -19,7 +19,7 @@
                     <!-- Columna de información -->
                     <div class="md:w-1/2">
                         <div class="rounded-lg overflow-hidden mb-4">
-                            <img src="{{ $target->image != null ? asset('/targets/images/'.$target->image) : asset('/targets/images/target.png') }}" alt="{{ $target->name }}" class="w-full h-64 object-cover">
+                            <img src="{{ $target->image != null ? asset('private/targets/'.$target->image) : asset('private/targets/target.png') }}" alt="{{ $target->name }}" class="w-full h-64 object-cover">
                         </div>
                         <div class="space-y-4">
                             <h2 class="text-2xl font-bold text-gray-800 dark:text-white">{{ $target->name }}</h2>
@@ -82,7 +82,7 @@
 
                 // Crear un icono personalizado
                 const customIcon = L.icon({
-                    iconUrl: '{{ $target->logo != null ? asset('/targets/logos/'.$target->logo) : asset('/targets/logos/target.png') }}',
+                    iconUrl: '{{ $target->logo != null ? asset('private/targets/'.$target->logo) : asset('private/targets/target.png') }}',
                     iconSize: [32, 32],
                     iconAnchor: [16, 32],
                     popupAnchor: [0, -32]

@@ -40,26 +40,22 @@ class TargetController extends Controller
 
     public function store(TargetRequest $request)
     {
-        // verificar si sube image, guardar la imagen en disco y bbdd
+        $validatedData = $request->validated();
+
         if ($request->hasFile('image')) {
-            $image = $request->file('image');
-            $name = time().'.'.$image->getClientOriginalExtension();
-            $destinationPath = public_path('/targets/images');
-            $image->move($destinationPath, $name);
-            $request->merge(['image' => $name]);
+            $filename = time() . '_' . $request->file('image')->getClientOriginalName();
+            $request->file('image')->storeAs('private/targets', $filename, 'public');
+            $validatedData['image'] = $filename;  // Agregamos e
         }
 
-        // verificar si sube logo, guardar el logo en disco y bbdd
         if ($request->hasFile('logo')) {
-            $image = $request->file('logo');
-            $name = time().'.'.$image->getClientOriginalExtension();
-            $destinationPath = public_path('/targets/logos');
-            $image->move($destinationPath, $name);
-            $request->merge(['logo' => $name]);
+            $filename = time() . '_' . $request->file('logo')->getClientOriginalName();
+            $request->file('logo')->storeAs('private/targets', $filename, 'public');
+            $validatedData['logo'] = $filename;  // Agregamos e
         }
 
         // Crear un nuevo target
-        $target = Target::create($request->all());
+        $target = Target::create($validatedData);
 
         // Redirigir a la vista de índice de targets con un mensaje de éxito
         return redirect()->route('targets.index')->with('success', 'Target created successfully.');
@@ -77,48 +73,36 @@ class TargetController extends Controller
 
     public function update(TargetRequest $request, Target $target)
     {
-        // verificar si sube image, guardar la imagen usando Storage
-        if ($request->hasFile('image')) {
-            $image = $request->file('image');
-            $name = time().'.'.$image->getClientOriginalExtension();
+        $validatedData = $request->validated();
 
-            // Delete old image if exists
+        if ($request->hasFile('image')) {
+
             if ($target->image) {
-                Storage::disk('public')->delete('targets/images/'.$target->image);
+                Storage::disk('public')->delete('private/targets/'.$target->image);
             }
 
-            // Store new image
-            $path = $request->file('image')->storeAs(
-                'targets/images',
-                $name,
-                'public'
-            );
-
-            $request->merge(['image' => $name]);
+            $filename = time() . '_' . $request->file('image')->getClientOriginalName();
+            $request->file('image')->storeAs('private/targets', $filename, 'public');
+            $validatedData['image'] = $filename;  // Agregamos e
+        } else {
+            unset($validatedData['image']);
         }
 
-        // verificar si sube logo, guardar el logo usando Storage
         if ($request->hasFile('logo')) {
-            $image = $request->file('logo');
-            $name = time().'.'.$image->getClientOriginalExtension();
 
-            // Delete old logo if exists
             if ($target->logo) {
-                Storage::disk('public')->delete('targets/logos/'.$target->logo);
+                Storage::disk('public')->delete('private/targets/'.$target->logo);
             }
 
-            // Store new logo
-            $path = $request->file('logo')->storeAs(
-                'targets/logos',
-                $name,
-                'public'
-            );
-
-            $request->merge(['logo' => $name]);
+            $filename = time() . '_' . $request->file('logo')->getClientOriginalName();
+            $request->file('logo')->storeAs('private/targets', $filename, 'public');
+            $validatedData['logo'] = $filename;  // Agregamos e
+        }else {
+            unset($validatedData['logo']);
         }
 
         // Actualizar el target
-        $target->update($request->all());
+        $target->update($validatedData);
 
         // Redirigir a la vista de índice de targets con un mensaje de éxito
         return redirect()->route('targets.index')->with('success', 'Target updated successfully.');
@@ -128,17 +112,11 @@ class TargetController extends Controller
     {
         // borrar la imagen y el logo si existen
         if ($target->image) {
-            $image_path = public_path().'/targets/images/'.$target->image;
-            if (file_exists($image_path)) {
-                unlink($image_path);
-            }
+            Storage::disk('public')->delete('private/targets/'.$target->image);
         }
 
         if ($target->logo) {
-            $image_path = public_path().'/targets/logos/'.$target->logo;
-            if (file_exists($image_path)) {
-                unlink($image_path);
-            }
+            Storage::disk('public')->delete('private/targets/'.$target->logo);
         }
 
         // Eliminar el target

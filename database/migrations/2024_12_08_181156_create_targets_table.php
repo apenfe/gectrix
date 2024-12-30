@@ -20,7 +20,7 @@ return new class extends Migration
             $table->string('image')->nullable();
             $table->string('logo')->nullable();
             $table->date('setup_date');
-            $table->date('deactivation_date');
+            $table->date('deactivation_date')->nullable();
             $table->enum('action', ['attack', 'defense', 'reconnaissance']);
             $table->timestamps();
         });

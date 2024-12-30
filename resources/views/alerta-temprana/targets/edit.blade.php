@@ -7,7 +7,7 @@
     <div class="py-12 relative">
         <div class="max-w-[80%] mx-auto sm:px-6 lg:px-8">
             <div class="bg-white dark:bg-gray-800 overflow-hidden shadow-xl sm:rounded-lg p-6">
-                <form action="{{ route('targets.update', $target) }}" method="POST">
+                <form action="{{ route('targets.update', $target) }}" method="POST" enctype="multipart/form-data">
                     @csrf
                     @method('PUT')
                     @include('alerta-temprana.targets.form')

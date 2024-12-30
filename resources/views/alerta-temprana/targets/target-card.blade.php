@@ -1,7 +1,7 @@
 <div class="w-full md:w-1/4">
     <div class="shadow-lg rounded-lg relative flex flex-col min-w-0 break-words bg-white w-full mb-6">
         <div class="relative">
-            <img alt="..." class="w-full flex-shrink-0 rounded-t-lg" src="{{ $target->image != null ? asset('/targets/images/'.$target->image) : asset('/targets/images/target.png') }}">
+            <img alt="..." class="w-full flex-shrink-0 rounded-t-lg" src="{{ $target->image != null ? asset('private/targets/'.$target->image) : asset('private/targets/target.png') }}">
             <svg preserveAspectRatio="none" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 583 95" class="block w-full absolute text-white svg-bg" style="height: 95px; bottom: 0px;">
                 <polygon points="583,55 583,95 0,95" style="fill: currentcolor;"></polygon>
             </svg>
