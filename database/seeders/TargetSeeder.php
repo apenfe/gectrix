@@ -56,6 +56,9 @@ class TargetSeeder extends Seeder
         ];
 
         // Crear objetivos
-        Target::factory(4)->create();
+        Target::factory(4)->create([
+            'image' => 'target.png',
+            'logo' => 'target.png',
+        ]);
     }
 }

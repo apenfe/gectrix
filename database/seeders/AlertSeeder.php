@@ -40,6 +40,26 @@ class AlertSeeder extends Seeder
                 'description' => 'Naval bombardment in Sevilla',
                 'danger_level' => 'low',
             ],
+            [
+                'type' => 'naval-bombardment',
+                'latitude' => 37.625683,
+                'longitude' => -0.996584,
+                'radius' => 50,
+                'start_date' => now(),
+                'end_date' => now()->addDays(1),
+                'description' => 'Naval bombardment in Cartagena',
+                'danger_level' => 'low',
+            ],
+            [
+                'type' => 'naval-bombardment',
+                'latitude' => 35.889387,
+                'longitude' => -5.321345,
+                'radius' => 50,
+                'start_date' => now(),
+                'end_date' => now()->addDays(1),
+                'description' => 'Naval bombardment in Ceuta',
+                'danger_level' => 'low',
+            ],
         ];
 
         foreach ($alerts as $alert) {

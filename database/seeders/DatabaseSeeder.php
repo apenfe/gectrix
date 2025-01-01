@@ -58,5 +58,8 @@ class DatabaseSeeder extends Seeder
         // crear objetivos
         $this->call(TargetSeeder::class);
 
+        // crear satélites
+        $this->call(SatSeeder::class);
+
     }
 }

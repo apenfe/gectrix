@@ -13,8 +13,15 @@ class SatFactory extends Factory
     public function definition(): array
     {
         return [
-            'created_at' => Carbon::now(),
-            'updated_at' => Carbon::now(),
+            'image_route' => $this->faker->imageUrl(),
+            'date' => Carbon::now(),
+            'satellite' => $this->faker->randomElement(['sentinel1', 'sentinel2']),
+            'cloud_coverage' => $this->faker->numberBetween( 0, 100),
+            'latitude_north' => $this->faker->latitude(),
+            'latitude_south' => $this->faker->latitude(),
+            'longitude_east' => $this->faker->longitude(),
+            'longitude_west' => $this->faker->longitude(),
+            'target_id' => $this->faker->numberBetween(1, 4),
         ];
     }
 }
