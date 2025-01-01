@@ -53,7 +53,7 @@
    6. Implementar leaflet para visualizaciones avanzadas en mapa. (OK)
    7. Filtros en mapa (OK)
    7. Cachear tablas (OK)
-   8. API IMAGENES SATELITE
+   8. API IMAGENES SATELITE (OK)
    9. MEJORA VISUALIZACION INDEX (OK)
 3. Agregar componentes tailwind al proyecto. (OK)
 

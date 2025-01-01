@@ -9,7 +9,6 @@ use GuzzleHttp\Client;
 
 class CopernicusController extends Controller
 {
-
     public function sentinel2($bbox, $startDate)
     {
         $client = new Client([
@@ -174,6 +173,4 @@ class CopernicusController extends Controller
             return response()->json(['error' => 'No se pudo obtener el token de acceso'], 500);
         }
     }
-
-
 }

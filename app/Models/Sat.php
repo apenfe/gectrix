@@ -5,7 +5,8 @@ namespace App\Models;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
 
-class Sat extends Model {
+class Sat extends Model
+{
     use HasFactory;
 
     protected $fillable = [
@@ -17,11 +18,11 @@ class Sat extends Model {
         'longitude_east',
         'longitude_west',
         'target_id',
-        'image_route'
+        'image_route',
     ];
 
-    public function target() {
+    public function target()
+    {
         return $this->belongsTo(Target::class);
     }
-
 }

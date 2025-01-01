@@ -4,9 +4,10 @@ namespace App\Http\Requests\EarlyWarning;
 
 use Illuminate\Foundation\Http\FormRequest;
 
-class SatRequest extends FormRequest {
-
-    public function rules(): array {
+class SatRequest extends FormRequest
+{
+    public function rules(): array
+    {
         return [
             'date' => ['required', 'date'],
             'satellite' => ['required', 'string', 'in:sentinel1,sentinel2'],
@@ -18,7 +19,8 @@ class SatRequest extends FormRequest {
         ];
     }
 
-    public function authorize(): bool {
+    public function authorize(): bool
+    {
         return true;
     }
 }
