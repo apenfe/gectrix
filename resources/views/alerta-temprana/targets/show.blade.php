@@ -80,11 +80,23 @@
                 </div>
                 <!-- mostrar los sats del target -->
                 <div class="w-full flex flex-col md:flex-row gap-6">
-                    <div class="w-full flex gap-2 flex-wrap">
+                    <div class="w-full flex gap-6 flex-wrap m-auto">
                         @foreach( $target->sats as $sat )
                             <div class="rounded-lg overflow-hidden mb-4">
                                 <img src="{{ $sat->image_route }}" alt="{{ $target->name }}" class="w-full object-cover" width="500">
+                                <p class="text-center text-sm text-gray-500 dark:text-gray-400">Fecha de carga: {{ $sat->created_at }}</p>
+                                <p class="text-center text-sm text-gray-500 dark:text-gray-400">Satélite: {{ $sat->satellite }}</p>
+                                <p class="text-center text-sm text-gray-500 dark:text-gray-400">Fecha de la foto: {{ $sat->date }}</p>
+                                <p class="text-center text-sm text-gray-500 dark:text-gray-400">Nubosidad: {{ $sat->cloud_coverage }}%</p>
+                                <form action="{{ route('sat.destroy', ['target' => $target->id, 'sat' => $sat->id]) }}" method="POST">
+                                    @csrf
+                                    @method('DELETE')
+                                    <button type="submit" class="inline-flex items-center px-4 py-2 bg-red-500 border border-transparent rounded-md font-semibold text-xs text-white uppercase tracking-widest hover:bg-red-700 focus:outline-none focus:border-red-900 focus:ring ring-red-300 disabled:opacity-25 transition ease-in-out duration-150">
+                                        Eliminar
+                                    </button>
+                                </form>
                             </div>
+
                         @endforeach
                     </div>
                 </div>

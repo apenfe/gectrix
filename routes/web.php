@@ -25,12 +25,13 @@ Route::post('/telegram', [TelegramController::class, 'store'])->name('telegram.s
 Route::post('/telegram/{alert}', [TelegramController::class, 'notifyAlert'])->name('telegram.notify');
 Route::get('/targets/{target}/sat', [SatController::class, 'create'])->name('sat.create');
 Route::post('/targets/{target}/sat', [SatController::class, 'store'])->name('sat.store');
+Route::delete('/targets/{target}/sat/{sat}', [SatController::class, 'destroy'])->name('sat.destroy');
 
 Route::get('/copernicus/token', [CopernicusController::class, 'getAccessToken']);
-Route::get('/sentinel', [CopernicusController::class, 'sentinel']);
-Route::get('/sentinel1', [CopernicusController::class, 'sentinel1']);
-Route::get('/sentinel2', [CopernicusController::class, 'sentinel2']);
-Route::get('/descargar-imagen', [CopernicusController::class, 'descargarProducto']);
+//Route::get('/sentinel', [CopernicusController::class, 'sentinel']);
+//Route::get('/sentinel1', [CopernicusController::class, 'sentinel1']);
+//Route::get('/sentinel2', [CopernicusController::class, 'sentinel2']);
+//Route::get('/descargar-imagen', [CopernicusController::class, 'descargarProducto']);
 
 Route::prefix('personal')->group(function () {
     Route::get('/', [PersonalController::class, 'index'])->name('personal.index');

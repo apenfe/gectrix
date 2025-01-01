@@ -9,69 +9,8 @@ use GuzzleHttp\Client;
 
 class CopernicusController extends Controller
 {
-    public function sentinel2()
-    {
-        $accessToken = session('copernicus_access_token');
 
-        if (! $accessToken) {
-            return response()->json(['error' => 'No access token found.'], 400);
-        }
-
-        $client = new Client([
-            'base_uri' => 'https://catalogue.dataspace.copernicus.eu/stac/',
-        ]);
-
-        // Coordenadas de Murcia (bounding box: [minLon, minLat, maxLon, maxLat])
-        $bbox = [-5.389, 35.86, -5.270, 35.92];
-
-        // Fechas en formato ISO 8601
-        $startDate = now()->subDays(90)->toISOString(); // Últimos 90 días
-        $endDate = now()->toISOString();
-
-        // Construcción de parámetros de consulta
-        $query = [
-            'bbox' => implode(',', $bbox),           // Bounding box
-            'datetime' => "{$startDate}/{$endDate}", // Rango de fechas
-            'collections' => 'SENTINEL-2',      // Colección Sentinel-2 nivel 2A
-            'limit' => 5,                            // Máximo 5 resultados
-        ];
-
-        try {
-            // Realizamos la consulta en la API STAC
-            $response = $client->get('search', [
-                'query' => $query,
-                'headers' => [
-                    'Accept' => 'application/json',
-                ],
-            ]);
-
-            // Decodificamos la respuesta JSON
-            $data = json_decode($response->getBody()->getContents(), true);
-
-            // Si hay productos disponibles, los retornamos
-            if (! empty($data['features'])) {
-                // Extraemos los enlaces a los productos
-                $productos = [];
-                foreach ($data['features'] as $feature) {
-                    $productos[] = [
-                        'id' => $feature['id'],
-                        'datetime' => $feature['properties']['datetime'],
-                        'preview' => $feature['assets']['QUICKLOOK']['href'],
-                        'product' => $feature['assets']['PRODUCT']['href'],
-                    ];
-                }
-
-                return response()->json($productos);
-            } else {
-                return response()->json(['message' => 'No se encontraron imágenes recientes para Murcia.']);
-            }
-        } catch (Exception $e) {
-            // En caso de error, lo capturamos y respondemos con el mensaje de error
-            return response()->json(['error' => $e->getMessage()], 500);
-        }
-    }
-
-    public function sentinel2refactor($bbox, $startDate)
+    public function sentinel2($bbox, $startDate)
     {
         $client = new Client([
             'base_uri' => 'https://catalogue.dataspace.copernicus.eu/stac/',
@@ -123,25 +62,20 @@ class CopernicusController extends Controller
         }
     }
 
-    public function sentinel1()
+    public function sentinel3($bbox, $startDate)
     {
         $client = new Client([
             'base_uri' => 'https://catalogue.dataspace.copernicus.eu/stac/',
         ]);
 
-        // Coordenadas de Ceuta (bounding box: [minLon, minLat, maxLon, maxLat])
-        $bbox = [-5.389, 35.86, -5.270, 35.92];
-
-        // Fechas en formato ISO 8601
-        $startDate = now()->subDays(200)->toISOString(); // Últimos 90 días
         $endDate = now()->toISOString();
 
         // Construcción de parámetros de consulta
         $query = [
             'bbox' => implode(',', $bbox),           // Bounding box
             'datetime' => "{$startDate}/{$endDate}", // Rango de fechas
-            'collections' => 'SENTINEL-1',      // Colección Sentinel-1
-            'limit' => 5,                            // Máximo 5 resultados
+            'collections' => 'SENTINEL-3',      // Colección Sentinel-1
+            'limit' => 1,                            // Máximo 5 resultados
         ];
 
         try {
@@ -177,9 +111,10 @@ class CopernicusController extends Controller
                     $productos[] = $producto;
                 }
 
-                return response()->json($productos);
+                return $this->filterResults($productos);
+
             } else {
-                return response()->json(['message' => 'No se encontraron imágenes recientes para Ceuta.']);
+                return [];
             }
         } catch (Exception $e) {
             // En caso de error, lo capturamos y respondemos con el mensaje de error
