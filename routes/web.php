@@ -2,9 +2,10 @@
 
 use App\Http\Controllers\BrigadeController;
 use App\Http\Controllers\CommanderController;
-use App\Http\Controllers\CopernicusController;
 use App\Http\Controllers\EarlyWarning\AlertController;
+use App\Http\Controllers\EarlyWarning\CopernicusController;
 use App\Http\Controllers\EarlyWarning\EarlyWarningController;
+use App\Http\Controllers\EarlyWarning\SatController;
 use App\Http\Controllers\EarlyWarning\TargetController;
 use App\Http\Controllers\PersonalController;
 use App\Http\Controllers\SoldierController;
@@ -22,6 +23,8 @@ Route::resource('alerts', AlertController::class);
 Route::resource('targets', TargetController::class);
 Route::post('/telegram', [TelegramController::class, 'store'])->name('telegram.store');
 Route::post('/telegram/{alert}', [TelegramController::class, 'notifyAlert'])->name('telegram.notify');
+Route::get('/targets/{target}/sat', [SatController::class, 'create'])->name('sat.create');
+Route::post('/targets/{target}/sat', [SatController::class, 'store'])->name('sat.store');
 
 Route::get('/copernicus/token', [CopernicusController::class, 'getAccessToken']);
 Route::get('/sentinel', [CopernicusController::class, 'sentinel']);

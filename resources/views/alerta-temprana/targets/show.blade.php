@@ -7,6 +7,10 @@
     {{-- Vista Blade: show.blade.php o details.blade.php --}}
     <div class="py-12 relative">
         <div class="max-w-[80%] mx-auto sm:px-6 lg:px-8">
+            <x-session />
+        </div>
+        <div class="max-w-[80%] mx-auto sm:px-6 lg:px-8">
+
             <div class="bg-white dark:bg-gray-800 overflow-hidden shadow-xl sm:rounded-lg flex flex-row flex-wrap gap-2 p-6">
                 <!-- Botón de Volver -->
                 <div class="w-full mb-4">
@@ -63,6 +67,25 @@
                     <!-- Columna del mapa -->
                     <div class="md:w-1/2">
                         <div id="map" class="h-[500px] rounded-lg"></div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="bg-white dark:bg-gray-800 overflow-hidden shadow-xl sm:rounded-lg flex flex-row flex-wrap gap-2 p-6 mt-4">
+                <!-- Botón de Volver -->
+                <div class="w-full mb-4">
+                    <a href="{{ route('sat.create', $target) }}" class="inline-flex items-center px-4 py-2 bg-blue-500 border border-transparent rounded-md font-semibold text-xs text-white uppercase tracking-widest hover:bg-blue-700 focus:outline-none focus:border-blue-900 focus:ring ring-blue-300 disabled:opacity-25 transition ease-in-out duration-150">
+                        Obtener imagen satelital
+                    </a>
+                </div>
+                <!-- mostrar los sats del target -->
+                <div class="w-full flex flex-col md:flex-row gap-6">
+                    <div class="w-full flex gap-2 flex-wrap">
+                        @foreach( $target->sats as $sat )
+                            <div class="rounded-lg overflow-hidden mb-4">
+                                <img src="{{ $sat->image_route }}" alt="{{ $target->name }}" class="w-full object-cover" width="500">
+                            </div>
+                        @endforeach
                     </div>
                 </div>
             </div>

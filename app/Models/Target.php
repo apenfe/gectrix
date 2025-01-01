@@ -29,6 +29,11 @@ class Target extends Model
         'updated_at',
     ];
 
+    public function sats()
+    {
+        return $this->hasMany(Sat::class);
+    }
+
     public function scopePriority($query, $priority)
     {
         if ($priority) {
