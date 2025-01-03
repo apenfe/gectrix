@@ -21,6 +21,7 @@
 ## 2. APLICACIÓN MONOLÍTICA
 1. Módulo de personal.
    1. Crear modelos y relaciones. (OK)
+   2. Solucionar problemas carga en pantalla de inicio y estética
    1. Crear controladores. 
    2. Crear rutas. 
    3. Crear vistas.
@@ -55,6 +56,10 @@
    7. Cachear tablas (OK)
    8. API IMAGENES SATELITE (OK)
    9. MEJORA VISUALIZACION INDEX (OK)
+   10. Agregar test a modulo
+   11. Hacer pruebas de las busquedas con los scopes
+   12. Mejorar la estetica
+   13. MQTT para envío de alertas y targets. Tambien recepción de si un target es destruido
 3. Agregar componentes tailwind al proyecto. (OK)
 
 ## 3. API REST
@@ -66,3 +71,5 @@
       3. Crear limitación de uso de la API. (OK)
       4. Crear autenticación de la API por defecto con permisos limitados para pública '''********''' (OK)
    3. API privada para objetivos y puntos estratégicos. '''********''' (OK)
+   4. Plantear test de la api
+   5. Hacer test de la api

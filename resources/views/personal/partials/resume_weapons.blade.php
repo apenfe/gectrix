@@ -1,114 +1,19 @@
-<div id="weapon-info" class="p-6 bg-white dark:bg-gray-800 rounded-lg shadow-md border border-gray-200 dark:border-gray-700">
-
-    <h3 class="text-2xl font-bold text-gray-900 dark:text-gray-100 mb-4">{{ __('Weapon Information') }}</h3>
-
-    <!--
-            $table->unsignedInteger('price')->default(0);
-            $table->string('device-id')->unique();
-            $table->string('image')->nullable();
-            $table->text('description')->nullable();
-            $table->unsignedInteger('max-range');
-            $table->decimal('weight', 5, 2);
-    -->
-    <div class="space-y-3">
-        <!-- Weapon Brand -->
-        <p class="text-gray-700 dark:text-gray-300 text-lg">
-            <span class="font-medium">{{ __('Weapon Brand:') }}</span>
-            <span id="weapon-brand" class="font-semibold text-gray-900 dark:text-gray-100">{{ $weapons->first()->brand }}</span>
-        </p>
-        <!-- Weapon Model -->
-        <p class="text-gray-700 dark:text-gray-300 text-lg">
-            <span class="font-medium">{{ __('Weapon Model:') }}</span>
-            <span id="weapon-model" class="font-semibold text-gray-900 dark:text-gray-100">{{ $weapons->first()->model }}</span>
-        </p>
-        <!-- Weapon Status -->
-        <p class="text-gray-700 dark:text-gray-300 text-lg">
-            <span class="font-medium">{{ __('Status:') }}</span>
-            <span id="weapon-status" class="px-2 py-1 text-sm font-semibold rounded bg-green-100 text-green-800 dark:bg-green-900 dark:text-green-200">
-                {{ $weapons->first()->status }}
-            </span>
-        </p>
-        <!-- Weapon type -->
-        <p class="text-gray-700 dark:text-gray-300 text-lg">
-            <span class="font-medium">{{ __('Type:') }}</span>
-            <span id="weapon-type" class="font-semibold text-gray-900 dark:text-gray-100">{{ $weapons->first()->type }}</span>
-        </p>
-
-        <!-- Weapon Caliber -->
-        <p class="text-gray-700 dark:text-gray-300 text-lg">
-            <span class="font-medium">{{ __('Caliber:') }}</span>
-            <span id="weapon-caliber" class="font-semibold text-gray-900 dark:text-gray-100">{{ $weapons->first()->caliber }}</span>
-        </p>
-
-        <!-- Weapon Action -->
-        <p class="text-gray-700 dark:text-gray-300 text-lg">
-            <span class="font-medium">{{ __('Action:') }}</span>
-            <span id="weapon-action" class="font-semibold text-gray-900 dark:text-gray-100">{{ $weapons->first()->action }}</span>
-        </p>
-
-        <!-- Weapon Price -->
-        <p class="text-gray-700 dark:text-gray-300 text-lg">
-            <span class="font-medium">{{ __('Price:') }}</span>
-            <span id="weapon-price" class="font-semibold text-gray-900 dark:text-gray-100">{{ $weapons->first()->price }}</span>
-        </p>
-
-        <!-- Weapon Device ID -->
-        <p class="text-gray-700 dark:text-gray-300 text-lg">
-            <span class="font-medium">{{ __('Device ID:') }}</span>
-            <span id="weapon-device-id" class="font-semibold text-gray-900 dark:text-gray-100">{{ $weapons->first()->deviceid }}</span>
-        </p>
-
-        <!-- Weapon Image -->
-        <div>
-            <p class="text-gray-700 dark:text-gray-300 text-lg font-medium">{{ __('Weapon Image:') }}</p>
-            <img src="{{ asset('storage/private/'.$weapons->first()->image) }}" alt="Weapon Image" class="w-16 h-16 rounded-md border border-gray-300 dark:border-gray-600" id="image">
-
+<div class="w-200 md:w-1/6 m-2">
+    <div class="overflow-hidden mb-12 rounded-lg relative flex flex-col min-w-0 break-words bg-white w-full mb-6 shadow-lg rounded h-550-px transition-all duration-150 ease-in-out hover:transform hover:scale-110 group">
+        <div id="vehicle-image" class="absolute rounded-lg w-full h-full bg-50-center bg-cover transition-all duration-1000 ease-in-out group-hover:transform group-hover:scale-110" style="background-image: url({{ asset('storage/private/weapons/'.$weapon->image) }}); backface-visibility: hidden;">
         </div>
-
-        <!-- Weapon Description -->
-        <p class="text-gray-700 dark:text-gray-300 text-lg">
-            <span class="font-medium">{{ __('Description:') }}</span>
-            <span id="weapon-description" class="font-semibold text-gray-900 dark:text-gray-100">{{ $weapons->first()->description }}</span>
-        </p>
-
-        <!-- Weapon Max Range -->
-        <p class="text-gray-700 dark:text-gray-300 text-lg">
-            <span class="font-medium">{{ __('Max Range:') }}</span>
-            <span id="weapon-max-range" class="font-semibold text-gray-900 dark:text-gray-100">{{ $weapons->first()->max_range }}</span>
-        </p>
-
-        <!-- Weapon Weight -->
-        <p class="text-gray-700 dark:text-gray-300 text-lg">
-            <span class="font-medium">{{ __('Weight:') }}</span>
-            <span id="weapon-weight" class="font-semibold text-gray-900 dark:text-gray-100">{{ $weapons->first()->weight }}</span>
-        </p>
-
-
-
+        <div class="absolute rounded-lg w-full h-full bg-black opacity-50">
+        </div>
+        <div class="p-10 flex h-full items-end z-1">
+            <div>
+                <h1 id="vehicle-brand" class="text-4xl font-semibold mt-0 mb-2 text-white">{{ $weapon->brand }}</h1>
+                <h2 id="vehicle-model" class="text-2xl font-semibold mt-0 mb-2 text-white">Modelo: {{ $weapon->model }}</h2>
+                <p id="vehicle-type" class="text-lg font-semibold mt-0 mb-2 text-white">Tipo: {{ $weapon->type }}</p>
+                <p id="vehicle-status" class="text-lg font-semibold mt-0 mb-2 text-white">Estado: {{ $weapon->status }}</p>
+                <p id="vehicle-fuel" class="text-lg font-semibold mt-0 mb-2 text-white">Calibre: {{ $weapon->caliber }}</p>
+                <p id="vehicle-price" class="text-lg font-semibold mt-0 mb-2 text-white">Precio: {{ $weapon->price }} €</p>
+                <a id="vehicle-link" href="{{ route('weapons.show', $weapon) }}" class="inline-block outline-none focus:outline-none align-middle transition-all duration-150 ease-in-out uppercase border border-solid font-bold last:mr-0 mr-2 text-white bg-red-500 border-red-500 active:bg-red-600 active:border-red-600 text-sm px-6 py-2 shadow hover:shadow-lg rounded-md">Ver arma</a>
+            </div>
+        </div>
     </div>
 </div>
-
-<script>
-    document.addEventListener('DOMContentLoaded', function () {
-        let weapons = @json($weapons);
-        let currentIndex = 0;
-
-        function updateWeaponInfo() {
-            currentIndex = (currentIndex + 1) % weapons.length;
-            document.getElementById('weapon-brand').textContent = weapons[currentIndex].brand;
-            document.getElementById('weapon-model').textContent = weapons[currentIndex].model;
-            document.getElementById('weapon-status').textContent = weapons[currentIndex].status;
-            document.getElementById('weapon-type').textContent = weapons[currentIndex].type;
-            document.getElementById('weapon-caliber').textContent = weapons[currentIndex].caliber;
-            document.getElementById('weapon-action').textContent = weapons[currentIndex].action;
-            document.getElementById('weapon-price').textContent = weapons[currentIndex].price;
-            document.getElementById('weapon-device-id').textContent = weapons[currentIndex].deviceid;
-            document.getElementById('weapon-description').textContent = weapons[currentIndex].description;
-            document.getElementById('image').src = '/storage/private/' + weapons[currentIndex].image;
-            document.getElementById('weapon-max-range').textContent = weapons[currentIndex].max_range;
-            document.getElementById('weapon-weight').textContent = weapons[currentIndex].weight;
-        }
-
-        setInterval(updateWeaponInfo, 10);
-    });
-</script>

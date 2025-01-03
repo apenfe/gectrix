@@ -13,24 +13,17 @@ class PersonalController extends Controller
 {
     public function index()
     {
-        $soldiers = Cache::rememberForever('soldiers', function () {
-            return Soldier::all();
+
+        $vehicles =  Vehicle::all()->groupBy('model')->map(function ($group) {
+            return $group->first();
         });
 
-        $vehicles = Cache::rememberForever('vehicles', function () {
-            return Vehicle::all();
+        $weapons = Weapon::all()->groupBy('model')->map(function ($group) {
+            return $group->first();
         });
 
-        $weapons = Cache::rememberForever('weapons', function () {
-            return Weapon::all();
-        });
+        $brigades = Brigade::select('name', 'description', 'army', 'status', 'current_subordinates', 'latitude', 'longitude', 'unit_emblem', 'commander_id')->first();
 
-        $commanders = Cache::rememberForever('commanders', function () {
-            return Commander::all();
-        });
-
-        $brigades = Brigade::all();
-
-        return view('personal.module_personal', compact('soldiers', 'vehicles', 'weapons', 'commanders', 'brigades'));
+        return view('personal.module_personal', compact( 'vehicles', 'weapons', 'brigades'));
     }
 }

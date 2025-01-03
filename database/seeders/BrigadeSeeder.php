@@ -28,8 +28,8 @@ class BrigadeSeeder extends Seeder
                 'status' => 'operativa',
                 'max_subordinates' => 4,
                 'current_subordinates' => 4,
-                'combat_logo' => 'brigades/paracaidista_logo.jpg',
-                'unit_emblem' => 'brigades/paracaidista_emblem.jpg',
+                'combat_logo' => 'brigate.png',
+                'unit_emblem' => 'Bripac.png',
                 'commander_id' => $generalCommanders->random()->id,
             ],
         ];

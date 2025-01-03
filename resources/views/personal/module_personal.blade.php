@@ -1,13 +1,8 @@
 <x-app-layout>
 
     <x-slot name="header">
-
-        <h2 class="font-semibold text-xl text-gray-800 dark:text-gray-200 leading-tight">
-            {{ __('Personal') }}
-        </h2>
-
         @include('personal.partials.navigation_personal')
-
+        @include('personal.partials.header')
     </x-slot>
 
     <div class="py-12">
@@ -19,13 +14,14 @@
                 </div>
 
                 <div class="flex flex-row gap-3">
-                    @include('personal.partials.resume_commanders')
-                    @include('personal.partials.resume_soldiers')
+                    @foreach($vehicles as $vehicle)
+                        @include('personal.partials.resume_vehicles')
+                    @endforeach
                 </div>
-
-                <div class="flex flex-row gap-3">
-                    @include('personal.partials.resume_vehicles')
-                    @include('personal.partials.resume_weapons')
+                <div class="flex flex-row gap-2 flex-wrap justify-center">
+                    @foreach($weapons as $weapon)
+                        @include('personal.partials.resume_weapons')
+                    @endforeach
                 </div>
 
             </div>
