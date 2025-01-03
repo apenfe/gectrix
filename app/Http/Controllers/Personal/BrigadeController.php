@@ -1,8 +1,9 @@
 <?php
 
-namespace App\Http\Controllers;
+namespace App\Http\Controllers\Personal;
 
-use App\Models\Brigade;
+use App\Http\Controllers\Controller;
+use App\Models\Personal\Brigade;
 
 class BrigadeController extends Controller
 {

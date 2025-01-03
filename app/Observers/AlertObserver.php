@@ -2,7 +2,7 @@
 
 namespace App\Observers;
 
-use App\Models\Alert;
+use App\Models\EarlyWarning\Alert;
 use Illuminate\Support\Facades\Cache;
 
 class AlertObserver

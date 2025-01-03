@@ -2,7 +2,7 @@
 
 namespace Database\Factories;
 
-use App\Models\Alert;
+use App\Models\EarlyWarning\Alert;
 use Illuminate\Database\Eloquent\Factories\Factory;
 use Illuminate\Support\Carbon;
 

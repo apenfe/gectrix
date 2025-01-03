@@ -2,9 +2,9 @@
 
 namespace Database\Seeders;
 
-use App\Models\Commander;
-use App\Models\Platoon;
-use App\Models\Section;
+use App\Models\Personal\Commander;
+use App\Models\Personal\Platoon;
+use App\Models\Personal\Section;
 use Illuminate\Database\Seeder;
 
 class PlatoonSeeder extends Seeder

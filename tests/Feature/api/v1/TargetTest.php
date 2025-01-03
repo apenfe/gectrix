@@ -1,6 +1,6 @@
 <?php
 
-use App\Models\Target;
+use App\Models\EarlyWarning\Target;
 use App\Models\User;
 use Illuminate\Foundation\Testing\RefreshDatabase;
 use Illuminate\Http\UploadedFile;

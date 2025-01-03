@@ -1,8 +1,9 @@
 <?php
 
-namespace App\Http\Controllers;
+namespace App\Http\Controllers\Personal;
 
-use App\Models\Soldier;
+use App\Http\Controllers\Controller;
+use App\Models\Personal\Soldier;
 use Illuminate\Http\Request;
 
 class SoldierController extends Controller

@@ -2,8 +2,8 @@
 
 namespace Database\Seeders;
 
-use App\Models\Vehicle;
-use App\Models\Weapon;
+use App\Models\Personal\Vehicle;
+use App\Models\Personal\Weapon;
 use Illuminate\Database\Seeder;
 
 class VehicleSeeder extends Seeder

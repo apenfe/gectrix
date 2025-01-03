@@ -1,17 +1,17 @@
 <?php
 
-use App\Http\Controllers\BrigadeController;
-use App\Http\Controllers\CommanderController;
 use App\Http\Controllers\EarlyWarning\AlertController;
 use App\Http\Controllers\EarlyWarning\CopernicusController;
 use App\Http\Controllers\EarlyWarning\EarlyWarningController;
 use App\Http\Controllers\EarlyWarning\SatController;
 use App\Http\Controllers\EarlyWarning\TargetController;
-use App\Http\Controllers\PersonalController;
-use App\Http\Controllers\SoldierController;
+use App\Http\Controllers\Personal\BrigadeController;
+use App\Http\Controllers\Personal\CommanderController;
+use App\Http\Controllers\Personal\PersonalController;
+use App\Http\Controllers\Personal\SoldierController;
+use App\Http\Controllers\Personal\VehicleController;
+use App\Http\Controllers\Personal\WeaponController;
 use App\Http\Controllers\TelegramController;
-use App\Http\Controllers\VehicleController;
-use App\Http\Controllers\WeaponController;
 use Illuminate\Support\Facades\Route;
 
 Route::get('/', function () {

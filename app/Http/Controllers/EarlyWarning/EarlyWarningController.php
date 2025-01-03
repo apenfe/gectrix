@@ -3,8 +3,8 @@
 namespace App\Http\Controllers\EarlyWarning;
 
 use App\Http\Controllers\Controller;
-use App\Models\Alert;
-use App\Models\Target;
+use App\Models\EarlyWarning\Alert;
+use App\Models\EarlyWarning\Target;
 use Illuminate\Http\Request;
 
 class EarlyWarningController extends Controller

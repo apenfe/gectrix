@@ -2,7 +2,7 @@
 
 namespace Database\Seeders;
 
-use App\Models\Weapon;
+use App\Models\Personal\Weapon;
 use Illuminate\Database\Seeder;
 use Illuminate\Support\Str;
 

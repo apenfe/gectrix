@@ -1,21 +1,20 @@
 <?php
 
-use App\Models\Alert;
-use App\Models\Battalion;
-use App\Models\Brigade;
-use App\Models\Commander;
-use App\Models\Company;
-use App\Models\Platoon;
-use App\Models\Regiment;
-use App\Models\Section;
-use App\Models\Soldier;
-use App\Models\Squad;
-use App\Models\Target;
+use App\Models\EarlyWarning\Alert;
+use App\Models\EarlyWarning\Target;
+use App\Models\Personal\Battalion;
+use App\Models\Personal\Brigade;
+use App\Models\Personal\Commander;
+use App\Models\Personal\Company;
+use App\Models\Personal\Platoon;
+use App\Models\Personal\Regiment;
+use App\Models\Personal\Section;
+use App\Models\Personal\Soldier;
+use App\Models\Personal\Squad;
+use App\Models\Personal\Vehicle;
+use App\Models\Personal\Weapon;
 use App\Models\User;
-use App\Models\Vehicle;
-use App\Models\Weapon;
 use Illuminate\Foundation\Testing\RefreshDatabase;
-
 use function Pest\Laravel\get;
 
 uses(RefreshDatabase::class);

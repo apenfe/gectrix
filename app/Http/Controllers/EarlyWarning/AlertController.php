@@ -5,7 +5,7 @@ namespace App\Http\Controllers\EarlyWarning;
 use App\Http\Controllers\Controller;
 use App\Http\Controllers\TelegramController;
 use App\Http\Requests\EarlyWarning\AlertRequest;
-use App\Models\Alert;
+use App\Models\EarlyWarning\Alert;
 use Illuminate\Http\Request;
 
 class AlertController extends Controller

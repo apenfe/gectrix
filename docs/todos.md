@@ -21,7 +21,7 @@
 ## 2. APLICACIÓN MONOLÍTICA
 1. Módulo de personal.
    1. Crear modelos y relaciones. (OK)
-   2. Solucionar problemas carga en pantalla de inicio y estética
+   2. Solucionar problemas carga en pantalla de inicio y estética (OK)
    1. Crear controladores. 
    2. Crear rutas. 
    3. Crear vistas.

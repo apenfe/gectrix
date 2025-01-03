@@ -1,16 +1,24 @@
 <?php
 
-namespace App\Http\Controllers;
+namespace App\Http\Controllers\Personal;
 
+use App\Http\Controllers\Controller;
 use App\Http\Requests\Personal\WeaponRequest;
-use App\Models\Weapon;
+use App\Models\Personal\Weapon;
+use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Storage;
 
 class WeaponController extends Controller
 {
-    public function index()
+    public function index(Request $request)
     {
-        $weapons = Weapon::paginate(21);
+        $weapons = Weapon::query()
+            ->brand($request->input('brand'))
+            ->description($request->input('description'))
+            ->action($request->input('action'))
+            ->status($request->input('status'))
+            ->orderBy('id', 'desc')
+            ->get();
 
         return view('personal.weapons.submodule_weapons', compact('weapons'));
     }

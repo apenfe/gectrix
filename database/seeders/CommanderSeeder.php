@@ -2,8 +2,8 @@
 
 namespace Database\Seeders;
 
-use App\Models\Commander;
-use App\Models\Weapon;
+use App\Models\Personal\Commander;
+use App\Models\Personal\Weapon;
 use Illuminate\Database\Seeder;
 
 class CommanderSeeder extends Seeder

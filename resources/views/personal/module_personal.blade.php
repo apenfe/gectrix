@@ -9,7 +9,7 @@
         <div class="max-w-[90%] mx-auto sm:px-6 lg:px-8">
             <div class="bg-white dark:bg-gray-800 overflow-hidden shadow-xl sm:rounded-lg">
 
-                <div class="flex flex-row gap-3">
+                <div class="w-full">
                     @include('personal.partials.resume_brigade')
                 </div>
 

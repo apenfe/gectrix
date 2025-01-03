@@ -1,36 +1,41 @@
 <?php
 
-namespace App\Models;
+namespace App\Models\Personal;
 
+use App\Models\User;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
 
-class Brigade extends Model
+class Section extends Model
 {
-    /** @use HasFactory<\Database\Factories\BrigadeFactory> */
+    /** @use HasFactory<\Database\Factories\SectionFactory> */
     use HasFactory;
 
     protected $fillable = [
         'name',
         'description',
-        'army',
         'status',
         'max_subordinates',
         'current_subordinates',
         'latitude',
         'longitude',
         'combat_logo',
-        'unit_emblem',
         'commander_id',
+        'company_id',
     ];
 
     public function commander()
     {
-        return $this->belongsTo(Commander::class);
+        return $this->belongsTo(User::class, 'commander_id');
     }
 
-    public function regiments()
+    public function company()
     {
-        return $this->hasMany(Regiment::class);
+        return $this->belongsTo(Company::class);
+    }
+
+    public function platoons()
+    {
+        return $this->hasMany(Platoon::class);
     }
 }

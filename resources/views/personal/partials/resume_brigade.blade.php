@@ -1,6 +1,6 @@
 @php( $brigade = $brigades->first() )
 
-<div class="w-full md:w-3/4 lg:w-1/3">
+<div class="w-full">
     <div class="relative flex flex-col min-w-0 break-words bg-white w-full mb-6 shadow-lg rounded-lg mt-16">
         <div class="px-6">
             <div class="flex flex-wrap justify-center">

@@ -5,7 +5,7 @@ namespace Database\Factories;
 use Illuminate\Database\Eloquent\Factories\Factory;
 
 /**
- * @extends \Illuminate\Database\Eloquent\Factories\Factory<\App\Models\Battalion>
+ * @extends \Illuminate\Database\Eloquent\Factories\Factory<\App\Models\Personal\Battalion>
  */
 class BattalionFactory extends Factory
 {
@@ -25,8 +25,8 @@ class BattalionFactory extends Factory
             'status' => $this->faker->randomElement(['operativa', 'inoperativa']),
             'max_subordinates' => $this->faker->randomNumber(2),
             'current_subordinates' => $this->faker->randomNumber(2),
-            'latitude' => $this->faker->randomFloat(7, 0, 90),
-            'longitude' => $this->faker->randomFloat(7, 0, 180),
+            'latitude' => $this->faker->latitude(),
+            'longitude' => $this->faker->longitude(),
             'combat_logo' => $logo,
         ];
     }

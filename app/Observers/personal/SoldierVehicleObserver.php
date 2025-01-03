@@ -2,7 +2,7 @@
 
 namespace App\Observers\personal;
 
-use App\Models\SoldierVehicle;
+use App\Models\Personal\SoldierVehicle;
 use Cache;
 
 class SoldierVehicleObserver

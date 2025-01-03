@@ -2,9 +2,9 @@
 
 namespace Database\Seeders;
 
-use App\Models\Battalion;
-use App\Models\Commander;
-use App\Models\Regiment;
+use App\Models\Personal\Battalion;
+use App\Models\Personal\Commander;
+use App\Models\Personal\Regiment;
 use Illuminate\Database\Seeder;
 
 class BattalionSeeder extends Seeder

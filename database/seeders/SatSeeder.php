@@ -2,8 +2,8 @@
 
 namespace Database\Seeders;
 
-use App\Models\Sat;
-use App\Models\Target;
+use App\Models\EarlyWarning\Sat;
+use App\Models\EarlyWarning\Target;
 use Illuminate\Database\Seeder;
 
 class SatSeeder extends Seeder {

@@ -2,7 +2,7 @@
 
 namespace App\Http\Resources;
 
-use App\Models\Alert;
+use App\Models\EarlyWarning\Alert;
 use Illuminate\Http\Request;
 use Illuminate\Http\Resources\Json\JsonResource;
 

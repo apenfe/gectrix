@@ -4,8 +4,8 @@ namespace App\Http\Controllers\EarlyWarning;
 
 use App\Http\Controllers\Controller;
 use App\Http\Requests\EarlyWarning\SatRequest;
-use App\Models\Sat;
-use App\Models\Target;
+use App\Models\EarlyWarning\Sat;
+use App\Models\EarlyWarning\Target;
 
 class SatController extends Controller
 {

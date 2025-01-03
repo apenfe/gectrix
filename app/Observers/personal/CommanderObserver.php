@@ -2,7 +2,7 @@
 
 namespace App\Observers\personal;
 
-use App\Models\Commander;
+use App\Models\Personal\Commander;
 use Cache;
 
 class CommanderObserver

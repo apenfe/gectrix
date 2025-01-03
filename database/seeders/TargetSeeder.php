@@ -2,7 +2,7 @@
 
 namespace Database\Seeders;
 
-use App\Models\Target;
+use App\Models\EarlyWarning\Target;
 use Illuminate\Database\Seeder;
 
 class TargetSeeder extends Seeder

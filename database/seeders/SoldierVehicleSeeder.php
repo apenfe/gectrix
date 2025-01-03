@@ -2,9 +2,9 @@
 
 namespace Database\Seeders;
 
-use App\Models\SoldierVehicle;
-use App\Models\Squad;
-use App\Models\Vehicle;
+use App\Models\Personal\SoldierVehicle;
+use App\Models\Personal\Squad;
+use App\Models\Personal\Vehicle;
 use Illuminate\Database\Seeder;
 
 class SoldierVehicleSeeder extends Seeder

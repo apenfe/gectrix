@@ -2,7 +2,7 @@
 
 namespace App\Http\Controllers;
 
-use App\Models\Alert;
+use App\Models\EarlyWarning\Alert;
 use App\Notifications\TelegramBotNotification;
 
 class TelegramController extends Controller

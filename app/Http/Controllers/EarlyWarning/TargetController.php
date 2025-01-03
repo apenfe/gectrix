@@ -4,7 +4,7 @@ namespace App\Http\Controllers\EarlyWarning;
 
 use App\Http\Controllers\Controller;
 use App\Http\Requests\EarlyWarning\TargetRequest;
-use App\Models\Target;
+use App\Models\EarlyWarning\Target;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Storage;
 

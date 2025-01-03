@@ -1,8 +1,9 @@
 <?php
 
-namespace App\Http\Controllers;
+namespace App\Http\Controllers\Personal;
 
-use App\Models\Commander;
+use App\Http\Controllers\Controller;
+use App\Models\Personal\Commander;
 use Illuminate\Http\Request;
 
 class CommanderController extends Controller

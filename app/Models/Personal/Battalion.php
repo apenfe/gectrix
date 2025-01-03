@@ -1,13 +1,14 @@
 <?php
 
-namespace App\Models;
+namespace App\Models\Personal;
 
+use App\Models\User;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
 
-class Regiment extends Model
+class Battalion extends Model
 {
-    /** @use HasFactory<\Database\Factories\RegimentFactory> */
+    /** @use HasFactory<\Database\Factories\BattalionFactory> */
     use HasFactory;
 
     protected $fillable = [
@@ -20,7 +21,7 @@ class Regiment extends Model
         'longitude',
         'combat_logo',
         'commander_id',
-        'brigade_id',
+        'regiment_id',
     ];
 
     public function commander()
@@ -28,13 +29,13 @@ class Regiment extends Model
         return $this->belongsTo(User::class, 'commander_id');
     }
 
-    public function brigade()
+    public function regiment()
     {
-        return $this->belongsTo(Brigade::class, 'brigade_id');
+        return $this->belongsTo(Regiment::class);
     }
 
-    public function battalions()
+    public function companies()
     {
-        return $this->hasMany(Battalion::class);
+        return $this->hasMany(Company::class);
     }
 }

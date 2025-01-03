@@ -1,6 +1,6 @@
 <?php
 
-use App\Models\Alert;
+use App\Models\EarlyWarning\Alert;
 use App\Models\User;
 use Carbon\Carbon;
 use Illuminate\Foundation\Testing\RefreshDatabase;

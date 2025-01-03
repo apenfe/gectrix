@@ -2,7 +2,7 @@
 
 namespace App\Observers\personal;
 
-use App\Models\Weapon;
+use App\Models\Personal\Weapon;
 use Cache;
 
 class WeaponObserver

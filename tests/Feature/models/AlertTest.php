@@ -1,6 +1,6 @@
 <?php
 
-use App\Models\Alert;
+use App\Models\EarlyWarning\Alert;
 use Illuminate\Foundation\Testing\RefreshDatabase;
 
 uses(RefreshDatabase::class);

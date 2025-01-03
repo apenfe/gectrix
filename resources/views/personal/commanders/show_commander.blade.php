@@ -1,4 +1,4 @@
-@php use App\Models\Commander; @endphp
+@php @endphp
 <x-app-layout>
 
     <x-slot name="header">
@@ -34,8 +34,8 @@
                     </div>
                     <div class="w-3/4">
                         @php
-                        //getArmyAttribute
-                            // uso de mtodo para sacer el ejercitp al que pertenece el comandante
+                            //getArmyAttribute
+                                // uso de mtodo para sacer el ejercitp al que pertenece el comandante
 
                         @endphp
 

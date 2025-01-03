@@ -2,7 +2,7 @@
 
 namespace App\Observers;
 
-use App\Models\Target;
+use App\Models\EarlyWarning\Target;
 use Cache;
 
 class TargetObserver

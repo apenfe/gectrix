@@ -1,13 +1,11 @@
 <?php
 
-namespace App\Http\Controllers;
+namespace App\Http\Controllers\Personal;
 
-use App\Models\Brigade;
-use App\Models\Commander;
-use App\Models\Soldier;
-use App\Models\Vehicle;
-use App\Models\Weapon;
-use Cache;
+use App\Http\Controllers\Controller;
+use App\Models\Personal\Brigade;
+use App\Models\Personal\Vehicle;
+use App\Models\Personal\Weapon;
 
 class PersonalController extends Controller
 {

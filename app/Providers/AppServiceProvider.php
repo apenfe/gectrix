@@ -2,13 +2,13 @@
 
 namespace App\Providers;
 
-use App\Models\Alert;
-use App\Models\Commander;
-use App\Models\Soldier;
-use App\Models\SoldierVehicle;
-use App\Models\Target;
-use App\Models\Vehicle;
-use App\Models\Weapon;
+use App\Models\EarlyWarning\Alert;
+use App\Models\EarlyWarning\Target;
+use App\Models\Personal\Commander;
+use App\Models\Personal\Soldier;
+use App\Models\Personal\SoldierVehicle;
+use App\Models\Personal\Vehicle;
+use App\Models\Personal\Weapon;
 use App\Observers\AlertObserver;
 use App\Observers\personal\CommanderObserver;
 use App\Observers\personal\SoldierObserver;

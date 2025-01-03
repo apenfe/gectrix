@@ -2,7 +2,7 @@
 
 namespace Database\Seeders;
 
-use App\Models\Alert;
+use App\Models\EarlyWarning\Alert;
 use Illuminate\Database\Seeder;
 
 class AlertSeeder extends Seeder

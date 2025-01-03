@@ -1,4 +1,4 @@
-@php use App\Models\Soldier; @endphp
+@php use App\Models\Personal\Soldier; @endphp
 <x-app-layout>
 
     <x-slot name="header">
@@ -63,7 +63,8 @@
                         </p>
                         <p class="text-gray-700 dark:text-gray-300">
                             <span class="font-medium">{{ __('Status:') }}</span>
-                            <span class="px-2 py-1 text-sm font-semibold rounded bg-green-100 text-green-800 dark:bg-green-900 dark:text-green-200">
+                            <span
+                                class="px-2 py-1 text-sm font-semibold rounded bg-green-100 text-green-800 dark:bg-green-900 dark:text-green-200">
                                 {{ $soldier->status }}
                             </span>
                         </p>
@@ -77,10 +78,12 @@
                             <span class="font-medium">{{ __('Date of Death:') }}</span> {{ $soldier->date_of_death }}
                         </p>
                         <p class="text-gray-700 dark:text-gray-300">
-                            <span class="font-medium">{{ __('Date of Enlistment:') }}</span> {{ $soldier->date_of_enlistment }}
+                            <span
+                                class="font-medium">{{ __('Date of Enlistment:') }}</span> {{ $soldier->date_of_enlistment }}
                         </p>
                         <p class="text-gray-700 dark:text-gray-300">
-                            <span class="font-medium">{{ __('Date of Demobilization:') }}</span> {{ $soldier->date_of_demobilization }}
+                            <span
+                                class="font-medium">{{ __('Date of Demobilization:') }}</span> {{ $soldier->date_of_demobilization }}
                         </p>
                     </div>
                 </div>
@@ -95,13 +98,15 @@
                         </a>
                         <form id="kill-form" action="{{ route('soldiers.kill', $soldier) }}" method="POST">
                             @csrf
-                            <button type="button" onclick="killSoldier()" class="px-4 py-2 bg-blue-500 text-white rounded-md hover:bg-blue-600">
+                            <button type="button" onclick="killSoldier()"
+                                    class="px-4 py-2 bg-blue-500 text-white rounded-md hover:bg-blue-600">
                                 {{ __('Killed Soldier') }}
                             </button>
                         </form>
                         <form id="unroll-form" action="{{ route('soldiers.unroll', $soldier) }}" method="POST">
                             @csrf
-                            <button type="button" onclick="unrollSoldier()" class="px-4 py-2 bg-blue-500 text-white rounded-md hover:bg-blue-600">
+                            <button type="button" onclick="unrollSoldier()"
+                                    class="px-4 py-2 bg-blue-500 text-white rounded-md hover:bg-blue-600">
                                 {{ __('Unroll Soldier') }}
                             </button>
                         </form>
