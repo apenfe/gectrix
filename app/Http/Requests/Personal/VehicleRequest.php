@@ -4,9 +4,10 @@ namespace App\Http\Requests\Personal;
 
 use Illuminate\Foundation\Http\FormRequest;
 
-class VehicleRequest extends FormRequest {
-
-    public function rules(): array {
+class VehicleRequest extends FormRequest
+{
+    public function rules(): array
+    {
 
         return [
             'brand' => ['required', 'string', 'max:255'],
@@ -23,7 +24,7 @@ class VehicleRequest extends FormRequest {
                 ? 'sometimes|image|mimes:jpeg,png,jpg,gif,svg|max:2048'
                 : 'required|image|mimes:jpeg,png,jpg,gif,svg|max:2048',
             'description' => ['nullable', 'string', 'max:255'],
-            'weight' => ['required', 'numeric','min:0'],
+            'weight' => ['required', 'numeric', 'min:0'],
             'latitude' => ['required', 'numeric'],
             'longitude' => ['required', 'numeric'],
             'weapon_id' => ['nullable', 'exists:weapons,id'],
@@ -31,11 +32,13 @@ class VehicleRequest extends FormRequest {
         ];
     }
 
-    public function authorize(): bool {
+    public function authorize(): bool
+    {
         return true;
     }
 
-    public function messages(): array {
+    public function messages(): array
+    {
         return [
             'brand.required' => 'Brand is required',
             'model.required' => 'Model is required',

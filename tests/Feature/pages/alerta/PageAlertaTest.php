@@ -4,6 +4,7 @@ use App\Models\EarlyWarning\Alert;
 use App\Models\EarlyWarning\Target;
 use App\Models\User;
 use Illuminate\Foundation\Testing\RefreshDatabase;
+
 use function Pest\Laravel\get;
 
 uses(RefreshDatabase::class);

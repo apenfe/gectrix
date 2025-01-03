@@ -8,7 +8,6 @@ use App\Models\Personal\Weapon;
 use App\Traits\ImageHandler;
 use Illuminate\Http\Request;
 use Illuminate\Pagination\LengthAwarePaginator;
-use Illuminate\Support\Facades\Storage;
 
 class WeaponController extends Controller
 {
@@ -32,6 +31,7 @@ class WeaponController extends Controller
     private function paginate($items, $perPage, $page)
     {
         $offset = ($page * $perPage) - $perPage;
+
         return new LengthAwarePaginator(
             $items->slice($offset, $perPage),
             $items->count(),

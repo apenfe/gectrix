@@ -51,6 +51,7 @@ class Vehicle extends Model
         if ($brand) {
             return $query->where('brand', 'like', "%$brand%");
         }
+
         return $query;
     }
 
@@ -59,6 +60,7 @@ class Vehicle extends Model
         if ($model) {
             return $query->where('model', 'like', "%$model%");
         }
+
         return $query;
     }
 
@@ -67,6 +69,7 @@ class Vehicle extends Model
         if ($type) {
             return $query->where('type', $type);
         }
+
         return $query;
     }
 
@@ -75,6 +78,7 @@ class Vehicle extends Model
         if ($status) {
             return $query->where('status', $status);
         }
+
         return $query;
     }
 }

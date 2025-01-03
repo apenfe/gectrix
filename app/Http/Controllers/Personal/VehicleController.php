@@ -8,7 +8,6 @@ use App\Models\Personal\Vehicle;
 use App\Traits\ImageHandler;
 use Illuminate\Http\Request;
 use Illuminate\Pagination\LengthAwarePaginator;
-use Illuminate\Support\Facades\Storage;
 
 class VehicleController extends Controller
 {
@@ -31,6 +30,7 @@ class VehicleController extends Controller
     private function paginate($items, $perPage, $page)
     {
         $offset = ($page * $perPage) - $perPage;
+
         return new LengthAwarePaginator(
             $items->slice($offset, $perPage),
             $items->count(),
@@ -50,6 +50,7 @@ class VehicleController extends Controller
         $validatedData = $request->validated();
         $validatedData['image'] = $this->uploadImage($request, 'image', 'private/vehicles');
         Vehicle::create($validatedData);
+
         return redirect()->route('vehicles.index')->with('success', 'Vehicle created successfully.');
     }
 
@@ -63,6 +64,7 @@ class VehicleController extends Controller
         $validatedData = $request->validated();
         $validatedData['image'] = $this->updateImage($request, 'image', 'private/vehicles', $vehicle->image);
         $vehicle->update($validatedData);
+
         return redirect()->route('vehicles.index')->with('success', 'Vehicle updated successfully.');
     }
 
@@ -74,6 +76,7 @@ class VehicleController extends Controller
 
         $this->deleteImage('private/weapons', $vehicle->image);
         $vehicle->delete();
+
         return redirect()->route('vehicles.index')->with('success', 'Vehicle deleted successfully.');
     }
 

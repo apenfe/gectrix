@@ -48,6 +48,7 @@ class Weapon extends Model
         if ($brand) {
             return $query->where('brand', 'like', '%'.$brand.'%');
         }
+
         return $query;
     }
 
@@ -56,6 +57,7 @@ class Weapon extends Model
         if ($description) {
             return $query->where('description', 'like', '%'.$description.'%');
         }
+
         return $query;
     }
 
@@ -64,6 +66,7 @@ class Weapon extends Model
         if ($action) {
             return $query->where('action', $action);
         }
+
         return $query;
     }
 
@@ -72,6 +75,7 @@ class Weapon extends Model
         if ($status) {
             return $query->where('status', $status);
         }
+
         return $query;
     }
 }
