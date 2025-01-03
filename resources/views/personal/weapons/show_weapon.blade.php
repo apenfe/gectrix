@@ -1,7 +1,6 @@
 <x-app-layout>
 
     <x-slot name="header">
-        @include('personal.partials.migas')
         @include('personal.partials.navigation_personal')
     </x-slot>
 

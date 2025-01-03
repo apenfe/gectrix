@@ -25,14 +25,13 @@
    1. Crear controladores. 
    2. Crear rutas. 
    3. Crear vistas.
-      1. vista general con todos datos.
+      1. vista general con todos datos. (OK)
       2. vista armas (OK)
       3. vista vehículos (OK)
       4. vista soldados (OK)
       5. vista comandantes (OK)
       6. vista tripulaciones
       7. vista de brigadas
-      8. Vista general con todos los datos.
    4. Crear todos los cruds.
    5. Crear cliente mqtt 
    6. Exportación importación datos con EXCEL/PDF

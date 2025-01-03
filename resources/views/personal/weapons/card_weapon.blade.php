@@ -19,7 +19,7 @@
                 <span class="font-medium">{{ __('Type:') }}</span> {{ $weapon->type }}
             </p>
             <p class="text-gray-700 dark:text-gray-300">
-                <span class="font-medium">{{ __('Device ID:') }}</span> {{ $weapon->deviceid }}
+                <span class="font-medium">{{ __('Device ID:') }}</span> {{ $weapon->deviceId }}
             </p>
             <p class="text-gray-700 dark:text-gray-300">
                 <span class="font-medium">{{ __('Price:') }}</span> ${{ $weapon->price }}

@@ -1,7 +1,6 @@
 <x-app-layout>
 
     <x-slot name="header">
-        @include('personal.partials.migas')
         @include('personal.partials.navigation_personal')
     </x-slot>
 
@@ -12,7 +11,7 @@
                 <div class="flex flex-col justify-center items-center">
                     <!-- Weapon Image -->
                     <div class="w-3/4">
-                        <img src="{{ asset('storage/private/'.$vehicle->image) }}"
+                        <img src="{{ asset('storage/private/vehicles/'.$vehicle->image) }}"
                              alt="{{ __('Vehicle Image') }}"
                              class="w-full h-auto rounded-md border border-gray-300 dark:border-gray-600">
                     </div>

@@ -5,16 +5,37 @@ namespace App\Http\Controllers\Personal;
 use App\Http\Controllers\Controller;
 use App\Models\Personal\Vehicle;
 use Illuminate\Http\Request;
+use Illuminate\Pagination\LengthAwarePaginator;
 use Illuminate\Support\Facades\Storage;
 
 class VehicleController extends Controller
 {
-    public function index()
+    public function index(Request $request)
     {
-        $vehicles = Vehicle::paginate(10);
+        $vehiclesQuery = Vehicle::query()
+            ->brand($request->input('brand'))
+            ->model($request->input('model'))
+            ->type($request->input('type'))
+            ->status($request->input('status'))
+            ->get();
+
+        $vehicles = $this->paginate($vehiclesQuery, 9, $request->input('page', 1));
 
         return view('personal.vehicles.submodule_vehicles', compact('vehicles'));
     }
+
+    private function paginate($items, $perPage, $page)
+    {
+        $offset = ($page * $perPage) - $perPage;
+        return new LengthAwarePaginator(
+            $items->slice($offset, $perPage),
+            $items->count(),
+            $perPage,
+            $page,
+            ['path' => request()->url(), 'query' => request()->query()]
+        );
+    }
+
 
     public function create()
     {

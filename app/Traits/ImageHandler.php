@@ -21,7 +21,7 @@ trait ImageHandler
     public function updateImage(Request $request, $inputName, $directory, $currentImage = null)
     {
         if ($request->hasFile($inputName)) {
-            if ($currentImage) {
+            if ($currentImage && !$this->filter($currentImage)) {
                 Storage::disk('public')->delete($directory . '/' . $currentImage);
             }
             return $this->uploadImage($request, $inputName, $directory);
@@ -31,8 +31,22 @@ trait ImageHandler
 
     public function deleteImage($directory, $imageName = null)
     {
-        if ($imageName) {
+        if ($imageName && !$this->filter($imageName)) {
             Storage::disk('public')->delete($directory . '/' . $imageName);
         }
+    }
+
+    private function filter($name) {
+        if($name == 'awm.jpg'
+            || $name == 'beretta92fs.jpg'
+            || $name == 'coyote.jpg'
+            || $name == 'hkg36e.jpg'
+            || $name == 'm4a1.jpg'
+            || $name == 'm249.jpg'
+            || $name == 'scar-h.png'
+        ) {
+            return true;
+        }
+        return false;
     }
 }

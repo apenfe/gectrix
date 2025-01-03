@@ -44,4 +44,37 @@ class Vehicle extends Model
     {
         return $this->belongsToMany(Soldier::class, 'soldiers_vehicles');
     }
+
+    // Scopes
+    public function scopeBrand($query, $brand)
+    {
+        if ($brand) {
+            return $query->where('brand', 'like', "%$brand%");
+        }
+        return $query;
+    }
+
+    public function scopeModel($query, $model)
+    {
+        if ($model) {
+            return $query->where('model', 'like', "%$model%");
+        }
+        return $query;
+    }
+
+    public function scopeType($query, $type)
+    {
+        if ($type) {
+            return $query->where('type', $type);
+        }
+        return $query;
+    }
+
+    public function scopeStatus($query, $status)
+    {
+        if ($status) {
+            return $query->where('status', $status);
+        }
+        return $query;
+    }
 }
