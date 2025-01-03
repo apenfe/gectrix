@@ -1,6 +1,6 @@
 <?php
 
-namespace Database\Factories;
+namespace Database\Factories\EarlyWarning;
 
 use App\Models\EarlyWarning\Target;
 use Illuminate\Database\Eloquent\Factories\Factory;

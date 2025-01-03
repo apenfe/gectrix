@@ -1,7 +1,8 @@
 <?php
 
-namespace Database\Factories;
+namespace Database\Factories\Personal;
 
+use App\Traits\LocationHandler;
 use Illuminate\Database\Eloquent\Factories\Factory;
 
 /**
@@ -9,6 +10,7 @@ use Illuminate\Database\Eloquent\Factories\Factory;
  */
 class WeaponFactory extends Factory
 {
+    use LocationHandler;
     /**
      * Define the model's default state.
      *
@@ -16,6 +18,8 @@ class WeaponFactory extends Factory
      */
     public function definition(): array
     {
+        $position = $this->spain();
+
         return [
             'brand' => $this->faker->company,
             'model' => $this->faker->word,
@@ -29,8 +33,8 @@ class WeaponFactory extends Factory
             'description' => $this->faker->text,
             'maxRange' => $this->faker->numberBetween(100, 10000),
             'weight' => $this->faker->randomFloat(2, 1, 100),
-            'latitude' => $this->faker->latitude,
-            'longitude' => $this->faker->longitude,
+            'latitude' => $position['latitude'],
+            'longitude' => $position['longitude'],
         ];
     }
 }

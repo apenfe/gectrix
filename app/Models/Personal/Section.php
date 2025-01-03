@@ -8,7 +8,7 @@ use Illuminate\Database\Eloquent\Model;
 
 class Section extends Model
 {
-    /** @use HasFactory<\Database\Factories\SectionFactory> */
+    /** @use HasFactory<\Database\Factories\Personal\SectionFactory> */
     use HasFactory;
 
     protected $fillable = [

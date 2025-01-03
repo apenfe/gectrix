@@ -1,7 +1,8 @@
 <?php
 
-namespace Database\Factories;
+namespace Database\Factories\Personal;
 
+use App\Traits\LocationHandler;
 use Illuminate\Database\Eloquent\Factories\Factory;
 
 /**
@@ -9,6 +10,7 @@ use Illuminate\Database\Eloquent\Factories\Factory;
  */
 class VehicleFactory extends Factory
 {
+    use LocationHandler;
     /**
      * Define the model's default state.
      *
@@ -16,6 +18,8 @@ class VehicleFactory extends Factory
      */
     public function definition(): array
     {
+        $position = $this->spain();
+
         return [
             'brand' => $this->faker->company,
             'model' => $this->faker->word,
@@ -30,8 +34,8 @@ class VehicleFactory extends Factory
             'image' => $this->faker->imageUrl(),
             'description' => $this->faker->text,
             'weight' => $this->faker->randomFloat(2, 1, 100),
-            'latitude' => $this->faker->latitude,
-            'longitude' => $this->faker->longitude,
+            'latitude' => $position['latitude'],
+            'longitude' => $position['longitude'],
         ];
     }
 }

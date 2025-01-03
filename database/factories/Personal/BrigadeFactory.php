@@ -1,14 +1,17 @@
 <?php
 
-namespace Database\Factories;
+namespace Database\Factories\Personal;
 
+use App\Traits\LocationHandler;
 use Illuminate\Database\Eloquent\Factories\Factory;
 
 /**
- * @extends \Illuminate\Database\Eloquent\Factories\Factory<\App\Models\Personal\Section>
+ * @extends \Illuminate\Database\Eloquent\Factories\Factory<\App\Models\Personal\Brigade>
  */
-class SectionFactory extends Factory
+class BrigadeFactory extends Factory
 {
+    use LocationHandler;
+
     /**
      * Define the model's default state.
      *
@@ -16,17 +19,22 @@ class SectionFactory extends Factory
      */
     public function definition(): array
     {
-        $logo = 'combat_icons/section.png';
+        $logo = 'combat_icons/brigade.png';
+        $emblem = 'unit_emblems/Bripac.png';
+
+        $position = $this->spain();
 
         return [
             'name' => $this->faker->name,
             'description' => $this->faker->text,
+            'army' => $this->faker->randomElement(['tierra', 'aire', 'armada', 'im', 'gc']),
             'status' => $this->faker->randomElement(['operativa', 'inoperativa']),
             'max_subordinates' => $this->faker->numberBetween(1, 10),
             'current_subordinates' => $this->faker->numberBetween(0, 10),
-            'latitude' => $this->faker->latitude,
-            'longitude' => $this->faker->longitude,
+            'latitude' => $position['latitude'],
+            'longitude' => $position['longitude'],
             'combat_logo' => $logo,
+            'unit_emblem' => $emblem,
         ];
     }
 }

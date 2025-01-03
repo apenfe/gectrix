@@ -8,7 +8,7 @@ use Illuminate\Database\Eloquent\Model;
 
 class Platoon extends Model
 {
-    /** @use HasFactory<\Database\Factories\PlatoonFactory> */
+    /** @use HasFactory<\Database\Factories\Personal\PlatoonFactory> */
     use HasFactory;
 
     protected $fillable = [

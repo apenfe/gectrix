@@ -8,7 +8,7 @@ use Illuminate\Database\Eloquent\Model;
 
 class Regiment extends Model
 {
-    /** @use HasFactory<\Database\Factories\RegimentFactory> */
+    /** @use HasFactory<\Database\Factories\Personal\RegimentFactory> */
     use HasFactory;
 
     protected $fillable = [

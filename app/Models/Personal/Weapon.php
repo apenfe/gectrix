@@ -7,7 +7,7 @@ use Illuminate\Database\Eloquent\Model;
 
 class Weapon extends Model
 {
-    /** @use HasFactory<\Database\Factories\WeaponFactory> */
+    /** @use HasFactory<\Database\Factories\Personal\WeaponFactory> */
     use HasFactory;
 
     protected $fillable = [

@@ -7,7 +7,7 @@ use Illuminate\Database\Eloquent\Model;
 
 class Commander extends Model
 {
-    /** @use HasFactory<\Database\Factories\CommanderFactory> */
+    /** @use HasFactory<\Database\Factories\Personal\CommanderFactory> */
     use HasFactory;
 
     protected $fillable = [

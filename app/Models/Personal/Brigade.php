@@ -7,7 +7,7 @@ use Illuminate\Database\Eloquent\Model;
 
 class Brigade extends Model
 {
-    /** @use HasFactory<\Database\Factories\BrigadeFactory> */
+    /** @use HasFactory<\Database\Factories\Personal\BrigadeFactory> */
     use HasFactory;
 
     protected $fillable = [

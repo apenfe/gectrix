@@ -1,14 +1,16 @@
 <?php
 
-namespace Database\Factories;
+namespace Database\Factories\Personal;
 
+use App\Traits\LocationHandler;
 use Illuminate\Database\Eloquent\Factories\Factory;
 
 /**
- * @extends \Illuminate\Database\Eloquent\Factories\Factory<\App\Models\Personal\Squad>
+ * @extends \Illuminate\Database\Eloquent\Factories\Factory<\App\Models\Personal\Regiment>
  */
-class SquadFactory extends Factory
+class RegimentFactory extends Factory
 {
+    use LocationHandler;
     /**
      * Define the model's default state.
      *
@@ -16,16 +18,17 @@ class SquadFactory extends Factory
      */
     public function definition(): array
     {
-        $logo = 'combat_icons/squad.png';
+        $logo = 'combat_icons/regiment.png';
+        $position = $this->spain();
 
         return [
-            'name' => $this->faker->name(),
-            'description' => $this->faker->sentence(3),
+            'name' => $this->faker->name,
+            'description' => $this->faker->text,
             'status' => $this->faker->randomElement(['operativa', 'inoperativa']),
             'max_subordinates' => $this->faker->numberBetween(1, 10),
             'current_subordinates' => $this->faker->numberBetween(0, 10),
-            'latitude' => $this->faker->latitude(),
-            'longitude' => $this->faker->longitude(),
+            'latitude' => $position['latitude'],
+            'longitude' => $position['longitude'],
             'combat_logo' => $logo,
         ];
     }

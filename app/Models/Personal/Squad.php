@@ -8,7 +8,7 @@ use Illuminate\Database\Eloquent\Model;
 
 class Squad extends Model
 {
-    /** @use HasFactory<\Database\Factories\SquadFactory> */
+    /** @use HasFactory<\Database\Factories\Personal\SquadFactory> */
     use HasFactory;
 
     protected $fillable = [

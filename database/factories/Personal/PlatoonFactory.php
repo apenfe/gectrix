@@ -1,14 +1,16 @@
 <?php
 
-namespace Database\Factories;
+namespace Database\Factories\Personal;
 
+use App\Traits\LocationHandler;
 use Illuminate\Database\Eloquent\Factories\Factory;
 
 /**
- * @extends \Illuminate\Database\Eloquent\Factories\Factory<\App\Models\Personal\Battalion>
+ * @extends \Illuminate\Database\Eloquent\Factories\Factory<\App\Models\Personal\Platoon>
  */
-class BattalionFactory extends Factory
+class PlatoonFactory extends Factory
 {
+    use LocationHandler;
     /**
      * Define the model's default state.
      *
@@ -16,8 +18,8 @@ class BattalionFactory extends Factory
      */
     public function definition(): array
     {
-        // cragar la ruta de la imagen
-        $logo = 'combat_icons/battalion.png';
+        $logo = 'combat_icons/platoon.png';
+        $position = $this->spain();
 
         return [
             'name' => $this->faker->name,
@@ -25,8 +27,8 @@ class BattalionFactory extends Factory
             'status' => $this->faker->randomElement(['operativa', 'inoperativa']),
             'max_subordinates' => $this->faker->randomNumber(2),
             'current_subordinates' => $this->faker->randomNumber(2),
-            'latitude' => $this->faker->latitude(),
-            'longitude' => $this->faker->longitude(),
+            'latitude' => $position['latitude'],
+            'longitude' => $position['longitude'],
             'combat_logo' => $logo,
         ];
     }

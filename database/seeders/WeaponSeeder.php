@@ -139,7 +139,5 @@ class WeaponSeeder extends Seeder
             }
         }
 
-        // Crear algunas armas aleatorias adicionales usando el factory directamente
-        // Weapon::factory(50)->create(); // Crear 50 armas aleatorias adicionales
     }
 }

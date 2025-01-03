@@ -8,7 +8,7 @@ use Illuminate\Database\Eloquent\Model;
 
 class Battalion extends Model
 {
-    /** @use HasFactory<\Database\Factories\BattalionFactory> */
+    /** @use HasFactory<\Database\Factories\Personal\BattalionFactory> */
     use HasFactory;
 
     protected $fillable = [

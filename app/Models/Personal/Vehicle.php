@@ -7,7 +7,7 @@ use Illuminate\Database\Eloquent\Model;
 
 class Vehicle extends Model
 {
-    /** @use HasFactory<\Database\Factories\VehicleFactory> */
+    /** @use HasFactory<\Database\Factories\Personal\VehicleFactory> */
     use HasFactory;
 
     protected $fillable = [

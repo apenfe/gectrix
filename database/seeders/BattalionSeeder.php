@@ -5,13 +5,14 @@ namespace Database\Seeders;
 use App\Models\Personal\Battalion;
 use App\Models\Personal\Commander;
 use App\Models\Personal\Regiment;
+use App\Traits\LocationHandler;
 use Illuminate\Database\Seeder;
 
 class BattalionSeeder extends Seeder
 {
-    /**
-     * Run the database seeds.
-     */
+
+    use LocationHandler;
+
     public function run(): void
     {
         // Filtrar comandantes con rango de comandante y que no sean mandos de otro cuerpo
