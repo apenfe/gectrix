@@ -5,14 +5,18 @@ namespace App\Http\Controllers\Personal;
 use App\Http\Controllers\Controller;
 use App\Http\Requests\Personal\WeaponRequest;
 use App\Models\Personal\Weapon;
+use App\Traits\ImageHandler;
 use Illuminate\Http\Request;
+use Illuminate\Pagination\LengthAwarePaginator;
 use Illuminate\Support\Facades\Storage;
 
 class WeaponController extends Controller
 {
+    use ImageHandler;
+
     public function index(Request $request)
     {
-        $weapons = Weapon::query()
+        $weaponsQuery = Weapon::query()
             ->brand($request->input('brand'))
             ->description($request->input('description'))
             ->action($request->input('action'))
@@ -20,7 +24,21 @@ class WeaponController extends Controller
             ->orderBy('id', 'desc')
             ->get();
 
+        $weapons = $this->paginate($weaponsQuery, 100, $request->input('page', 1));
+
         return view('personal.weapons.submodule_weapons', compact('weapons'));
+    }
+
+    private function paginate($items, $perPage, $page)
+    {
+        $offset = ($page * $perPage) - $perPage;
+        return new LengthAwarePaginator(
+            $items->slice($offset, $perPage),
+            $items->count(),
+            $perPage,
+            $page,
+            ['path' => request()->url(), 'query' => request()->query()]
+        );
     }
 
     public function create()
@@ -33,11 +51,7 @@ class WeaponController extends Controller
 
         $validatedData = $request->validated();
 
-        if ($request->hasFile('image')) {
-            $filename = $request->file('image')->getClientOriginalName();
-            $request->file('image')->storeAs('private/weapons', $filename, 'public');
-            $validatedData['image'] = $filename;  // Agregamos e
-        }
+        $validatedData['image'] = $this->uploadImage($request, 'image', 'private/weapons');
 
         Weapon::create($validatedData);
 
@@ -53,16 +67,7 @@ class WeaponController extends Controller
     {
         $validatedData = $request->validated();
 
-        if ($request->hasFile('image')) {
-
-            if ($weapon->image) {
-                Storage::disk('public')->delete('private/weapons/'.$weapon->image);
-            }
-
-            $filename = $request->file('image')->getClientOriginalName();
-            $request->file('image')->storeAs('private/weapons', $filename, 'public');
-            $validatedData['image'] = $filename;  // Agregamos e
-        }
+        $validatedData['image'] = $this->updateImage($request, 'image', 'private/weapons', $weapon->image);
 
         $weapon->update($validatedData);  // Actualizamos con todos los datos, incluyendo la imagen
 
@@ -74,6 +79,8 @@ class WeaponController extends Controller
         if ($weapon->soldier || $weapon->vehicle || $weapon->commander) {
             return redirect()->route('weapons.index')->with('error', 'Weapon is currently assigned.');
         }
+
+        $this->deleteImage('private/weapons', $weapon->image);
 
         $weapon->delete();
 
