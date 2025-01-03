@@ -44,6 +44,9 @@ trait ImageHandler
             || $name == 'm4a1.jpg'
             || $name == 'm249.jpg'
             || $name == 'scar-h.png'
+            || $name == 'jeep.png'
+            || $name == 'tank.jpeg'
+            || $name == 'truck.jpeg'
         ) {
             return true;
         }

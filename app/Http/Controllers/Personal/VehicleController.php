@@ -3,13 +3,17 @@
 namespace App\Http\Controllers\Personal;
 
 use App\Http\Controllers\Controller;
+use App\Http\Requests\Personal\VehicleRequest;
 use App\Models\Personal\Vehicle;
+use App\Traits\ImageHandler;
 use Illuminate\Http\Request;
 use Illuminate\Pagination\LengthAwarePaginator;
 use Illuminate\Support\Facades\Storage;
 
 class VehicleController extends Controller
 {
+    use ImageHandler;
+
     public function index(Request $request)
     {
         $vehiclesQuery = Vehicle::query()
@@ -36,37 +40,16 @@ class VehicleController extends Controller
         );
     }
 
-
     public function create()
     {
         return view('personal.vehicles.create_vehicle');
     }
 
-    public function store(Request $request)
+    public function store(VehicleRequest $request)
     {
-        $request->validate([
-            'name' => 'required',
-            'brand' => 'required',
-            'model' => 'required',
-            'year' => 'required',
-            'color' => 'required',
-            'license_plate' => 'required',
-            'image' => 'required|image|mimes:jpeg,png,jpg,gif,svg|max:2048',
-        ]);
-
-        $filename = $request->file('image')->getClientOriginalName();
-        $request->file('image')->storeAs('private/vehicles', $filename, 'public');
-
-        Vehicle::create([
-            'name' => $request->name,
-            'brand' => $request->brand,
-            'model' => $request->model,
-            'year' => $request->year,
-            'color' => $request->color,
-            'license_plate' => $request->license_plate,
-            'image' => $filename,
-        ]);
-
+        $validatedData = $request->validated();
+        $validatedData['image'] = $this->uploadImage($request, 'image', 'private/vehicles');
+        Vehicle::create($validatedData);
         return redirect()->route('vehicles.index')->with('success', 'Vehicle created successfully.');
     }
 
@@ -75,35 +58,11 @@ class VehicleController extends Controller
         return view('personal.vehicles.update_vehicle', compact('vehicle'));
     }
 
-    public function update(Request $request, Vehicle $vehicle)
+    public function update(VehicleRequest $request, Vehicle $vehicle)
     {
-        $request->validate([
-            'name' => 'required',
-            'brand' => 'required',
-            'model' => 'required',
-            'year' => 'required',
-            'color' => 'required',
-            'license_plate' => 'required',
-            'image' => 'required|image|mimes:jpeg,png,jpg,gif,svg|max:2048',
-        ]);
-
-        if ($vehicle->image) {
-            Storage::disk('public')->delete('private/vehicles/'.$vehicle->image);
-        }
-
-        $filename = $request->file('image')->getClientOriginalName();
-        $request->file('image')->storeAs('private/vehicles', $filename, 'public');
-
-        $vehicle->update([
-            'name' => $request->name,
-            'brand' => $request->brand,
-            'model' => $request->model,
-            'year' => $request->year,
-            'color' => $request->color,
-            'license_plate' => $request->license_plate,
-            'image' => $filename,
-        ]);
-
+        $validatedData = $request->validated();
+        $validatedData['image'] = $this->updateImage($request, 'image', 'private/vehicles', $vehicle->image);
+        $vehicle->update($validatedData);
         return redirect()->route('vehicles.index')->with('success', 'Vehicle updated successfully.');
     }
 
@@ -113,8 +72,8 @@ class VehicleController extends Controller
             return redirect()->route('vehicles.index')->with('error', 'Vehicle is currently assigned.');
         }
 
+        $this->deleteImage('private/weapons', $vehicle->image);
         $vehicle->delete();
-
         return redirect()->route('vehicles.index')->with('success', 'Vehicle deleted successfully.');
     }
 
